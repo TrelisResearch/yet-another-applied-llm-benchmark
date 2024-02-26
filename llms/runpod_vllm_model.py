@@ -1,3 +1,7 @@
+from io import BytesIO
+from PIL import Image
+import base64
+
 import os
 from dotenv import load_dotenv
 import json
@@ -13,13 +17,12 @@ api_endpoint = os.getenv('API_ENDPOINT')
 openai_api_base = api_endpoint + '/v1'
 
 class CustomOpenAIModel:
-    def __init__(self, name):
+    def __init__(self):
         config = json.load(open("config.json"))
         self.client = OpenAI(
             api_key="EMPTY", # There is no API key
             base_url=openai_api_base,
         )
-        self.name = name
         self.hparams = config['hparams']
         self.hparams.update(config['llms']['custom_openai'].get('hparams') or {})
 

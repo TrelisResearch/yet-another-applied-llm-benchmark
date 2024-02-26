@@ -21,6 +21,8 @@ import json
 import pickle
 import time
 
+# Update imports with CustomOpenAIModel
+from llms.runpod_vllm_model import CustomOpenAIModel
 from llms.openai_model import OpenAIModel
 from llms.anthropic_model import AnthropicModel
 from llms.mistral_model import MistralModel
@@ -33,6 +35,8 @@ class LLM:
         self.name = name
         if 'gpt' in name:
             self.model = OpenAIModel(name)
+        elif 'custom' in name:
+            self.model = CustomOpenAIModel()
         # elif 'llama' in name:
         #     self.model = LLAMAModel(name)
         elif 'mistral' in name:
@@ -46,7 +50,7 @@ class LLM:
         elif 'command' in name:
             self.model = CohereModel(name)
         else:
-            raise
+            raise ValueError(f"Unsupported model name: {name}")
         self.model.hparams.update(override_hparams)
 
         self.use_cache = use_cache
