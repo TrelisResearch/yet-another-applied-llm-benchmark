@@ -1,5 +1,5 @@
 from io import BytesIO
-from PIL import Image
+# from PIL import Image
 import base64
 
 from openai import OpenAI

@@ -1,2 +1,4 @@
 .API_KEY
 evalEnv/
+.env
+config.json
