@@ -13,9 +13,10 @@ load_dotenv()
 class CustomOpenAIModel:
     def __init__(self, name):
         self.name = name
-        # print(f"Using a model name of {self.name}")
+        print(f"Using a model name of {self.name}")
         config = json.load(open("config.json"))
-        # print(f"model is: {config['llms'][self.name].get('slug')}\nendpoint is {config['llms'][self.name].get('endpoint')}")
+        print(f"model is: {config['llms'][self.name].get('slug')}")
+        print(f"\nendpoint is {config['llms'][self.name].get('endpoint')}")
         self.client = OpenAI(
             api_key="EMPTY", # There is no API key
             base_url=config['llms'][self.name].get('endpoint')
@@ -62,4 +63,4 @@ if __name__ == "__main__":
     import sys
     #q = sys.stdin.read().strip()
     q = "hello there"
-    print(q+":", CustomOpenAIModel("Mistral-7B-Instruct-v0.1").make_request([q]))
+    print(q+":", CustomOpenAIModel("openchat_3.5").make_request([q]))

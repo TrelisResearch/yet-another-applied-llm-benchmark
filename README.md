@@ -204,10 +204,9 @@ Then:
 
 For a wide variety of other one-click templates, see the [one-click-llms repo](https://GitHub.com/TrelisResearch/one-click-llms).
 
-> Reminder, make sure to include config.json in your .gitignore file
-
-### RunPod Quickstart
-
+Other notes:
+- Reminder, make sure to include config.json in your .gitignore file
+- TGI's openai endpoint is in development and can be buggy. Therefore, it is recommended to use a vLLM one-click template (this is the case for openchat_3.5).
 
 ## Set up docker/podman container [highly recommended]
 
@@ -233,9 +232,6 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
 # Running the benchmark
-
-> If you're running in podman you'll need to start a bash shell in which to issue the commands below: 'podman run -it -v "$(pwd):/usr/src/app" llm-benchmark-image /bin/bash' and then 'pip install -r requirements.txt' and then 'pip install -r requirements-extra.txt'
-
 Once you've set up your environment, you can run the entire benchmark in just one line:
 
 ```bash

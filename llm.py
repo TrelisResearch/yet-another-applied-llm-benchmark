@@ -100,7 +100,7 @@ class LLM:
         
         return response
 
-llm = LLM("Mistral-7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 #llm = LLM("command")
 # llm = LLM("gpt-4-1106-preview")
