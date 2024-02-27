@@ -3,3 +3,4 @@ evalEnv/
 .env
 config.json
 __pycache__/
+tmp/

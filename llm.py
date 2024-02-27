@@ -98,8 +98,8 @@ class LLM:
         return response
 
 #llm = LLM("command")
-#llm = LLM("gpt-3.5-turbo")
-llm = LLM("gpt-4-1106-preview")
+llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
+# llm = LLM("gpt-4-1106-preview")
 #llm = LLM("claude-instant-1.2")
 #llm = LLM("mistral-tiny")
 #llm = LLM("gemini-pro", override_hparams={'temperature': 0.3}, use_cache=False)
