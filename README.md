@@ -193,14 +193,21 @@ results with the (cheaper) gpt-3.5-turbo, but in a few cases having the more cap
 evaluation model gives more reliable results.
 
 ## Custom Runpod Models
-Deploy a model on Runpod using a one-click template from the [one click template repo](https://GitHub.com/TrelisResearch/one-click-llms).
+For a quick start, you can:
+1. Sign up for RunPod with [Trelis' affiliate link](https://runpod.io?ref=jmfkcdio) (supports the YouTube channel).
+2. Make use of the [Mistral Instruct v0.1 One-click template](https://runpod.io/console/gpu-cloud?template=oth2shw2sq&ref=jmfkcdio).
 
 Then:
 1. Add the model to 'llm.py'
 2. Add the model to 'config.json', be sure to update the Runpod endpoint accordingly.
 3. Update 'llm = LLM(...)' to your model repo slug if you want to set the default LLM for running scripts.
 
+For a wide variety of other one-click templates, see the [one-click-llms repo](https://GitHub.com/TrelisResearch/one-click-llms).
+
 > Reminder, make sure to include config.json in your .gitignore file
+
+### RunPod Quickstart
+
 
 ## Set up docker/podman container [highly recommended]
 
