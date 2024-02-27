@@ -1,0 +1,192 @@
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">evaluator</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Test if the model can rewrite a given Python program into an equivalent C program.&quot;</span>
+
+<span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Here&#39;s a python program. Please rewrite it in c with the type signature float solve_dp(float* arr, int size, int lines_left)</span>
+
+<span class="s2">def solve_dp(graph, lines_left):</span>
+<span class="s2">    n = len(graph)</span>
+
+<span class="s2">    dp = [[[1e9 for _ in range(10)] for _ in range(lines_left + 1)] for _ in range(n + 1)]</span>
+<span class="s2">    # Initialize how as -1 indicating no decision made</span>
+<span class="s2">    how = [[[-1 for _ in range(10)] for _ in range(lines_left + 1)] for _ in range(n + 1)]</span>
+
+<span class="s2">    for i in range(n, -1, -1):</span>
+<span class="s2">        for j in range(lines_left + 1):</span>
+<span class="s2">            for k in range(10):</span>
+<span class="s2">                if i == n and j == 0:</span>
+<span class="s2">                    dp[i][j][k] = 0</span>
+<span class="s2">                else:</span>
+<span class="s2">                    # Option 1: don&#39;t take the line</span>
+<span class="s2">                    if i &lt; n and k &lt; 9:</span>
+<span class="s2">                        if dp[i + 1][j][k + 1] &lt; dp[i][j][k]:</span>
+<span class="s2">                            dp[i][j][k] = dp[i + 1][j][k + 1]</span>
+<span class="s2">                            how[i][j][k] = k + 1  # Representing choosing not to take the line</span>
+
+<span class="s2">                    # Option 2: take the line</span>
+<span class="s2">                    if i &lt; n and j &gt; 0:</span>
+<span class="s2">                        cost = graph[i] + (k - 8)**2</span>
+<span class="s2">                        if cost + dp[i + 1][j - 1][0] &lt; dp[i][j][k]:</span>
+<span class="s2">                            dp[i][j][k] = cost + dp[i + 1][j - 1][0]</span>
+<span class="s2">                            how[i][j][k] = 0  # Representing choosing to take the line</span>
+
+<span class="s2">    # Reconstruct the solution</span>
+
+<span class="s2">    i, j, k = 0, lines_left, 6</span>
+<span class="s2">    taken_lines = []</span>
+<span class="s2">    while i &lt; n:</span>
+<span class="s2">        if how[i][j][k] == 0:  # Chose to take the line</span>
+<span class="s2">            taken_lines.append(n - i)</span>
+<span class="s2">            i += 1</span>
+<span class="s2">            j -= 1</span>
+<span class="s2">            k = 0</span>
+<span class="s2">        else:  # Chose not to take the line</span>
+<span class="s2">            i += 1</span>
+<span class="s2">            k += 1</span>
+
+<span class="s2">    return dp[0][lines_left][6]</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">test_case</span><span class="p">,</span> <span class="n">answer</span> <span class="o">=</span> <span class="n">make_c_test</span><span class="p">([(</span><span class="s2">&quot;solve_dp(arr, 100, 100)&quot;</span><span class="p">,</span> <span class="s2">&quot;11290&quot;</span><span class="p">)],</span> <span class="n">header</span><span class="o">=</span><span class="s2">&quot;float arr[] = {71, 89, 34, 63, 19, 94, 54, 61, 88, 20, 66, 46, 26, 87, 55, 81, 6, 2, 72, 75, 98, 78, 24, 95, 73, 7, 56, 48, 14, 99, 64, 51, 69, 77, 28, 47, 8, 22, 49, 3, 62, 32, 10, 82, 35, 18, 85, 60, 83, 23, 5, 40, 41, 68, 53, 52, 44, 45, 65, 84, 93, 25, 13, 1, 31, 11, 12, 97, 38, 0, 43, 90, 36, 70, 33, 17, 21, 30, 16, 15, 74, 67, 58, 37, 39, 96, 79, 29, 27, 92, 86, 9, 80, 42, 57, 91, 59, 4, 76, 50};&quot;</span><span class="p">)</span>
+
+
+<span class="n">TestProgramRewriteC</span> <span class="o">=</span> <span class="n">question</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">ExtractCode</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">CRun</span><span class="p">(</span><span class="n">test_case</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">run_test</span><span class="p">(</span><span class="n">TestProgramRewriteC</span><span class="p">))</span>
+</pre></div></td></tr></table></div>

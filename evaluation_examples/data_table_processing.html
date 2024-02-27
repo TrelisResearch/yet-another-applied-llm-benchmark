@@ -1,0 +1,262 @@
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">evaluator</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Test if the model can process a large table of text and identify rows with specific values.&quot;</span>
+
+<span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Here is a table about information of states and territory.</span>
+
+<span class="s1">State / territory	Total (mi2) 	Total (km2) 	Land (mi2) 	Land (km2) 	Water (mi2) 	Water (km2) 	%</span>
+<span class="s1">water</span>
+<span class="s1"> Alaska	665,384	1,723,337	570,641	1,477,953	94,743	245,383	14.2%</span>
+<span class="s1"> Texas	268,596	695,662	261,232	676,587	7,365	19,075	2.7%</span>
+<span class="s1"> California	163,695	423,967	155,779	403,466	7,916	20,501	4.8%</span>
+<span class="s1"> Montana	147,040	380,831	145,546	376,962	1,494	3,869	1.0%</span>
+<span class="s1"> New Mexico	121,590	314,917	121,298	314,161	292	757	0.2%</span>
+<span class="s1"> Arizona	113,990	295,234	113,594	294,207	396	1,026	0.3%</span>
+<span class="s1"> Nevada	110,572	286,380	109,781	284,332	791	2,048	0.7%</span>
+<span class="s1"> Colorado	104,094	269,601	103,642	268,431	452	1,170	0.4%</span>
+<span class="s1"> Oregon	98,379	254,799	95,988	248,608	2,391	6,191	2.4%</span>
+<span class="s1"> Wyoming	97,813	253,335	97,093	251,470	720	1,864	0.7%</span>
+<span class="s1"> Michigan	96,714	250,487	56,539	146,435	40,175	104,052	41.5%</span>
+<span class="s1"> Minnesota	86,936	225,163	79,627	206,232	7,309	18,930	8.4%</span>
+<span class="s1"> Utah	84,897	219,882	82,170	212,818	2,727	7,064	3.2%</span>
+<span class="s1"> Idaho	83,569	216,443	82,643	214,045	926	2,398	1.1%</span>
+<span class="s1"> Kansas	82,278	213,100	81,759	211,754	520	1,346	0.6%</span>
+<span class="s1"> Nebraska	77,348	200,330	76,824	198,974	524	1,356	0.7%</span>
+<span class="s1"> South Dakota	77,116	199,729	75,811	196,350	1,305	3,379	1.7%</span>
+<span class="s1"> Washington	71,298	184,661	66,456	172,119	4,842	12,542	6.8%</span>
+<span class="s1"> North Dakota	70,698	183,108	69,001	178,711	1,698	4,397	2.4%</span>
+<span class="s1"> Oklahoma	69,899	181,037	68,595	177,660	1,304	3,377	1.9%</span>
+<span class="s1"> Missouri	69,707	180,540	68,742	178,040	965	2,501	1.4%</span>
+<span class="s1"> Florida	65,758	170,312	53,625	138,887	12,133	31,424	18.5%</span>
+<span class="s1"> Wisconsin	65,496	169,635	54,158	140,268	11,339	29,367	17.3%</span>
+<span class="s1"> Georgia	59,425	153,910	57,513	148,959	1,912	4,951	3.2%</span>
+<span class="s1"> Illinois	57,914	149,995	55,519	143,793	2,395	6,202	4.1%</span>
+<span class="s1"> Iowa	56,273	145,746	55,857	144,669	416	1,077	0.7%</span>
+<span class="s1"> New York	54,555	141,297	47,126	122,057	7,429	19,240	13.6%</span>
+<span class="s1"> North Carolina	53,819	139,391	48,618	125,920	5,201	13,471	9.7%</span>
+<span class="s1"> Arkansas	53,179	137,732	52,035	134,771	1,143	2,961	2.1%</span>
+<span class="s1"> Alabama	52,420	135,767	50,645	131,171	1,775	4,597	3.4%</span>
+<span class="s1"> Louisiana	52,378	135,659	43,204	111,898	9,174	23,761	17.5%</span>
+<span class="s1"> Mississippi	48,432	125,438	46,923	121,531	1,509	3,907	3.1%</span>
+<span class="s1"> Pennsylvania	46,054	119,280	44,743	115,883	1,312	3,397	2.8%</span>
+<span class="s1"> Ohio	44,826	116,098	40,861	105,829	3,965	10,269	8.8%</span>
+<span class="s1"> Virginia	42,775	110,787	39,490	102,279	3,285	8,508	7.7%</span>
+<span class="s1"> Tennessee	42,144	109,153	41,235	106,798	909	2,355	2.2%</span>
+<span class="s1"> Kentucky	40,408	104,656	39,486	102,269	921	2,387	2.3%</span>
+<span class="s1"> Indiana	36,420	94,326	35,826	92,789	593	1,537	1.6%</span>
+<span class="s1"> Maine	35,380	91,633	30,843	79,883	4,537	11,750	12.8%</span>
+<span class="s1"> South Carolina	32,020	82,933	30,061	77,857	1,960	5,076	6.1%</span>
+<span class="s1"> West Virginia	24,230	62,756	24,038	62,259	192	497	0.8%</span>
+<span class="s1"> Maryland	12,406	32,131	9,707	25,142	2,699	6,990	21.8%</span>
+<span class="s1"> Hawaii	10,932	28,313	6,423	16,635	4,509	11,678	41.2%</span>
+<span class="s1"> Massachusetts	10,554	27,336	7,800	20,202	2,754	7,134	26.1%</span>
+<span class="s1"> Vermont	9,616	24,906	9,217	23,871	400	1,035	4.2%</span>
+<span class="s1"> New Hampshire	9,349	24,214	8,953	23,187	397	1,027	4.2%</span>
+<span class="s1"> New Jersey	8,723	22,591	7,354	19,047	1,368	3,544	15.7%</span>
+<span class="s1"> Connecticut	5,543	14,357	4,842	12,542	701	1,816	12.6%</span>
+<span class="s1"> Puerto Rico	5,325	13,791	3,424	8,868	1,901	4,924	35.7%</span>
+<span class="s1"> Delaware	2,489	6,446	1,949	5,047	540	1,399	21.7%</span>
+<span class="s1"> Northern Mariana Islands	1,976	5,117	182	472	1,793	4,644	90.7%</span>
+<span class="s1"> Rhode Island	1,545	4,001	1,034	2,678	511	1,324	33.1%</span>
+<span class="s1"> U.S. Virgin Islands	733	1,898	134	348	599	1,550	81.7%</span>
+<span class="s1"> American Samoa	581	1,505	76	198	505	1,307	86.9%</span>
+<span class="s1"> Guam	571	1,478	210	543	361	935	63.2%</span>
+<span class="s1"> District of Columbia	68	177	61	158	7	19	10.3%</span>
+<span class="s1">Minor Outlying Islands[3][a]	16	41	16	41	0	0	0.0%</span>
+<span class="s1">Contiguous US	3,120,428	8,081,869	2,954,843	7,653,006	165,589	428,865	5.3%</span>
+<span class="s1">50 States	3,796,676	9,833,342	3,531,846	9,147,436	264,834	685,907	7.0%</span>
+<span class="s1">50 States and DC	3,796,744	9,833,519	3,531,907	9,147,594	264,841	685,926	7.0%</span>
+<span class="s1"> United States	3,805,927	9,857,306	3,535,932	9,158,022	269,995	699,284	7.1%</span>
+
+<span class="s1">List for me each of the states that have more than 20,000 square kilometers of water, from lowest to highest. Don&#39;t list any other states.</span>
+
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="n">stepbystep</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;To answer this question follow these steps in order:</span>
+<span class="s2">1. List just the amount of water in each state.</span>
+<span class="s2">2. Filter those to ones with over 20k square kilometers of water.</span>
+<span class="s2">3. Sort them from lowest to highest.</span>
+<span class="s2">4. Say &quot;The final answer is&quot; and list the states in that order.</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">evaluation</span> <span class="o">=</span> <span class="s2">&quot;This is a student answer about which states have the most water: </span><span class="se">\n</span><span class="s2">&lt;A&gt;</span><span class="se">\n\n</span><span class="s2">The correct answer is: California, Louisiana, Wisconsin, Florida, Michigan, and Alaska (in that order).</span><span class="se">\n\n</span><span class="s2">Does the student answer exactly these states in this order? Think out loud about their answer. Then, if the student got the states in this order, answer &#39;The student passes&#39; otherwise answer &#39;The student fails&#39;.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+
+
+<span class="n">TestStateTable</span> <span class="o">=</span> <span class="n">question</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="p">((</span><span class="n">LLMRun</span><span class="p">(</span><span class="n">evaluation</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">EVAL_LLM</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;student passes&quot;</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;California&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Louisiana&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Wisconsin&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Wisconsin&quot;</span><span class="p">))</span>
+<span class="n">TestStateTableStepbystep</span> <span class="o">=</span> <span class="p">(</span><span class="n">question</span> <span class="o">+</span> <span class="n">stepbystep</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="p">((</span><span class="n">LLMRun</span><span class="p">(</span><span class="n">evaluation</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">EVAL_LLM</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;student passes&quot;</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;California&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Louisiana&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Wisconsin&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">SubstringEvaluator</span><span class="p">(</span><span class="s2">&quot;Wisconsin&quot;</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">run_test</span><span class="p">(</span><span class="n">TestStateTableStepbystep</span><span class="p">))</span>
+</pre></div></td></tr></table></div>

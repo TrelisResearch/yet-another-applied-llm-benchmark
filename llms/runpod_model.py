@@ -12,9 +12,11 @@ load_dotenv()
 
 # Retrieve the env variables
 model = os.getenv('MODEL')
-api_endpoint = os.getenv('API_ENDPOINT')
+api_endpoint = os.getenv('RUNPOD_API_ENDPOINT')
 
 openai_api_base = api_endpoint + '/v1'
+
+print(f"api endpoint: {openai_api_base}")
 
 class CustomOpenAIModel:
     def __init__(self):
@@ -24,7 +26,7 @@ class CustomOpenAIModel:
             base_url=openai_api_base,
         )
         self.hparams = config['hparams']
-        self.hparams.update(config['llms']['custom_openai'].get('hparams') or {})
+        self.hparams.update(config['llms']['runpod'].get('hparams') or {})
 
     def make_request(self, conversation, add_image=None, max_tokens=None):
         conversation = [{"role": "user" if i % 2 == 0 else "assistant", "content": content} for i, content in enumerate(conversation)]
@@ -64,4 +66,4 @@ if __name__ == "__main__":
     import sys
     #q = sys.stdin.read().strip()
     q = "hello there"
-    print(q+":", OpenAIModel("gpt-3.5-turbo").make_request([q]))
+    print(q+":", CustomOpenAIModel().make_request([q]))

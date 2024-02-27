@@ -228,6 +228,11 @@ Once you've set up your environment, you can run the entire benchmark in just on
 python main.py --model gpt-3.5-turbo --run-tests --generate-report
 ```
 
+And to view the results, you can run:
+```
+open evaluation_examples/index.html
+```
+
 This command will run every single test that's configured on one model.
 It will therefore take some time, and also will cost you a few dollars in
 language model queries. After you can view the full reslt html file in the

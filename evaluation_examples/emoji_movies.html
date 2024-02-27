@@ -1,0 +1,222 @@
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">evaluator</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;A for-fun test to see if the model can go movie title -&gt; emoji -&gt; movie title.&quot;</span>
+
+<span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fun&#39;</span><span class="p">]</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">For each of the following ten movies give at most 5 emoji that would best describe the movie.</span>
+
+<span class="s2">Give your answer as a JSON array. So If I asked for</span>
+<span class="s2">```[&quot;Finding Nemo&quot;, &quot;Toy Story&quot;]```</span>
+
+<span class="s2">you might might answer</span>
+
+<span class="s2">```json</span>
+<span class="s2">{&quot;Finding Nemo&quot;: [&quot;🐠&quot;, &quot;🐟&quot;, &quot;🐡&quot;, &quot;🐬&quot;, &quot;🐳&quot;],</span>
+<span class="s2">&quot;Toy Story&quot;: [&quot;🚀&quot;, &quot;⚔️,&quot;, &quot;🤖&quot;, &quot;👽&quot;, &quot;🌌&quot;]}</span>
+<span class="s2">```.</span>
+
+<span class="s2">Each emoji must be a single utf8 character. ABSOLUTELY NO ZERO WIDTH JOINING. (So, max(len(emoji) for movie in result.values() for emoji in movie) == 1)</span>
+
+<span class="s2">Now give me answers for these movies:</span>
+
+<span class="s2">```[&quot;The Lion King&quot;, &quot;The Nightmare Before Christmas&quot;, &quot;The Godfather&quot;, &quot;The Matrix&quot;, &quot;Casablanca&quot;, &quot;Raiders of the Lost Ark&quot;, &quot;V for Vendetta&quot;, &quot;The Princess Bride&quot;, &quot;Back to the Future&quot;, &quot;Dune&quot;]```</span>
+
+<span class="s2">Give ONLY a JSON output. Nothing else.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">undo</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">For each of the following ten movies described by 5 emoji, give the movie title that best matches.</span>
+
+<span class="s2">Give your answer as a JSON list. So If I asked for</span>
+<span class="s2">```[[&quot;🐠&quot;, &quot;🐟&quot;, &quot;🐡&quot;, &quot;🐬&quot;, &quot;🐳&quot;], [&quot;🚀&quot;, &quot;⚔️,&quot;, &quot;🤖&quot;, &quot;👽&quot;, &quot;🌌&quot;]]```</span>
+
+<span class="s2">You might answer</span>
+
+<span class="s2">```json</span>
+<span class="s2">[&quot;Finding Nemo&quot;, &quot;Toy Story&quot;]]</span>
+<span class="s2">```.</span>
+
+<span class="s2">Now give me answers for these movies:</span>
+
+<span class="s2">```&lt;A&gt;```</span>
+
+<span class="s2">What are the names of the movie titles?</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed processing&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">send</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="c1"># I&#39;ll be nice...</span>
+    <span class="n">send</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">send</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">send</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;], [&quot;</span><span class="p">,</span> <span class="s2">&quot;],</span><span class="se">\n</span><span class="s2">[&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">correct</span><span class="p">,</span> <span class="n">guessed</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;The Lion King&quot;</span><span class="p">,</span> <span class="s2">&quot;The Nightmare Before Christmas&quot;</span><span class="p">,</span> <span class="s2">&quot;The Godfather&quot;</span><span class="p">,</span> <span class="s2">&quot;The Matrix&quot;</span><span class="p">,</span> <span class="s2">&quot;Casablanca&quot;</span><span class="p">,</span> <span class="s2">&quot;Raiders of the Lost Ark&quot;</span><span class="p">,</span> <span class="s2">&quot;V for Vendetta&quot;</span><span class="p">,</span> <span class="s2">&quot;The Princess Bride&quot;</span><span class="p">,</span> <span class="s2">&quot;Back to the Future&quot;</span><span class="p">,</span> <span class="s2">&quot;Dune&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">correct</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">guessed</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;OK&quot;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Not a JSON list&quot;</span>
+
+
+<span class="n">TestEmojiMovie</span> <span class="o">=</span> <span class="n">question</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">ExtractJSON</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">PyFunc</span><span class="p">(</span><span class="n">extract</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">(</span><span class="n">undo</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">ExtractJSON</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">PyFunc</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">run_test</span><span class="p">(</span><span class="n">TestEmojiMovie</span><span class="p">))</span>
+</pre></div></td></tr></table></div>

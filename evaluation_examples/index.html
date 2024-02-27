@@ -1,0 +1,939 @@
+<html><head><style>td, th {border: 1px solid black; padding: 10px;}</style></head><body><span><input type='checkbox' onclick='hiderows()' id='python' name='python' value='python' checked='checked'><label for='python'/>python</label> | </span><span><input type='checkbox' onclick='hiderows()' id='fix' name='fix' value='fix' checked='checked'><label for='fix'/>fix</label> | </span><span><input type='checkbox' onclick='hiderows()' id='rust' name='rust' value='rust' checked='checked'><label for='rust'/>rust</label> | </span><span><input type='checkbox' onclick='hiderows()' id='data' name='data' value='data' checked='checked'><label for='data'/>data</label> | </span><span><input type='checkbox' onclick='hiderows()' id='bash' name='bash' value='bash' checked='checked'><label for='bash'/>bash</label> | </span><span><input type='checkbox' onclick='hiderows()' id='agent' name='agent' value='agent' checked='checked'><label for='agent'/>agent</label> | </span><span><input type='checkbox' onclick='hiderows()' id='html' name='html' value='html' checked='checked'><label for='html'/>html</label> | </span><span><input type='checkbox' onclick='hiderows()' id='git' name='git' value='git' checked='checked'><label for='git'/>git</label> | </span><span><input type='checkbox' onclick='hiderows()' id='visual' name='visual' value='visual' checked='checked'><label for='visual'/>visual</label> | </span><span><input type='checkbox' onclick='hiderows()' id='explain' name='explain' value='explain' checked='checked'><label for='explain'/>explain</label> | </span><span><input type='checkbox' onclick='hiderows()' id='performance' name='performance' value='performance' checked='checked'><label for='performance'/>performance</label> | </span><span><input type='checkbox' onclick='hiderows()' id='code' name='code' value='code' checked='checked'><label for='code'/>code</label> | </span><span><input type='checkbox' onclick='hiderows()' id='c' name='c' value='c' checked='checked'><label for='c'/>c</label> | </span><span><input type='checkbox' onclick='hiderows()' id='fun' name='fun' value='fun' checked='checked'><label for='fun'/>fun</label> | </span><span><input type='checkbox' onclick='hiderows()' id='sql' name='sql' value='sql' checked='checked'><label for='sql'/>sql</label> | </span><script>
+function hiderows() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    var notchecked = Array.prototype.slice.call(checkboxes).filter(cb => !cb.checked).map(cb => cb.value);
+    var rows = document.querySelectorAll('tr');
+    // show a row if all of the tags applies
+    Array.prototype.slice.call(rows).forEach((row,id) => {
+    if (id == 0) return;
+    // allow th special
+        if (notchecked.every(tag=>!row.getAttribute('tag_'+tag))) {
+            row.style.display = 'table-row';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+</script>
+    
+    <style>
+      span.footnote {
+          position: relative;
+          width: 0px;
+          margin-left: -.3em;
+      }
+      
+      span.footnote > a:first-child {
+          vertical-align: super;
+          font-size: .7em;
+          line-height: 100%;
+          margin-left: 2px;
+      }
+      
+      .footnote_content {
+          padding: .2em;
+          margin: 0px;
+          background: #ffffff;
+          opacity: 0.95;
+          border: #aaa 1px solid;
+          position: absolute;
+          display: block;
+          left: 0px;
+          margin-left: 1em;
+          margin-right: 1em;
+          width: 20em;
+          border-radius: 2px;
+          visibility: hidden;
+          transition: 0.2s .2s;
+          box-shadow: 0px 2px 10px 2px rgba(0,0,0,.25);
+          z-index: 100;
+      }
+    
+      .footnote:hover .footnote_content  {
+          visibility: visible;
+          transition-delay: 0s;
+      }
+    </style>
+<table><tr><th>Question</th><th>gpt-3.5-turbo<br/>(31%)</th></tr><tr tag_bash="1"><th>
+        <span class="footnote" id="footnote0">
+          <a href="#footnote0">
+            <label for="foot"><a href="bash_find_dont_contain.html">BashFindDontContain</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can implement (the negation of) a simple bash 1-liner searching for files that don't contain some text.
+          </span>
+        </span>
+        <br/>tags: bash</td><td style='background-color: rgb(127, 255, 127.5);'><a href='bash_find_dont_contain.py.TestBashFindDontContain_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_bash="1"><th>
+        <span class="footnote" id="footnote1">
+          <a href="#footnote1">
+            <label for="foot"><a href="bash_renamer.html">BashRenamer</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a bash script that renames files with a specific pattern.
+          </span>
+        </span>
+        <br/>tags: code, bash</td><td style='background-color: rgb(127, 255, 127.5);'><a href='bash_renamer.py.TestBashRenamer_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_bash="1" tag_git="1" tag_agent="1"><th>
+        <span class="footnote" id="footnote2">
+          <a href="#footnote2">
+            <label for="foot"><a href="basic_git_setup.html">GitSimple</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can guide a user in a conversation to setup a git repo.
+          </span>
+        </span>
+        <br/>tags: bash, git, agent</td><td style='background-color: rgb(127, 255, 127.5);'><a href='basic_git_setup.py.TestGitSimple_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_c="1"><th>
+        <span class="footnote" id="footnote3">
+          <a href="#footnote3">
+            <label for="foot"><a href="convert_to_c_simple.html">ProgramRewriteCSimple</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can rewrite a very simple Python program into an equivalent C program.
+          </span>
+        </span>
+        <br/>tags: code, c</td><td style='background-color: rgb(127, 255, 127.5);'><a href='convert_to_c_simple.py.TestProgramRewriteCSimple_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote4">
+          <a href="#footnote4">
+            <label for="foot"><a href="decompile_py_simple.html">Disas1</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can disassemble a simple Python function from its bytecode.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='decompile_py_simple.py.TestDisas1_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote5">
+          <a href="#footnote5">
+            <label for="foot"><a href="dedent_code_fn.html">Dedent</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a Python function that removes excess indentation from a given block of code.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='dedent_code_fn.py.TestDedent_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_c="1" tag_visual="1"><th>
+        <span class="footnote" id="footnote6">
+          <a href="#footnote6">
+            <label for="foot"><a href="draw_flag_bmp.html">EasyFlagDrawBMP</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a C program that draws an image. This test requires the ability to understand the .bmp specification, and draw a flag that can be correctly parsed and seen by the evaluator.
+          </span>
+        </span>
+        <br/>tags: code, c, visual</td><td style='background-color: rgb(127, 255, 127.5);'><a href='draw_flag_bmp.py.TestEasyFlagDrawBMP_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_explain="1"><th>
+        <span class="footnote" id="footnote7">
+          <a href="#footnote7">
+            <label for="foot"><a href="explain_code_prime.html">ExplainPrime</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can interpret a minified JavaScript function and explain its function.
+          </span>
+        </span>
+        <br/>tags: code, explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='explain_code_prime.py.TestExplainPrime_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote8">
+          <a href="#footnote8">
+            <label for="foot"><a href="explain_code_prime2.html">ExplainPrime2</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can interpret a minified and obfuscated JavaScript function and explain its function.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='explain_code_prime2.py.TestExplainPrime2_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote9">
+          <a href="#footnote9">
+            <label for="foot"><a href="explain_vbroadcast.html">ExplainBroadcast</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can correctly explain what the VPBROADCASTB instruction does.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='explain_vbroadcast.py.TestExplainBroadcast_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1" tag_fix="1"><th>
+        <span class="footnote" id="footnote10">
+          <a href="#footnote10">
+            <label for="foot"><a href="fix_torch_backward.html">TorchBackwardFix</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can fix and explain a bug in PyTorch code related to forgetting to zero gradients.
+          </span>
+        </span>
+        <br/>tags: code, python, fix</td><td style='background-color: rgb(127, 255, 127.5);'><a href='fix_torch_backward.py.TestTorchBackwardFix_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_html="1"><th>
+        <span class="footnote" id="footnote11">
+          <a href="#footnote11">
+            <label for="foot"><a href="flexbox_webpage.html">Flexbox</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate an HTML file using flexbox
+          </span>
+        </span>
+        <br/>tags: code, html</td><td style='background-color: rgb(127, 255, 127.5);'><a href='flexbox_webpage.py.TestFlexbox_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1" tag_fun="1"><th>
+        <span class="footnote" id="footnote12">
+          <a href="#footnote12">
+            <label for="foot"><a href="freecad_construction.html">FreeCADCircle</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model understands a rambling question about how to make construction circle in FreeCAD.
+          </span>
+        </span>
+        <br/>tags: explain, fun</td><td style='background-color: rgb(127, 255, 127.5);'><a href='freecad_construction.py.TestFreeCADCircle_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote13">
+          <a href="#footnote13">
+            <label for="foot"><a href="gitignore_anywhere.html">WhatIsStarStar</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can understand and interpret a request to gitignore any file called "foo/.KEYFILE"  regardless of its location in a repository.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='gitignore_anywhere.py.TestWhatIsStarStar_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote14">
+          <a href="#footnote14">
+            <label for="foot"><a href="jnp_nn_bugfix.html">FixJnpBug</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can identify and fix a bug in a given jax.numpy function.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='jnp_nn_bugfix.py.TestFixJnpBug_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_sql="1"><th>
+        <span class="footnote" id="footnote15">
+          <a href="#footnote15">
+            <label for="foot"><a href="make_sqlite_table.html">SqlMakeTable</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a SQL query to create a database table.
+          </span>
+        </span>
+        <br/>tags: sql</td><td style='background-color: rgb(127, 255, 127.5);'><a href='make_sqlite_table.py.TestSqlMakeTable_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote16">
+          <a href="#footnote16">
+            <label for="foot"><a href="numba_levenshtein.html">ProgramNumbaLev</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a numba implementation of the Levenshtein distance algorithm.
+          </span>
+        </span>
+        <br/>tags: code, python, performance</td><td style='background-color: rgb(127, 255, 127.5);'><a href='numba_levenshtein.py.TestProgramNumbaLev_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote17">
+          <a href="#footnote17">
+            <label for="foot"><a href="print_hello.html">PrintHello</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a basic python program that prints "hello world".
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='print_hello.py.TestPrintHello_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote18">
+          <a href="#footnote18">
+            <label for="foot"><a href="program_sqrt.html">ProgramSqrt</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can implement a sqrt function.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='program_sqrt.py.TestProgramSqrt_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote19">
+          <a href="#footnote19">
+            <label for="foot"><a href="regex_remove_5_words.html">Regex</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a Python function with a straightforward regex.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='regex_remove_5_words.py.TestRegex_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_rust="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote20">
+          <a href="#footnote20">
+            <label for="foot"><a href="rust_parallel_wordcount.html">RustParCount</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a rust program that performs parallel word counting.
+          </span>
+        </span>
+        <br/>tags: code, rust, performance</td><td style='background-color: rgb(127, 255, 127.5);'><a href='rust_parallel_wordcount.py.TestRustParCount_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_rust="1"><th>
+        <span class="footnote" id="footnote21">
+          <a href="#footnote21">
+            <label for="foot"><a href="rust_word_count.html">RustCount</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a rust program that performs word counting.
+          </span>
+        </span>
+        <br/>tags: code, rust</td><td style='background-color: rgb(127, 255, 127.5);'><a href='rust_word_count.py.TestRustCount_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_rust="1"><th>
+        <span class="footnote" id="footnote22">
+          <a href="#footnote22">
+            <label for="foot"><a href="rust_word_count.html">RustCountNoLib</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a rust program that performs word counting.
+          </span>
+        </span>
+        <br/>tags: code, rust</td><td style='background-color: rgb(127, 255, 127.5);'><a href='rust_word_count.py.TestRustCountNoLib_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1" tag_html="1"><th>
+        <span class="footnote" id="footnote23">
+          <a href="#footnote23">
+            <label for="foot"><a href="save_expired_html.html">RecoverExpiredPage</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model knows how to get the HTML for the entire webpage; not just the body.
+          </span>
+        </span>
+        <br/>tags: explain, html</td><td style='background-color: rgb(127, 255, 127.5);'><a href='save_expired_html.py.TestRecoverExpiredPage_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote24">
+          <a href="#footnote24">
+            <label for="foot"><a href="shorten_python_if_missing.html">ShortenPyGet</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can shorten a line of python with an equal line.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='shorten_python_if_missing.py.TestShortenPyGet_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_python="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote25">
+          <a href="#footnote25">
+            <label for="foot"><a href="vectorize_small_update.html">VectorizeSmall</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can replace a for loop with a vectorized version.
+          </span>
+        </span>
+        <br/>tags: code, python, performance</td><td style='background-color: rgb(127, 255, 127.5);'><a href='vectorize_small_update.py.TestVectorizeSmall_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_code="1" tag_visual="1" tag_html="1"><th>
+        <span class="footnote" id="footnote26">
+          <a href="#footnote26">
+            <label for="foot"><a href="webgl_triangle.html">DrawTriangle</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate an HTML file with WebGL code that draws an image.
+          </span>
+        </span>
+        <br/>tags: code, visual, html</td><td style='background-color: rgb(127, 255, 127.5);'><a href='webgl_triangle.py.TestDrawTriangle_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote27">
+          <a href="#footnote27">
+            <label for="foot"><a href="what_is_automodel.html">WhatIsAutoModel</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can interpret vague questions and will respond with the answer I want, not the answer that's easy to find.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='what_is_automodel.py.TestWhatIsAutoModel_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote28">
+          <a href="#footnote28">
+            <label for="foot"><a href="what_is_inv.html">WhatIsInv</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case is designed to check if the model can correctly identify the Python operator used for the tilde (~) symbol.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='what_is_inv.py.TestWhatIsInv_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote29">
+          <a href="#footnote29">
+            <label for="foot"><a href="what_is_slice_stop.html">WhatIsSlice</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case checks if the model can say how to properly get the end of a slice.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(127, 255, 127.5);'><a href='what_is_slice_stop.py.TestWhatIsSlice_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote30">
+          <a href="#footnote30">
+            <label for="foot"><a href="which_package_sbox.html">WhereIsSbox</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case checks if the model knows what latex package to import for the Sbox environment to work.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(127, 255, 127.5);'><a href='which_package_sbox.py.TestWhereIsSbox_gpt-3.5-turbo.html#tab1'>1/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote31">
+          <a href="#footnote31">
+            <label for="foot"><a href="aws_ipv6.html">AWSV6</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can identify the error in an AWS Lambda code for authorizing a new network. This type of error is generally difficult to find via search.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='aws_ipv6.py.TestAWSV6_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_fun="1"><th>
+        <span class="footnote" id="footnote32">
+          <a href="#footnote32">
+            <label for="foot"><a href="baking_help.html">MissingStep</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can identify a missing incredient in a recipe. Identifying incorrect steps is much harder than missing steps.
+          </span>
+        </span>
+        <br/>tags: explain, fun</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='baking_help.py.TestMissingStep_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_fun="1"><th>
+        <span class="footnote" id="footnote33">
+          <a href="#footnote33">
+            <label for="foot"><a href="base64_qanda.html">Base64Thought</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model will follow instructions to the letter without lots of cajoling. Thinking in base64 is also interesting.
+          </span>
+        </span>
+        <br/>tags: explain, fun</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='base64_qanda.py.TestBase64Thought_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_bash="1"><th>
+        <span class="footnote" id="footnote34">
+          <a href="#footnote34">
+            <label for="foot"><a href="bash_list_files_by_size_mod_ten.html">BashListSize</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can provide the correct bash command to list files in a directory and sort them by the least significant digit of their size.
+          </span>
+        </span>
+        <br/>tags: bash</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='bash_list_files_by_size_mod_ten.py.TestBashListSize_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_c="1" tag_explain="1"><th>
+        <span class="footnote" id="footnote35">
+          <a href="#footnote35">
+            <label for="foot"><a href="basic_code_understanding.html">CodeUnderstanding</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can solve a simple capture-the-flag like entry in C.
+          </span>
+        </span>
+        <br/>tags: c, explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='basic_code_understanding.py.TestCodeUnderstanding_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote36">
+          <a href="#footnote36">
+            <label for="foot"><a href="c_rref.html">Crref</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can rewrite a given python in C that performs reduced row echelon form (rref) on a 2D matrix.
+          </span>
+        </span>
+        <br/>tags: code, c, performance</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='c_rref.py.TestCrref_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_c="1"><th>
+        <span class="footnote" id="footnote37">
+          <a href="#footnote37">
+            <label for="foot"><a href="c_weird_expression.html">ExplainWeirdC</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case is meant to test if the model can correctly evaluate a complex C expression.
+          </span>
+        </span>
+        <br/>tags: explain, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='c_weird_expression.py.TestExplainWeirdC_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_c="1"><th>
+        <span class="footnote" id="footnote38">
+          <a href="#footnote38">
+            <label for="foot"><a href="c_weird_expression.html">ExplainWeirdCEasy</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case is meant to test if the model can correctly evaluate a complex C expression.
+          </span>
+        </span>
+        <br/>tags: explain, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='c_weird_expression.py.TestExplainWeirdCEasy_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_performance="1" tag_python="1"><th>
+        <span class="footnote" id="footnote39">
+          <a href="#footnote39">
+            <label for="foot"><a href="convert_dp_to_iterative.html">ProgramRemoveDP</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can understand a DP algorithm and then convert it into an iterative implementation.
+          </span>
+        </span>
+        <br/>tags: code, performance, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='convert_dp_to_iterative.py.TestProgramRemoveDP_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1"><th>
+        <span class="footnote" id="footnote40">
+          <a href="#footnote40">
+            <label for="foot"><a href="convert_to_c.html">ProgramRewriteC</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can rewrite a given Python program into an equivalent C program.
+          </span>
+        </span>
+        <br/>tags: code, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='convert_to_c.py.TestProgramRewriteC_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_data="1"><th>
+        <span class="footnote" id="footnote41">
+          <a href="#footnote41">
+            <label for="foot"><a href="data_table_processing.html">StateTable</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can process a large table of text and identify rows with specific values.
+          </span>
+        </span>
+        <br/>tags: data</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='data_table_processing.py.TestStateTable_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_data="1"><th>
+        <span class="footnote" id="footnote42">
+          <a href="#footnote42">
+            <label for="foot"><a href="data_table_processing.html">StateTableStepbystep</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can process a large table of text and identify rows with specific values.
+          </span>
+        </span>
+        <br/>tags: data</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='data_table_processing.py.TestStateTableStepbystep_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote43">
+          <a href="#footnote43">
+            <label for="foot"><a href="db9_pinout.html">DB9</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model knows about old computer ports when prompted ambiguously.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='db9_pinout.py.TestDB9_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_python="1" tag_fix="1"><th>
+        <span class="footnote" id="footnote44">
+          <a href="#footnote44">
+            <label for="foot"><a href="debug_broken_code_parcount.html">WhyBuggyPythonCountPar</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can explain a bug in a parallelized wordcount function.
+          </span>
+        </span>
+        <br/>tags: explain, python, fix</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='debug_broken_code_parcount.py.TestWhyBuggyPythonCountPar_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote45">
+          <a href="#footnote45">
+            <label for="foot"><a href="decompile_py_mid.html">DisasPrimes</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can disassemble Python bytecode and create a function that returns a list of prime numbers and their negations.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='decompile_py_mid.py.TestDisasPrimes_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote46">
+          <a href="#footnote46">
+            <label for="foot"><a href="decompile_py_rref.html">DisasRref</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can decompile a long (300 line) python bytecode function back to python.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='decompile_py_rref.py.TestDisasRref_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote47">
+          <a href="#footnote47">
+            <label for="foot"><a href="do_uudecode.html">UUDecode</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can successfully uudecode a given string.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='do_uudecode.py.TestUUDecode_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1" tag_visual="1"><th>
+        <span class="footnote" id="footnote48">
+          <a href="#footnote48">
+            <label for="foot"><a href="draw_flag_bmp.html">FlagDrawBMP</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a C program that draws an image. This test requires the ability to understand the .bmp specification, and draw a flag that can be correctly parsed and seen by the evaluator.
+          </span>
+        </span>
+        <br/>tags: code, c, visual</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='draw_flag_bmp.py.TestFlagDrawBMP_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote49">
+          <a href="#footnote49">
+            <label for="foot"><a href="easy_parser_generator.html">SimpleBNF</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can understand a vague BNF-style grammar and write a Python function that evaluates expressions based on the grammar rules.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='easy_parser_generator.py.TestSimpleBNF_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote50">
+          <a href="#footnote50">
+            <label for="foot"><a href="emacs_lisp_silence_cmd.html">LispSilencePython</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can understand a vague error for an emacs lisp question.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='emacs_lisp_silence_cmd.py.TestLispSilencePython_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_fun="1"><th>
+        <span class="footnote" id="footnote51">
+          <a href="#footnote51">
+            <label for="foot"><a href="emoji_movies.html">EmojiMovie</a></label>
+          </a>
+          <span class="footnote_content">
+            A for-fun test to see if the model can go movie title -> emoji -> movie title.
+          </span>
+        </span>
+        <br/>tags: fun</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='emoji_movies.py.TestEmojiMovie_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_sql="1" tag_agent="1"><th>
+        <span class="footnote" id="footnote52">
+          <a href="#footnote52">
+            <label for="foot"><a href="explore_sql_db.html">SqlExplore</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can interact with an SQLite database and provide the correct command to add a new person with specific criteria.
+          </span>
+        </span>
+        <br/>tags: sql, agent</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='explore_sql_db.py.TestSqlExplore_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_data="1"><th>
+        <span class="footnote" id="footnote53">
+          <a href="#footnote53">
+            <label for="foot"><a href="extract_emails.html">ExtractEmail</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can accurately extract and identify invalid email addresses from a given text file. Models that are "overly safe" will fail.
+          </span>
+        </span>
+        <br/>tags: data</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='extract_emails.py.TestExtractEmail_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_sql="1"><th>
+        <span class="footnote" id="footnote54">
+          <a href="#footnote54">
+            <label for="foot"><a href="fancy_sql_process.html">SqlSubquery</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a Python program that retrieves data from a SQL file.
+          </span>
+        </span>
+        <br/>tags: sql</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='fancy_sql_process.py.TestSqlSubquery_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_performance="1" tag_python="1"><th>
+        <span class="footnote" id="footnote55">
+          <a href="#footnote55">
+            <label for="foot"><a href="faster_l2_diff.html">FastL2</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can optimize a given Python program for speed and memory efficiency.
+          </span>
+        </span>
+        <br/>tags: code, performance, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='faster_l2_diff.py.TestFastL2_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote56">
+          <a href="#footnote56">
+            <label for="foot"><a href="find_bug_in_paper.html">FindBugPaper</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can find math errors in the latex source of a paper.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='find_bug_in_paper.py.TestFindBugPaper_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote57">
+          <a href="#footnote57">
+            <label for="foot"><a href="find_bug_in_paper.html">FindBugPaperEasy</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can find math errors in the latex source of a paper.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='find_bug_in_paper.py.TestFindBugPaperEasy_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_explain="1"><th>
+        <span class="footnote" id="footnote58">
+          <a href="#footnote58">
+            <label for="foot"><a href="fix_threading_issue.html">QuestionThreadedFix</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can explain a poorly worded error message in a short threaded python program.
+          </span>
+        </span>
+        <br/>tags: code, python, explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='fix_threading_issue.py.TestQuestionThreadedFix_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_fix="1" tag_python="1"><th>
+        <span class="footnote" id="footnote59">
+          <a href="#footnote59">
+            <label for="foot"><a href="fix_tokenizer.html">SimpleFix</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can identify and fix an issue with a tokenizer in a Python code snippet. Identifying the problem is in the regex, and fixing the regex, are both hard.
+          </span>
+        </span>
+        <br/>tags: code, fix, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='fix_tokenizer.py.TestSimpleFix_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_fix="1"><th>
+        <span class="footnote" id="footnote60">
+          <a href="#footnote60">
+            <label for="foot"><a href="fix_torch_backward.html">TorchBackwardExplain</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can fix and explain a bug in PyTorch code related to forgetting to zero gradients.
+          </span>
+        </span>
+        <br/>tags: code, python, fix</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='fix_torch_backward.py.TestTorchBackwardExplain_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_fix="1" tag_python="1"><th>
+        <span class="footnote" id="footnote61">
+          <a href="#footnote61">
+            <label for="foot"><a href="fix_with_patch.html">FixPatch</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a .patch file to fix a bug in a given Python code.
+          </span>
+        </span>
+        <br/>tags: code, fix, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='fix_with_patch.py.TestFixPatch_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote62">
+          <a href="#footnote62">
+            <label for="foot"><a href="generate_string_moves.html">ProgramStringSlice</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write code to perform string slicing with vague instructions.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='generate_string_moves.py.TestProgramStringSlice_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_bash="1" tag_git="1" tag_agent="1"><th>
+        <span class="footnote" id="footnote63">
+          <a href="#footnote63">
+            <label for="foot"><a href="git_cherrypick.html">GitCherrypick</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can guide a user through a series of git commands to identify and cherrypick a specific commit from a branch onto the main branch.
+          </span>
+        </span>
+        <br/>tags: bash, git, agent</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='git_cherrypick.py.TestGitCherrypick_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_bash="1" tag_git="1" tag_agent="1"><th>
+        <span class="footnote" id="footnote64">
+          <a href="#footnote64">
+            <label for="foot"><a href="git_merge.html">GitMerge</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can guide a user through a series of git commands to merge a specific branch into the main branch.
+          </span>
+        </span>
+        <br/>tags: bash, git, agent</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='git_merge.py.TestGitMerge_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_bash="1" tag_git="1" tag_agent="1"><th>
+        <span class="footnote" id="footnote65">
+          <a href="#footnote65">
+            <label for="foot"><a href="git_merge.html">GitMergeConflict</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can guide a user through a series of git commands to merge a specific branch into the main branch.
+          </span>
+        </span>
+        <br/>tags: bash, git, agent</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='git_merge.py.TestGitMergeConflict_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote66">
+          <a href="#footnote66">
+            <label for="foot"><a href="gitignore_anywhere.html">WhatIsStarStarB</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can understand and interpret a request to gitignore any file called "foo/.KEYFILE"  regardless of its location in a repository.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='gitignore_anywhere.py.TestWhatIsStarStarB_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote67">
+          <a href="#footnote67">
+            <label for="foot"><a href="gol_rle_decode.html">RLEDecode</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case tests if the model can convert a Game of Life pattern represented in RLE format to a numpy array.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='gol_rle_decode.py.TestRLEDecode_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote68">
+          <a href="#footnote68">
+            <label for="foot"><a href="identify_uuencode.html">IsUU</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can correctly identify a block of text is uuencoded.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='identify_uuencode.py.TestIsUU_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote69">
+          <a href="#footnote69">
+            <label for="foot"><a href="implement_assembly_interpreter.html">ImplementAssembly</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can implement an interpreter for a new assembly language from a text description.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='implement_assembly_interpreter.py.TestImplementAssembly_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote70">
+          <a href="#footnote70">
+            <label for="foot"><a href="implement_assembly_interpreter_by_example.html">ImplementAssemblyByExample</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can implement an interpreter for a new assembly language given an example.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='implement_assembly_interpreter_by_example.py.TestImplementAssemblyByExample_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1"><th>
+        <span class="footnote" id="footnote71">
+          <a href="#footnote71">
+            <label for="foot"><a href="implement_crc32.html">CRC32</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model understands the CRC-32 spec well enough to implement it.
+          </span>
+        </span>
+        <br/>tags: code, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='implement_crc32.py.TestCRC32_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote72">
+          <a href="#footnote72">
+            <label for="foot"><a href="jax_onehot.html">JaxOneHot</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can correctly convert a list of indexes to a one-hot vector in Python using JAX.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='jax_onehot.py.TestJaxOneHot_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1"><th>
+        <span class="footnote" id="footnote73">
+          <a href="#footnote73">
+            <label for="foot"><a href="knowledge_llama.html">LlamaKnowledge</a></label>
+          </a>
+          <span class="footnote_content">
+            Test the knowledge cutoff of the model to see if it knows the LLAMA-2 hidden dimension size.
+          </span>
+        </span>
+        <br/>tags: explain</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='knowledge_llama.py.TestLlamaKnowledge_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_data="1"><th>
+        <span class="footnote" id="footnote74">
+          <a href="#footnote74">
+            <label for="foot"><a href="make_json.html">MakeJson</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can successfully convert unstructured data to JSON.
+          </span>
+        </span>
+        <br/>tags: data</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='make_json.py.TestMakeJson_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote75">
+          <a href="#footnote75">
+            <label for="foot"><a href="merge_into_16.html">Make16Files</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a Python script that merges a list of file paths into 16 files of approximately equal size.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='merge_into_16.py.TestMake16Files_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote76">
+          <a href="#footnote76">
+            <label for="foot"><a href="merge_into_16.html">Make16FilesEasy</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a Python script that merges a list of file paths into 16 files of approximately equal size.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='merge_into_16.py.TestMake16FilesEasy_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote77">
+          <a href="#footnote77">
+            <label for="foot"><a href="numba_rref.html">NumbaRref</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can rewrite a fairly complex Python function to Numba.
+          </span>
+        </span>
+        <br/>tags: code, python, performance</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='numba_rref.py.TestNumbaRref_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote78">
+          <a href="#footnote78">
+            <label for="foot"><a href="numpy_advanced_index.html">NumpyAdvancedIndex</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model correctly understands how advanced indexing works in numpy.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='numpy_advanced_index.py.TestNumpyAdvancedIndex_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote79">
+          <a href="#footnote79">
+            <label for="foot"><a href="numpy_advanced_index.html">NumpyAdvancedIndexEasier</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model correctly understands how advanced indexing works in numpy.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='numpy_advanced_index.py.TestNumpyAdvancedIndexEasier_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote80">
+          <a href="#footnote80">
+            <label for="foot"><a href="numpy_ix.html">NumpyIx</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can identify the _ix function as a method for simplifying some code.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='numpy_ix.py.TestNumpyIx_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1"><th>
+        <span class="footnote" id="footnote81">
+          <a href="#footnote81">
+            <label for="foot"><a href="program_in_new_assembly.html">NewAssemblyPrimeNumbers</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a program in a new assembly language. This ability to learn a new language on-the-fly is important for many tasks.
+          </span>
+        </span>
+        <br/>tags: code</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='program_in_new_assembly.py.TestNewAssemblyPrimeNumbers_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1"><th>
+        <span class="footnote" id="footnote82">
+          <a href="#footnote82">
+            <label for="foot"><a href="program_in_new_assembly.html">NewAssemblySquareNumbers</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a program in a new assembly language. This ability to learn a new language on-the-fly is important for many tasks.
+          </span>
+        </span>
+        <br/>tags: code</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='program_in_new_assembly.py.TestNewAssemblySquareNumbers_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1"><th>
+        <span class="footnote" id="footnote83">
+          <a href="#footnote83">
+            <label for="foot"><a href="program_pipes_cpp.html">MakeShiftOpC</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a C++ program that defines dataflow DSL.
+          </span>
+        </span>
+        <br/>tags: code, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='program_pipes_cpp.py.TestMakeShiftOpC_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote84">
+          <a href="#footnote84">
+            <label for="foot"><a href="program_pipes_python.html">MakeShiftOp</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate a python program that defines dataflow DSL.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='program_pipes_python.py.TestMakeShiftOp_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote85">
+          <a href="#footnote85">
+            <label for="foot"><a href="py_image_resize.html">ImgResize</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can resize several images in a given subdirectory.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='py_image_resize.py.TestImgResize_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote86">
+          <a href="#footnote86">
+            <label for="foot"><a href="python_chess_game_prefix.html">PyChessPrefix</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can correctly call a python API for a moderately popular python library.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='python_chess_game_prefix.py.TestPyChessPrefix_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_visual="1"><th>
+        <span class="footnote" id="footnote87">
+          <a href="#footnote87">
+            <label for="foot"><a href="python_jpeg.html">FlagDraw</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can write a program that directly writes a jpeg file. This requires precise understanding of the jpeg spec.
+          </span>
+        </span>
+        <br/>tags: code, python, visual</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='python_jpeg.py.TestFlagDraw_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote88">
+          <a href="#footnote88">
+            <label for="foot"><a href="python_parallel_wordcount.html">PythonCountPar</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can parallelize a python program to perform a wordcount.
+          </span>
+        </span>
+        <br/>tags: code, python, performance</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='python_parallel_wordcount.py.TestPythonCountPar_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_c="1"><th>
+        <span class="footnote" id="footnote89">
+          <a href="#footnote89">
+            <label for="foot"><a href="python_to_c_loop_update.html">PythonToCLoopUpdate</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if a model can convert a python program to c, with a loop that makes it difficult.
+          </span>
+        </span>
+        <br/>tags: code, python, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='python_to_c_loop_update.py.TestPythonToCLoopUpdate_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_fix="1"><th>
+        <span class="footnote" id="footnote90">
+          <a href="#footnote90">
+            <label for="foot"><a href="python_traceback.html">ProgramTB</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can identify the buf and fix a program that handles python tracebacks. Useful to know if the model can handle more advanced python libraries.
+          </span>
+        </span>
+        <br/>tags: code, fix</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='python_traceback.py.TestProgramTB_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_c="1"><th>
+        <span class="footnote" id="footnote91">
+          <a href="#footnote91">
+            <label for="foot"><a href="rewrite_mac_crypto.html">ProgramRewriteCCrypto</a></label>
+          </a>
+          <span class="footnote_content">
+            Test the ability of the model to rewrite a simple c program so it will run on ubuntu, and keep bugs in place.
+          </span>
+        </span>
+        <br/>tags: code, c</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='rewrite_mac_crypto.py.TestProgramRewriteCCrypto_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_rust="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote92">
+          <a href="#footnote92">
+            <label for="foot"><a href="rust_parallel_wordcount.html">RustParCountNoLib</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can write a rust program that performs parallel word counting.
+          </span>
+        </span>
+        <br/>tags: code, rust, performance</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='rust_parallel_wordcount.py.TestRustParCountNoLib_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1" tag_performance="1"><th>
+        <span class="footnote" id="footnote93">
+          <a href="#footnote93">
+            <label for="foot"><a href="strided_trick.html">ProgramStrided</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model knows how to use the strided trick with numpy.
+          </span>
+        </span>
+        <br/>tags: code, python, performance</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='strided_trick.py.TestProgramStrided_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote94">
+          <a href="#footnote94">
+            <label for="foot"><a href="torch_to_jnp.html">TorchJnp</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can convert a torch neural network to a jax numpy model.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='torch_to_jnp.py.TestTorchJnp_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_visual="1" tag_html="1"><th>
+        <span class="footnote" id="footnote95">
+          <a href="#footnote95">
+            <label for="foot"><a href="webgl_triangle.html">DrawHouse</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can generate an HTML file with WebGL code that draws an image.
+          </span>
+        </span>
+        <br/>tags: code, visual, html</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='webgl_triangle.py.TestDrawHouse_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_explain="1" tag_python="1"><th>
+        <span class="footnote" id="footnote96">
+          <a href="#footnote96">
+            <label for="foot"><a href="what_is_formatfloat.html">WhatIsFloatFormat</a></label>
+          </a>
+          <span class="footnote_content">
+            This test case checks if models can format f strings with floats.
+          </span>
+        </span>
+        <br/>tags: explain, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='what_is_formatfloat.py.TestWhatIsFloatFormat_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr><tr tag_code="1" tag_python="1"><th>
+        <span class="footnote" id="footnote97">
+          <a href="#footnote97">
+            <label for="foot"><a href="whisper_merge.html">WhisperMerge</a></label>
+          </a>
+          <span class="footnote_content">
+            Test if the model can implement some string logic given a fuzzy description.
+          </span>
+        </span>
+        <br/>tags: code, python</td><td style='background-color: rgb(255, 127.5, 127.5);'><a href='whisper_merge.py.TestWhisperMerge_gpt-3.5-turbo.html#tab1'>0/1</a></td></tr></table></body></html>

@@ -22,7 +22,7 @@ import pickle
 import time
 
 # Update imports with CustomOpenAIModel
-from llms.runpod_vllm_model import CustomOpenAIModel
+from llms.runpod_model import CustomOpenAIModel
 from llms.openai_model import OpenAIModel
 from llms.anthropic_model import AnthropicModel
 from llms.mistral_model import MistralModel
@@ -35,7 +35,7 @@ class LLM:
         self.name = name
         if 'gpt' in name:
             self.model = OpenAIModel(name)
-        elif 'custom' in name:
+        elif 'runpod' in name:
             self.model = CustomOpenAIModel()
         # elif 'llama' in name:
         #     self.model = LLAMAModel(name)
@@ -97,15 +97,16 @@ class LLM:
         
         return response
 
+llm = LLM("runpod") # For a runpod openai style api
+# llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 #llm = LLM("command")
-llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 # llm = LLM("gpt-4-1106-preview")
 #llm = LLM("claude-instant-1.2")
 #llm = LLM("mistral-tiny")
 #llm = LLM("gemini-pro", override_hparams={'temperature': 0.3}, use_cache=False)
 
 #eval_llm = LLM("gpt-4-1106-preview")
-eval_llm = LLM("gpt-4-0125-preview", override_hparams={'temperature': 0.1})
-#eval_llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
+# eval_llm = LLM("gpt-4-0125-preview", override_hparams={'temperature': 0.1})
+eval_llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 
 vision_eval_llm = LLM("gpt-4-vision-preview", override_hparams={'temperature': 0.1})

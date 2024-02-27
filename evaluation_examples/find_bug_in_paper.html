@@ -1,0 +1,266 @@
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">evaluator</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">DESCRIPTION</span> <span class="o">=</span> <span class="s2">&quot;Test if a model can find math errors in the latex source of a paper.&quot;</span>
+
+<span class="n">TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;explain&#39;</span><span class="p">]</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"># Setup</span>
+
+<span class="s2">Which of the following equations are incorrect according to the specification?</span>
+
+<span class="s2"># Notation</span>
+
+<span class="s2">A neural network is a function $F(x) = y$ that accepts an input $x \in \mathbb</span><span class="si">{R}</span><span class="s2">^n$</span>
+<span class="s2">and produces an output $y \in \mathbb</span><span class="si">{R}</span><span class="s2">^m$.</span>
+<span class="s2">The model $F$ also implicitly depends on some model parameters $\theta$; in our work</span>
+<span class="s2">the model is fixed, so for convenience we don&#39;t show the dependence on $\theta$.</span>
+
+<span class="s2">In this paper we focus on neural networks used as an $m$-class classifier.</span>
+<span class="s2">The output of the network is computed using the softmax function,</span>
+<span class="s2">which ensures that the output vector $y$ satisfies</span>
+<span class="s2">$0 \le y_i \le 1$ and $y_1 + \dots + y_m = 1$.</span>
+<span class="s2">The output vector $y$ is thus treated as a probability distribution, i.e.,</span>
+<span class="s2">$y_i$ is treated as the probability that input $x$ has class $i$.</span>
+<span class="s2">The classifier assigns the label $C(x) = \arg\max_i F(x)_i$ to the input $x$.</span>
+<span class="s2">Let $C^*(x)$ be the correct label of $x$.</span>
+<span class="s2">The inputs to the softmax function are called \emph</span><span class="si">{logits}</span><span class="s2">.</span>
+
+<span class="s2">We use the notation from Papernot et al. \cite</span><span class="si">{distillation}</span><span class="s2">: define $F$ to</span>
+<span class="s2">be the full neural network including the softmax function, $Z(x) = z$ to be the output of</span>
+<span class="s2">all layers except the softmax (so $z$ are the logits), and</span>
+<span class="s2">\begin{equation*}</span>
+<span class="s2">F(x) = \softmax(Z(x)) = y.</span>
+<span class="s2">\end{equation*}</span>
+<span class="s2">A neural network typically \footnote{Most simple networks have this simple</span>
+<span class="s2">  linear structure, however other more sophisticated networks have</span>
+<span class="s2">  more complicated structures (e.g., ResNet \cite</span><span class="si">{he2016deep}</span><span class="s2"> and Inception \cite</span><span class="si">{szegedy2015rethinking}</span><span class="s2">).</span>
+<span class="s2">  The network architecture does not impact our attacks.}</span>
+<span class="s2">consists of layers</span>
+<span class="s2">\begin{equation*}</span>
+<span class="s2">F = \softmax \circ F_n \circ F_{n-1} \circ \cdots \circ F_1</span>
+<span class="s2">\end{equation*}</span>
+<span class="s2">where</span>
+<span class="s2">\begin{equation*}</span>
+<span class="s2">F_i(x)  = \sigma(\theta_i \cdot x) + \hat\theta_i</span>
+<span class="s2">\end{equation*}</span>
+<span class="s2">for some non-linear activation function $\sigma$, some matrix $\theta_i$ of model</span>
+<span class="s2">weights, and some vector $\hat\theta_i$ of model biases. Together $\theta$ and</span>
+<span class="s2">$\hat\theta$ make up the model parameters.</span>
+<span class="s2">Common choices of $\sigma$</span>
+<span class="s2">are tanh \cite</span><span class="si">{mishkin2015all}</span><span class="s2">, sigmoid, ReLU \cite</span><span class="si">{maas2013rectifier}</span><span class="s2">, or ELU \cite</span><span class="si">{clevert2015fast}</span><span class="s2">.</span>
+<span class="s2">In this paper we focus primarily on networks that use a ReLU activation function,</span>
+<span class="s2">as it currently is the most widely used</span>
+<span class="s2">activation function</span>
+<span class="s2">\cite{szegedy2015rethinking,springenberg2014striving,mishkin2015all,distillation}.</span>
+
+
+<span class="s2"># Specification:</span>
+
+<span class="s2">We define an objective function $f$ such that</span>
+<span class="s2">$C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$.</span>
+<span class="s2">There are many possible choices for $f$:</span>
+
+<span class="s2"># The equations</span>
+
+<span class="s2">\begin{align*}</span>
+<span class="s2">f_</span><span class="si">{1}</span><span class="s2">(x&#39;) &amp;= -\loss_{F,t}(x&#39;) + 1\\</span>
+<span class="s2">f_</span><span class="si">{2}</span><span class="s2">(x&#39;) &amp;= (\max_{i \ne t}( F(x&#39;)_i) - F(x&#39;)_t)^+\\</span>
+<span class="s2">f_</span><span class="si">{3}</span><span class="s2">(x&#39;) &amp;= \text</span><span class="si">{softplus}</span><span class="s2">(\max_{i \ne t}(F(x&#39;)_i) - F(x&#39;)_t)-\log(2)\\</span>
+<span class="s2">f_</span><span class="si">{4}</span><span class="s2">(x&#39;) &amp;= (0.5 - F(x&#39;)_t)^+\\</span>
+<span class="s2">f_</span><span class="si">{5}</span><span class="s2">(x&#39;) &amp;= -\log(2 F(x&#39;)_t - 2)\\</span>
+<span class="s2">f_</span><span class="si">{6}</span><span class="s2">(x&#39;) &amp;= (\max_{i \ne t}( Z(x&#39;)_i) - Z(x&#39;)_t)^+\\</span>
+<span class="s2">f_</span><span class="si">{7}</span><span class="s2">(x&#39;) &amp;= \text</span><span class="si">{softplus}</span><span class="s2">(\max_{i \ne t}(Z(x&#39;)_i) - Z(x&#39;)_t)-\log(2)</span>
+<span class="s2">\end{align*}</span>
+<span class="s2">where $s$ is the correct classification, $(e)^+$ is short-hand for</span>
+<span class="s2">$\max(e,0)$, $\text</span><span class="si">{softplus}</span><span class="s2">(x) = \log(1+\exp(x))$, and</span>
+<span class="s2">$\loss_{F,s}(x)$ is the cross entropy loss for $x$.</span>
+
+<span class="s2"># Your task</span>
+
+<span class="s2">Consider each equation one by one. End your answer with a python list of numbers [1,2,3,4,5,6,7] for those that are wrong.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">question_easier</span> <span class="o">=</span> <span class="n">question</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Specifically, make sure that $C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$. Think step by step about if this is true for each equation and then give your answer as a python list&quot;</span>
+
+<span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">ints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">ints</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="s2">&quot;&quot;</span>
+
+<span class="n">TestFindBugPaper</span> <span class="o">=</span> <span class="n">question</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">Echo</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">PyFunc</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
+
+<span class="n">TestFindBugPaperEasy</span> <span class="o">=</span> <span class="n">question_easier</span> <span class="o">&gt;&gt;</span> <span class="n">LLMRun</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">Echo</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">PyFunc</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">run_test</span><span class="p">(</span><span class="n">TestFindBugPaper</span><span class="p">))</span>
+</pre></div></td></tr></table></div>
