@@ -234,9 +234,13 @@ Once you've set up your environment, you can run the entire benchmark in just on
 ```bash
 python main.py --model gpt-3.5-turbo --run-tests --generate-report
 ```
+OR, for a custom runpod llm:
+```bash
+python main.py --model mistralai/Mistral-7B-Instruct-v0.1 --run-tests --generate-report
+```
 
 And to view the results, you can run:
-```
+```bash
 open evaluation_examples/index.html
 ```
 
