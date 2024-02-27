@@ -11,8 +11,9 @@ from openai import OpenAI
 load_dotenv()
 
 class CustomOpenAIModel:
-    def __init__(self):
+    def __init__(self, name):
         config = json.load(open("config.json"))
+        self.name = name
         self.client = OpenAI(
             api_key="EMPTY", # There is no API key
             base_url=config['llms'][self.name].get('endpoint')
@@ -48,7 +49,7 @@ class CustomOpenAIModel:
                 del kwargs[k]
     
         out = self.client.chat.completions.create(
-            model=model,
+            model=self.name,
             **kwargs
         )
     
@@ -58,4 +59,4 @@ if __name__ == "__main__":
     import sys
     #q = sys.stdin.read().strip()
     q = "hello there"
-    print(q+":", CustomOpenAIModel().make_request([q]))
+    print(q+":", CustomOpenAIModel("mistralai/Mistral-7B-Instruct-v0.1").make_request([q]))

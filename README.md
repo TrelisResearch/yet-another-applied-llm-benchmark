@@ -193,7 +193,14 @@ results with the (cheaper) gpt-3.5-turbo, but in a few cases having the more cap
 evaluation model gives more reliable results.
 
 ## Custom Runpod Models
-Custom models work by passing the model name "custom" when calling the evaluation script, and setting a RunPod endpoint and model name in your .env file. See 'sample.env' and rename it.
+Deploy a model on Runpod using a one-click template from the [one click template repo](https://GitHub.com/TrelisResearch/one-click-llms).
+
+Then:
+1. Add the model to 'llm.py'
+2. Add the model to 'config.json', be sure to update the Runpod endpoint accordingly.
+3. Update 'llm = LLM(...)' to your model repo slug if you want to set the default LLM for running scripts.
+
+> Reminder, make sure to include config.json in your .gitignore file
 
 ## Set up docker/podman container [highly recommended]
 
