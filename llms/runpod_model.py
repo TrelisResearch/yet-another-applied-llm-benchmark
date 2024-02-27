@@ -10,23 +10,15 @@ from openai import OpenAI
 # Load environment variables
 load_dotenv()
 
-# Retrieve the env variables
-model = os.getenv('MODEL')
-api_endpoint = os.getenv('RUNPOD_API_ENDPOINT')
-
-openai_api_base = api_endpoint + '/v1'
-
-print(f"api endpoint: {openai_api_base}")
-
 class CustomOpenAIModel:
     def __init__(self):
         config = json.load(open("config.json"))
         self.client = OpenAI(
             api_key="EMPTY", # There is no API key
-            base_url=openai_api_base,
+            base_url=config['llms'][self.name].get('endpoint')
         )
         self.hparams = config['hparams']
-        self.hparams.update(config['llms']['runpod'].get('hparams') or {})
+        self.hparams.update(config['llms'][self.name].get('hparams') or {})
 
     def make_request(self, conversation, add_image=None, max_tokens=None):
         conversation = [{"role": "user" if i % 2 == 0 else "assistant", "content": content} for i, content in enumerate(conversation)]

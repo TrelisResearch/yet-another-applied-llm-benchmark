@@ -35,8 +35,8 @@ class LLM:
         self.name = name
         if 'gpt' in name:
             self.model = OpenAIModel(name)
-        elif 'runpod' in name:
-            self.model = CustomOpenAIModel()
+        elif 'mistralai/Mistral-7B-Instruct-v0.1' in name:
+            self.model = CustomOpenAIModel(name)
         # elif 'llama' in name:
         #     self.model = LLAMAModel(name)
         elif 'mistral' in name:
@@ -97,8 +97,8 @@ class LLM:
         
         return response
 
-llm = LLM("runpod") # For a runpod openai style api
-# llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
+# llm = LLM("mistralai/Mistral-7B-Instruct-v0.1") # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 #llm = LLM("command")
 # llm = LLM("gpt-4-1106-preview")
 #llm = LLM("claude-instant-1.2")
@@ -106,7 +106,7 @@ llm = LLM("runpod") # For a runpod openai style api
 #llm = LLM("gemini-pro", override_hparams={'temperature': 0.3}, use_cache=False)
 
 #eval_llm = LLM("gpt-4-1106-preview")
-# eval_llm = LLM("gpt-4-0125-preview", override_hparams={'temperature': 0.1})
-eval_llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
+eval_llm = LLM("gpt-4-0125-preview", override_hparams={'temperature': 0.1})
+# eval_llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 
 vision_eval_llm = LLM("gpt-4-vision-preview", override_hparams={'temperature': 0.1})
