@@ -1,0 +1,117 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h2>Output</h2>
+<p>This code defines a function `z()` that takes no arguments and returns an array of integers. The function uses a `for` loop to iterate 20 times. During each iteration, it creates a new array `n` by mapping the elements of the existing array `e` and subtracting 1 from each element. The `some()` method is then called on the `n` array to check if any element is equal to 0. If any element is</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>I showed a student some code that calculates 20 primes. I then tested their understanding by asking them to explain it to me. I'm going to show you their answer, I want you to evaluate whether or not their answer says something to the effect of "it calculates the first 20 primes". Do not judge their reasonining, just tell me if they got it right. 
+ Student Answer: " This code defines a function `z()` that takes no arguments and returns an array of integers. The function uses a `for` loop to iterate 20 times. During each iteration, it creates a new array `n` by mapping the elements of the existing array `e` and subtracting 1 from each element. The `some()` method is then called on the `n` array to check if any element is equal to 0. If any element is"
+
+ Think out loud then answer either "The student passes" or "The student fails".</p>
+<h2>Output</h2>
+<p>The student fails. 
+
+Their explanation does not accurately describe a process for calculating the first 20 prime numbers. Instead, they describe a function that involves iterating 20 times, modifying an array by subtracting 1 from each element, and checking for elements equal to 0. This description does not align with the typical methods used to calculate prime numbers, such as checking for divisibility or using the Sieve of Eratosthenes. Therefore, the student's answer does not effectively communicate that the code calculates the first 20 primes.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: False</p>
+</div>
+    

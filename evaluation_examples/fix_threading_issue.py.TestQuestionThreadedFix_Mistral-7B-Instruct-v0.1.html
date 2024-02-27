@@ -1,0 +1,225 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>In this program
+
+from multiprocessing import Pool
+from openai import OpenAI
+
+txt = open("/tmp/aa.txt").read().split("
+
+")
+
+from multiprocessing import Pool
+import subprocess
+
+client = OpenAI(api_key="sk-XXXXXXXXXXXXXX")
+def create_speech_file(index, text):
+    response = client.audio.speech.create(
+        model="tts-1-hd",
+        voice="nova",
+	input=text
+    )
+    filename = f"output{index}.mp3"
+    response.stream_to_file(filename)
+    return filename
+
+def merge_mp3(files, output):
+    with open("filelist.txt", "w") as file:
+	for f in files:
+            file.write(f"file '{f}'
+")
+
+    cmd = ["ffmpeg", "-f", "concat", "-safe", "0", "-i", "filelist.txt", "-c", "copy", output]
+    subprocess.run(cmd)
+
+if __name__ == '__main__':
+    # Step 1: Parallelize speech file creation                                                                                                                            
+    with Pool(8) as pool:
+	mp3_files = pool.starmap(create_speech_file, enumerate(txt))
+
+    # Step 2: Merge the generated MP3 files                                                                                                                               
+    output_file = "merged_output.mp3"
+    merge_mp3(mp3_files, output_file)
+
+Why am I getting this error?
+
+Exception in thread Thread-3:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/pool.py", line 576, in _handle_results
+    task = get()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/connection.py", line 251, in recv
+    return _ForkingPickler.loads(buf.getbuffer())
+TypeError: __init__() missing 2 required keyword-only arguments: 'response' and 'body'</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>In this program
+
+from multiprocessing import Pool
+from openai import OpenAI
+
+txt = open("/tmp/aa.txt").read().split("
+
+")
+
+from multiprocessing import Pool
+import subprocess
+
+client = OpenAI(api_key="sk-XXXXXXXXXXXXXX")
+def create_speech_file(index, text):
+    response = client.audio.speech.create(
+        model="tts-1-hd",
+        voice="nova",
+	input=text
+    )
+    filename = f"output{index}.mp3"
+    response.stream_to_file(filename)
+    return filename
+
+def merge_mp3(files, output):
+    with open("filelist.txt", "w") as file:
+	for f in files:
+            file.write(f"file '{f}'
+")
+
+    cmd = ["ffmpeg", "-f", "concat", "-safe", "0", "-i", "filelist.txt", "-c", "copy", output]
+    subprocess.run(cmd)
+
+if __name__ == '__main__':
+    # Step 1: Parallelize speech file creation                                                                                                                            
+    with Pool(8) as pool:
+	mp3_files = pool.starmap(create_speech_file, enumerate(txt))
+
+    # Step 2: Merge the generated MP3 files                                                                                                                               
+    output_file = "merged_output.mp3"
+    merge_mp3(mp3_files, output_file)
+
+Why am I getting this error?
+
+Exception in thread Thread-3:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/threading.py", line 917, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/pool.py", line 576, in _handle_results
+    task = get()
+  File "/opt/homebrew/Cellar/python@3.9/3.9.16/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/connection.py", line 251, in recv
+    return _ForkingPickler.loads(buf.getbuffer())
+TypeError: __init__() missing 2 required keyword-only arguments: 'response' and 'body'</p>
+<h2>Output</h2>
+<p>The error message suggests that the `create_speech_file` function is returning a `TypeError` when it is called by the `Pool`. This error is likely occurring because the `create_speech_file` function is not returning a value that can be stored in a `multiprocessing.Pool`.
+
+To fix this error, you can modify the `create_speech_file` function to return a value that can be stored in a `multiprocess</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>I showed a student some code with a bug. I then tested their understanding by asking them to explain hwo to fix the bug. I'm going to show you their answer, I want you to evaluate whether or not their answer says something to the effect of "The function create_speech_file is raising an exception that can not be pickled.". Do not judge their reasonining, or if they know how to fix it, just tell me if they correctly identified that there is a crash in the create_speech_file function. 
+ Student Answer: " The error message suggests that the `create_speech_file` function is returning a `TypeError` when it is called by the `Pool`. This error is likely occurring because the `create_speech_file` function is not returning a value that can be stored in a `multiprocessing.Pool`.
+
+To fix this error, you can modify the `create_speech_file` function to return a value that can be stored in a `multiprocess"
+
+ Think out loud then answer either "The student passes" or "The student fails".</p>
+<h2>Output</h2>
+<p>Based on the student's answer, they have correctly identified that there is an issue with the `create_speech_file` function when it is called by the `Pool`, specifically mentioning that it is returning a `TypeError`. This indicates that they understand the function is causing a problem due to its return value not being compatible with what the `multiprocessing.Pool` expects, which is closely related to the issue of the function raising an exception that cannot be pickled. Although the student does not use the exact phrase "raising an exception that cannot be pickled," they have effectively identified the core issue: the function's return value is causing a crash when used with `multiprocessing.Pool` due to type incompatibility. 
+
+Given the instruction to evaluate whether the student correctly identified there is a crash in the `create_speech_file` function, and not to judge their reasoning or knowledge on how to fix it, it can be concluded that the student has indeed identified there is a problem with the `create_speech_file` function in the context provided.
+
+Therefore, the answer is "The student passes."</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+</div>
+    
