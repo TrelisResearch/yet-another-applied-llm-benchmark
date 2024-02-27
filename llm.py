@@ -40,9 +40,20 @@ class LLM:
             self.model = CustomOpenAIModel(name)
         elif 'openchat_3.5' in name:
             self.model = CustomOpenAIModel(name)
+        elif 'Mistral-7B-Instruct-v0.1-GGUF' in name:
+            self.model = CustomOpenAIModel(name)
+        elif 'Mistral-7B-Instruct-v0.1-AWQ' in name:
+            self.model = CustomOpenAIModel(name)
+        elif 'gemma-7b' in name:
+            self.model = CustomOpenAIModel(name)
+        elif 'Qwen1.5-7B-Chat' in name:
+            self.model = CustomOpenAIModel(name)
+        elif 'Qwen1.5-72B-Chat' in name:
+            self.model = CustomOpenAIModel(name)
         # elif 'llama' in name:
         #     self.model = LLAMAModel(name)
         elif 'mistral' in name:
+            # print(f"Selecting the {name} custom model")
             self.model = MistralModel(name)
         elif 'gemini' in name or 'bison' in name:
             self.model = VertexAIModel(name)
@@ -100,7 +111,9 @@ class LLM:
         
         return response
 
-llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+
 # llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 #llm = LLM("command")
 # llm = LLM("gpt-4-1106-preview")

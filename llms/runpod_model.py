@@ -64,3 +64,4 @@ if __name__ == "__main__":
     #q = sys.stdin.read().strip()
     q = "hello there"
     print(q+":", CustomOpenAIModel("openchat_3.5").make_request([q]))
+    # print(q+":", CustomOpenAIModel("Mistral-7B-Instruct-v0.1").make_request([q]))

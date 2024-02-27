@@ -207,6 +207,7 @@ For a wide variety of other one-click templates, see the [one-click-llms repo](h
 Other notes:
 - Reminder, make sure to include config.json in your .gitignore file
 - TGI's openai endpoint is in development and can be buggy. Therefore, it is recommended to use a vLLM one-click template (this is the case for openchat_3.5).
+- Note that the port in the endpoint is 8000 for vLLM and 8080 for TGI or llama.cpp
 
 ## Set up docker/podman container [highly recommended]
 

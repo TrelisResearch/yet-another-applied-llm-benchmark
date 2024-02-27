@@ -4,15 +4,46 @@
         "temperature": 0.7
     },
     "llms": {
-        "mistralai/Mistral-7B-Instruct-v0.1": {
+        "Mistral-7B-Instruct-v0.1": {
             "api_key": "EMPTY",
-            "endpoint": "https://noxh1e30xaiuv1-8080.proxy.runpod.net/v1"
+            "endpoint": "https://noxh1e30xaiuv1-8080.proxy.runpod.net/v1",
+            "slug": "mistralai/Mistral-7B-Instruct-v0.1"
+        },
+        "Mistral-7B-Instruct-v0.1-GGUF": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8080.proxy.runpod.net/v1",
+            "slug": "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
+        },  
+        "Mistral-7B-Instruct-v0.1-AWQ": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8080.proxy.runpod.net/v1",
+            "slug": "TheBloke/Mistral-7B-Instruct-v0.1-AWQ"
+        },
+        "openchat_3.5": {
+            "api_key": "EMPTY",
+            "endpoint": "https://czpagcno0qmqku-8000.proxy.runpod.net/v1",
+            "slug": "openchat/openchat_3.5"
+        },
+        "gemma-7b": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8000.proxy.runpod.net/v1",
+            "slug": "google/gemma-7b"
+        },
+        "Qwen1.5-7B-Chat": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8000.proxy.runpod.net/v1",
+            "slug": "Qwen/Qwen1.5-7B-Chat"
+        },
+        "Qwen1.5-72B-Chat": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8000.proxy.runpod.net/v1",
+            "slug": "Qwen/Qwen1.5-72B-Chat"
         },
         "vertexai": {
             "project_id": "TODO"
         },
         "openai": {
-            "api_key": "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"
+            "api_key": "sk-xxx"
         },
         "mistral": {
             "api_key": "TODO"
