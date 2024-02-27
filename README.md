@@ -243,7 +243,7 @@ python main.py --model gpt-3.5-turbo --run-tests --generate-report
 ```
 OR, for a custom runpod llm:
 ```bash
-python main.py --model mistralai/Mistral-7B-Instruct-v0.1 --run-tests --generate-report
+python main.py --model Mistral-7B-Instruct-v0.1 --run-tests --generate-report
 ```
 
 And to view the results, you can run:
@@ -276,6 +276,11 @@ is to run the main script and specify which test(s) you want to run.
 python main.py --test print_hello --run-tests --model gpt-3.5-turbo-0125
 ```
 
+OR for a runpod model
+
+```bash
+python main.py --test print_hello --run-tests --model Mistral-7B-Instruct-v0.1 --generate-report
+```
 
 # Modifying the benchmark
 
