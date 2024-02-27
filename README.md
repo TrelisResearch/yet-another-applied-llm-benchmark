@@ -135,8 +135,14 @@ user almost-root permissions to start new docker jobs. This scares me a bit.
 So I prefer to use podman. Install it however you're supposed to for your
 system.
 
+### Podman install on Mac
+```
+brew install podman
+podman machine init # necessary to initialize on Mac
+podman machine start # to start podman
+```
 
-## Docker (optional)
+## Docker (alternative to Podman)
 
 Again this is fairly system dependent so you'll have to go somewhere else to find
 out how to install it for your system.
@@ -165,7 +171,6 @@ a flag in the code
 that you can set to True and then this will just eval() everything that comes
 out of the LLMs on your machine directly.
 
-
 # Setup
 
 Once you've installed everything,
@@ -174,7 +179,7 @@ there are a few setup steps before you can run the benchmark.
 ## Add API keys
 
 You should add API keys for any model you want to evaluate. The keys are stored
-in the config.json file. You can find a template at [config.json.example](config.json.example)
+in the config.json file. You can find a template at [config.json.example](config.json.example). Make sure to add this to your .gitignore file so you don't push it accidentally to GitHub.
 
 Whatever model you are testing, you will also need to load API keys for OpenAI as the default
 evaluation model. This is because a few of the questions require evaluation by a second language model
@@ -186,6 +191,9 @@ I have had good success using gpt-4-turbo as the evaluation model, but you can c
 any model that you want as the evaluator. In my experiments, I had almost identical
 results with the (cheaper) gpt-3.5-turbo, but in a few cases having the more capable
 evaluation model gives more reliable results.
+
+## Custom Runpod Models
+Custom models work by passing the model name "custom" when calling the evaluation script, and setting a RunPod endpoint and model name in your .env file. See 'sample.env' and rename it.
 
 ## Set up docker/podman container [highly recommended]
 
@@ -210,8 +218,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-
 # Running the benchmark
+
+> If you're running in podman you'll need to start a bash shell in which to issue the commands below: 'podman run -it -v "$(pwd):/usr/src/app" llm-benchmark-image /bin/bash' and then 'pip install -r requirements.txt' and then 'pip install -r requirements-extra.txt'
 
 Once you've set up your environment, you can run the entire benchmark in just one line:
 

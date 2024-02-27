@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y \
 RUN python3.11 -m pip install --upgrade pip && \
     pip install numpy scipy numba Pillow jax jaxlib python-chess torch
 
-
 # Install Rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
@@ -44,6 +43,9 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 WORKDIR /usr/src/app
 
 # Any additional commands or environment variables can be added here
+# Install Google Chrome
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
 # Command to run when the container launches
 CMD ["/bin/bash"]

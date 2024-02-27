@@ -1,5 +1,5 @@
 docker
-dotenv
+python-dotenv
 numpy
 Pillow
 openai
