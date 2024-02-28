@@ -1,0 +1,145 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h2>Output</h2>
+<p>This JavaScript code defines a function called `z` which appears to generate an array of 20 prime numbers.
+
+Here is a breakdown of what the code does:
+
+1. Create an empty array `e` to store the prime numbers and an empty array `n` to store the numbers to be filtered for primality.
+2. Start a loop that continues. The loop continues as long as the length of the array `e` is less than 20.
+3. Inside the loop, the code first creates a copy of the `n` array and assigns it to the variable `m`.
+4. The `n` array is then mapped to a new array, where each value is decremented by 1 (i.e. n-1).
+5. The new mapped array is checked to see if it contains a 0 using the `some()` method. If it does, then the loop continues.
+6. If the mapped array does not contain a 0, it means that none of the values in the original `n` are 0, and therefore, none of the values in the original `n` are divisible by 2, 3, or 5 (the first three prime numbers).
+7. In this case, the code appends the current value of the loop (r) to the `e` (primes) list and also to the `n` (non-primes) list.
+8. The loop continues, and the `n` list is reset to the original `n-1` mapped values.
+9. The loop continues, and the first 20 primes are added to the `e` (primes) list.
+10. Finally, the code logs the first 20 primes to the console.
+
+So, in summary, the code defines a function that generates the first 20 primes. The code is written in a somewhat confusing and round-a-bout way, but it does ultimately generate the first 20 primes.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>I showed a student some code that calculates 20 primes. I then tested their understanding by asking them to explain it to me. I'm going to show you their answer, I want you to evaluate whether or not their answer says something to the effect of "it calculates the first 20 primes". Do not judge their reasonining, just tell me if they got it right. 
+ Student Answer: " This JavaScript code defines a function called `z` which appears to generate an array of 20 prime numbers.
+
+Here is a breakdown of what the code does:
+
+1. Create an empty array `e` to store the prime numbers and an empty array `n` to store the numbers to be filtered for primality.
+2. Start a loop that continues. The loop continues as long as the length of the array `e` is less than 20.
+3. Inside the loop, the code first creates a copy of the `n` array and assigns it to the variable `m`.
+4. The `n` array is then mapped to a new array, where each value is decremented by 1 (i.e. n-1).
+5. The new mapped array is checked to see if it contains a 0 using the `some()` method. If it does, then the loop continues.
+6. If the mapped array does not contain a 0, it means that none of the values in the original `n` are 0, and therefore, none of the values in the original `n` are divisible by 2, 3, or 5 (the first three prime numbers).
+7. In this case, the code appends the current value of the loop (r) to the `e` (primes) list and also to the `n` (non-primes) list.
+8. The loop continues, and the `n` list is reset to the original `n-1` mapped values.
+9. The loop continues, and the first 20 primes are added to the `e` (primes) list.
+10. Finally, the code logs the first 20 primes to the console.
+
+So, in summary, the code defines a function that generates the first 20 primes. The code is written in a somewhat confusing and round-a-bout way, but it does ultimately generate the first 20 primes."
+
+ Think out loud then answer either "The student passes" or "The student fails".</p>
+<h2>Output</h2>
+<p>The student passes.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+</div>
+    
