@@ -1,0 +1,1001 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Docker Setup</h1>
+<p>I have setup the docker container to run the model evaluation.</p>
+<h1>Initial Query</h1>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout.
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments.
+
+Make it run in parallel on 4 cores at the same time, each job taking ~1/4 of the file.
+Print out 4 differnt json dicts, one per line. I'll do the merging.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout.
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments.
+
+Make it run in parallel on 4 cores at the same time, each job taking ~1/4 of the file.
+Print out 4 differnt json dicts, one per line. I'll do the merging.</p>
+<h2>Output</h2>
+<p>Here's a self-contained Rust program that counts the occurrences of each word in a text file, prints the JSON output, and runs in parallel using the `rayon` crate. This program assumes that the `rayon` crate is installed (`cargo install rayon` if not).
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">fn</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span> <span class="ow">and</span> <span class="nb">print</span> <span class="n">an</span> <span class="n">error</span> <span class="k">if</span> <span class="ow">not</span>
+    <span class="n">let</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/file.txt&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="err">!</span><span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">metadata</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;Error: File not found at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">text</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">split</span> <span class="n">it</span> <span class="n">into</span> <span class="n">words</span>
+    <span class="n">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">::</span><span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to open file&quot;</span><span class="p">);</span>
+    <span class="n">let</span> <span class="n">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="n">String</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to read file&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Split</span> <span class="n">the</span> <span class="n">content</span> <span class="n">into</span> <span class="n">words</span><span class="p">,</span> <span class="n">ignoring</span> <span class="n">punctuation</span> <span class="ow">and</span> <span class="n">converting</span> <span class="n">to</span> <span class="n">lowercase</span>
+    <span class="n">let</span> <span class="n">words</span> <span class="o">=</span> <span class="n">content</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">split_whitespace</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">to_lowercase</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">collect</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Vec</span><span class="o">&lt;&amp;</span><span class="nb">str</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Count</span> <span class="n">word</span> <span class="n">occurrences</span> <span class="ow">in</span> <span class="n">parallel</span>
+    <span class="n">let</span> <span class="n">word_counts</span> <span class="o">=</span> <span class="n">rayon</span><span class="p">::</span><span class="n">scope</span><span class="p">(</span><span class="o">|</span><span class="n">worker</span><span class="o">|</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">mut</span> <span class="n">word_counts</span> <span class="o">=</span> <span class="n">vec</span><span class="err">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span> <span class="mi">1024</span><span class="p">];</span> <span class="o">//</span> <span class="n">Assuming</span> <span class="n">the</span> <span class="n">most</span> <span class="n">common</span> <span class="mi">1024</span> <span class="n">words</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="o">.</span><span class="n">par_iter</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">word_counts</span><span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">()</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="k">as</span> <span class="n">usize</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">word_counts</span>
+    <span class="p">});</span>
+
+    <span class="o">//</span> <span class="n">Print</span> <span class="n">the</span> <span class="n">JSON</span> <span class="n">output</span> <span class="k">for</span> <span class="n">each</span> <span class="n">worker</span><span class="s1">&#39;s result</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_counts</span><span class="o">.</span><span class="n">into_iter</span><span class="p">()</span><span class="o">.</span><span class="n">enumerate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">json</span> <span class="o">=</span> <span class="nb">format</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">count</span><span class="o">.</span><span class="n">iter</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">::</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span><span class="p">()</span> <span class="k">as</span> <span class="n">f64</span> <span class="o">/</span> <span class="n">count</span><span class="o">.</span><span class="n">len</span><span class="p">());</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">json</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+
+To compile and run the program, save it to a file named `word_count.rs` and then execute:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">rustc</span> <span class="n">word_count</span><span class="o">.</span><span class="n">rs</span>
+<span class="o">./</span><span class="n">word_count</span>
+</pre></div></td></tr></table></div>
+
+
+This will print the JSON output for each worker's word count, one per line, in the format you specified. Note that the program assumes the most common 1024 words for the count, you can adjust this as needed.</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><span class="o">//</span> <span class="n">word_count</span><span class="o">.</span><span class="n">rs</span>
+
+<span class="o">//</span> <span class="n">Include</span> <span class="n">the</span> <span class="n">required</span> <span class="n">crate</span> <span class="k">for</span> <span class="n">parallel</span> <span class="n">processing</span>
+<span class="n">extern</span> <span class="n">crate</span> <span class="n">rayon</span><span class="p">;</span>
+
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">metadata</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::{</span><span class="bp">self</span><span class="p">,</span> <span class="n">BufReader</span><span class="p">};</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">VecDeque</span><span class="p">;</span>
+
+<span class="n">fn</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span> <span class="ow">and</span> <span class="nb">print</span> <span class="n">an</span> <span class="n">error</span> <span class="k">if</span> <span class="ow">not</span>
+    <span class="n">let</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/file.txt&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="err">!</span><span class="n">metadata</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;Error: File not found at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">text</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">split</span> <span class="n">it</span> <span class="n">into</span> <span class="n">words</span>
+    <span class="n">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">::</span><span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to open file&quot;</span><span class="p">);</span>
+    <span class="n">let</span> <span class="n">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="n">String</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to read file&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Split</span> <span class="n">the</span> <span class="n">content</span> <span class="n">into</span> <span class="n">words</span><span class="p">,</span> <span class="n">ignoring</span> <span class="n">punctuation</span> <span class="ow">and</span> <span class="n">converting</span> <span class="n">to</span> <span class="n">lowercase</span>
+    <span class="n">let</span> <span class="n">words</span> <span class="o">=</span> <span class="n">content</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">split_whitespace</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">to_lowercase</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">collect</span><span class="p">::</span><span class="o">&lt;</span><span class="n">VecDeque</span><span class="o">&lt;&amp;</span><span class="nb">str</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Count</span> <span class="n">word</span> <span class="n">occurrences</span> <span class="ow">in</span> <span class="n">parallel</span>
+    <span class="n">let</span> <span class="n">word_counts</span><span class="p">:</span> <span class="n">Vec</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">rayon</span><span class="p">::</span><span class="n">scope</span><span class="p">(</span><span class="o">|</span><span class="n">worker</span><span class="o">|</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">mut</span> <span class="n">word_counts</span> <span class="o">=</span> <span class="n">vec</span><span class="err">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span> <span class="mi">1024</span><span class="p">];</span> <span class="o">//</span> <span class="n">Assuming</span> <span class="n">the</span> <span class="n">most</span> <span class="n">common</span> <span class="mi">1024</span> <span class="n">words</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="o">.</span><span class="n">par_iter</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">word_counts</span><span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">()</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="k">as</span> <span class="n">usize</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">word_counts</span>
+    <span class="p">});</span>
+
+    <span class="o">//</span> <span class="n">Print</span> <span class="n">the</span> <span class="n">JSON</span> <span class="n">output</span> <span class="k">for</span> <span class="n">each</span> <span class="n">worker</span><span class="s1">&#39;s result</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_counts</span><span class="o">.</span><span class="n">into_iter</span><span class="p">()</span><span class="o">.</span><span class="n">enumerate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">json</span> <span class="o">=</span> <span class="nb">format</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">count</span><span class="o">.</span><span class="n">iter</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">::</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span><span class="p">()</span> <span class="k">as</span> <span class="n">f64</span> <span class="o">/</span> <span class="n">count</span><span class="o">.</span><span class="n">len</span><span class="p">());</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">json</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">If</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">install</span> <span class="n">rayon</span><span class="p">,</span> <span class="n">run</span><span class="p">:</span> <span class="err">`</span><span class="n">cargo</span> <span class="n">install</span> <span class="n">rayon</span><span class="err">`</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Check if all of the following conditions are true:</h1>
+<h2>LLM Generation</h2>
+<h3>Query</h3>
+<p>Below is some student's code. I asked them to parallelize some code. Do not judge if it is correct, I have test cases for that. Logic errors are okay. So are synatx errors. Just tell me if they tried to parallelize it.
+
+
+// word_count.rs
+
+// Include the required crate for parallel processing
+extern crate rayon;
+
+use std::fs::metadata;
+use std::fs::File;
+use std::io::{self, BufReader};
+use std::collections::VecDeque;
+
+fn main() {
+    // Check if the file exists and print an error if not
+    let file_path = "/tmp/file.txt";
+    if !metadata(file_path).is_ok() {
+        println!("Error: File not found at {}", file_path);
+        return;
+    }
+
+    // Load the text file and split it into words
+    let file = File::open(file_path).expect("Failed to open file");
+    let mut content = String::new();
+    file.read_to_string(&mut content).expect("Failed to read file");
+
+    // Split the content into words, ignoring punctuation and converting to lowercase
+    let words = content
+        .replace('.', '')
+        .replace(',', '')
+        .replace('!', '')
+        .replace('?', '')
+        .replace('-', '')
+        .replace('_', '')
+        .replace(';', '')
+        .replace(':', '')
+        .replace('(', '')
+        .replace(')', '')
+        .replace('[', '')
+        .replace(']', '')
+        .replace('{', '')
+        .replace('}', '')
+        .replace('"', '')
+        .replace("'", '')
+        .split_whitespace()
+        .map(|word| word.to_lowercase())
+        .collect::&lt;VecDeque&lt;&str&gt;&gt;();
+
+    // Count word occurrences in parallel
+    let word_counts: Vec&lt;i32&gt; = rayon::scope(|worker| {
+        let mut word_counts = vec![0; 1024]; // Assuming the most common 1024 words
+        for word in words.par_iter() {
+            word_counts[word.as_bytes().len() as usize] += 1;
+        }
+        word_counts
+    });
+
+    // Print the JSON output for each worker's result
+    for (i, count) in word_counts.into_iter().enumerate() {
+        let json = format!("{},{},{}", i, count[0], count.iter().sum::&lt;i32&gt;() as f64 / count.len());
+        println!("{}", json);
+    }
+}
+
+// If you need to install rayon, run: `cargo install rayon`
+
+
+
+Answer either 'The student passes' or 'The student fails'.</p>
+<h3>Output</h3>
+<p>The student passes.</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+<h2>Run Code Interpreter</h2>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span></pre></div></td><td class="code"><div><pre><span></span><span class="o">//</span> <span class="n">word_count</span><span class="o">.</span><span class="n">rs</span>
+
+<span class="o">//</span> <span class="n">Include</span> <span class="n">the</span> <span class="n">required</span> <span class="n">crate</span> <span class="k">for</span> <span class="n">parallel</span> <span class="n">processing</span>
+<span class="n">extern</span> <span class="n">crate</span> <span class="n">rayon</span><span class="p">;</span>
+
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">metadata</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">io</span><span class="p">::{</span><span class="bp">self</span><span class="p">,</span> <span class="n">BufReader</span><span class="p">};</span>
+<span class="n">use</span> <span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">VecDeque</span><span class="p">;</span>
+
+<span class="n">fn</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span> <span class="ow">and</span> <span class="nb">print</span> <span class="n">an</span> <span class="n">error</span> <span class="k">if</span> <span class="ow">not</span>
+    <span class="n">let</span> <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/file.txt&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="err">!</span><span class="n">metadata</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">is_ok</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;Error: File not found at </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file_path</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">text</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">split</span> <span class="n">it</span> <span class="n">into</span> <span class="n">words</span>
+    <span class="n">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">::</span><span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to open file&quot;</span><span class="p">);</span>
+    <span class="n">let</span> <span class="n">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="n">String</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="s2">&quot;Failed to read file&quot;</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Split</span> <span class="n">the</span> <span class="n">content</span> <span class="n">into</span> <span class="n">words</span><span class="p">,</span> <span class="n">ignoring</span> <span class="n">punctuation</span> <span class="ow">and</span> <span class="n">converting</span> <span class="n">to</span> <span class="n">lowercase</span>
+    <span class="n">let</span> <span class="n">words</span> <span class="o">=</span> <span class="n">content</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">split_whitespace</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="o">.</span><span class="n">to_lowercase</span><span class="p">())</span>
+        <span class="o">.</span><span class="n">collect</span><span class="p">::</span><span class="o">&lt;</span><span class="n">VecDeque</span><span class="o">&lt;&amp;</span><span class="nb">str</span><span class="o">&gt;&gt;</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Count</span> <span class="n">word</span> <span class="n">occurrences</span> <span class="ow">in</span> <span class="n">parallel</span>
+    <span class="n">let</span> <span class="n">word_counts</span><span class="p">:</span> <span class="n">Vec</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">rayon</span><span class="p">::</span><span class="n">scope</span><span class="p">(</span><span class="o">|</span><span class="n">worker</span><span class="o">|</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">mut</span> <span class="n">word_counts</span> <span class="o">=</span> <span class="n">vec</span><span class="err">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span> <span class="mi">1024</span><span class="p">];</span> <span class="o">//</span> <span class="n">Assuming</span> <span class="n">the</span> <span class="n">most</span> <span class="n">common</span> <span class="mi">1024</span> <span class="n">words</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="o">.</span><span class="n">par_iter</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">word_counts</span><span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">()</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="k">as</span> <span class="n">usize</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">word_counts</span>
+    <span class="p">});</span>
+
+    <span class="o">//</span> <span class="n">Print</span> <span class="n">the</span> <span class="n">JSON</span> <span class="n">output</span> <span class="k">for</span> <span class="n">each</span> <span class="n">worker</span><span class="s1">&#39;s result</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="ow">in</span> <span class="n">word_counts</span><span class="o">.</span><span class="n">into_iter</span><span class="p">()</span><span class="o">.</span><span class="n">enumerate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">json</span> <span class="o">=</span> <span class="nb">format</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">count</span><span class="o">.</span><span class="n">iter</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">::</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span><span class="p">()</span> <span class="k">as</span> <span class="n">f64</span> <span class="o">/</span> <span class="n">count</span><span class="o">.</span><span class="n">len</span><span class="p">());</span>
+        <span class="n">println</span><span class="err">!</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">json</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">If</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">install</span> <span class="n">rayon</span><span class="p">,</span> <span class="n">run</span><span class="p">:</span> <span class="err">`</span><span class="n">cargo</span> <span class="n">install</span> <span class="n">rayon</span><span class="err">`</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>error: empty character literal
+  --&gt; main.rs:27:24
+   |
+27 |         .replace('.', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:28:24
+   |
+28 |         .replace(',', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:29:24
+   |
+29 |         .replace('!', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:30:24
+   |
+30 |         .replace('?', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:31:24
+   |
+31 |         .replace('-', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:32:24
+   |
+32 |         .replace('_', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:33:24
+   |
+33 |         .replace(';', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:34:24
+   |
+34 |         .replace(':', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:35:24
+   |
+35 |         .replace('(', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:36:24
+   |
+36 |         .replace(')', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:37:24
+   |
+37 |         .replace('[', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:38:24
+   |
+38 |         .replace(']', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:39:24
+   |
+39 |         .replace('{', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:40:24
+   |
+40 |         .replace('}', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:41:24
+   |
+41 |         .replace('"', '')
+   |                        ^ empty character literal
+error: empty character literal
+  --&gt; main.rs:42:24
+   |
+42 |         .replace("'", '')
+   |                        ^ empty character literal
+error[E0463]: can't find crate for `rayon`
+ --&gt; main.rs:5:1
+  |
+5 | extern crate rayon;
+  | ^^^^^^^^^^^^^^^^^^^ can't find crate
+warning: unused imports: `BufReader`, `self`
+ --&gt; main.rs:9:15
+  |
+9 | use std::io::{self, BufReader};
+  |               ^^^^  ^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+error[E0599]: no method named `read_to_string` found for struct `File` in the current scope
+  --&gt; main.rs:23:10
+   |
+23 |     file.read_to_string(&amp;mut content).expect("Failed to read file");
+   |          ^^^^^^^^^^^^^^ method not found in `File`
+  --&gt; /rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/std/src/io/mod.rs:862:8
+   |
+   = note: the method is available for `File` here
+   |
+   = help: items from traits can only be used if the trait is in scope
+help: the following trait is implemented but not in scope; perhaps add a `use` for it:
+   |
+5  + use std::io::Read;
+   |
+error[E0277]: a value of type `VecDeque&lt;&amp;str&gt;` cannot be built from an iterator over elements of type `String`
+  --&gt; main.rs:45:20
+   |
+45 |         .collect::&lt;VecDeque&lt;&amp;str&gt;&gt;();
+   |          -------   ^^^^^^^^^^^^^^ value of type `VecDeque&lt;&amp;str&gt;` cannot be built from `std::iter::Iterator&lt;Item=String&gt;`
+   |          |
+   |          required by a bound introduced by this call
+   |
+   = help: the trait `FromIterator&lt;String&gt;` is not implemented for `VecDeque&lt;&amp;str&gt;`
+   = help: the trait `FromIterator&lt;&amp;str&gt;` is implemented for `VecDeque&lt;&amp;str&gt;`
+   = help: for that trait implementation, expected `&amp;str`, found `String`
+note: the method call chain might not have had the expected associated types
+  --&gt; main.rs:44:10
+   |
+22 |     let mut content = String::new();
+   |                       ------------- this expression has type `String`
+...
+43 |         .split_whitespace()
+   |          ------------------ `Iterator::Item` is `&amp;str` here
+44 |         .map(|word| word.to_lowercase())
+   |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `Iterator::Item` changed to `String` here
+note: required by a bound in `collect`
+  --&gt; /rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/iter/traits/iterator.rs:2050:5
+error[E0599]: no method named `par_iter` found for struct `VecDeque` in the current scope
+  --&gt; main.rs:50:27
+   |
+50 |         for word in words.par_iter() {
+   |                           ^^^^^^^^ help: there is a method with a similar name: `iter`
+error: aborting due to 20 previous errors; 1 warning emitted
+Some errors have detailed explanations: E0277, E0463, E0599.
+For more information about an error, try `rustc --explain E0277`.
+main.sh: line 2: ./a.out: No such file or directory</code></p>
+<h2>PyFunc</h2>
+<p>
+Resulting in output:
+[]</p>
+<h2>Equal Evaluation</h2>
+<p>Testing if the previous output equals the string <code>[('Darkness,', 1), ('Heaven,', 1), ('Light,', 1), ('age', 2), ('all', 2), ('before', 2), ('belief,', 1), ('best', 1), ('despair,', 1), ('direct', 2), ('epoch', 2), ('everything', 1), ('foolishness,', 1), ('going', 2), ('had', 2), ('hope,', 1), ('incredulity,', 1), ('it', 10), ('nothing', 1), ('of', 10), ('other', 1), ('season', 2), ('spring', 1), ('the', 11), ('times,', 2), ('to', 1), ('us,', 2), ('was', 10), ('way', 1), ('we', 4), ('were', 2), ('winter', 1), ('wisdom,', 1), ('worst', 1)]</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    

@@ -1,0 +1,680 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Explain what this code does. Then, convert this recursive function to an iterative one, making explicit the cubic work that's being done. The functions should return exactly the same output but the iterative one should be faster. Call your function `solve_iterative` and match the type signature of the original function.
+
+
+@lru_cache(maxsize=None)
+def solve_dp(graph, lines_left, distance_since_last):
+    if len(graph) &lt; lines_left: return 1e9, []
+    if lines_left == 0 and len(graph) == 0: return 0, []
+
+    # option 1: don't take the line
+    value = (1e9, [])
+    if distance_since_last &lt; 10:
+        value = min(value, solve_dp(graph[1:], lines_left, distance_since_last+1))
+
+    # option 2: take the line
+    if lines_left &gt; 0:
+        sub, how = solve_dp(graph[1:], lines_left-1, 0)
+        sub += graph[0] + (distance_since_last-8)**2
+        value = min(value, (sub, how + [len(graph)]))
+
+    return value</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Explain what this code does. Then, convert this recursive function to an iterative one, making explicit the cubic work that's being done. The functions should return exactly the same output but the iterative one should be faster. Call your function `solve_iterative` and match the type signature of the original function.
+
+
+@lru_cache(maxsize=None)
+def solve_dp(graph, lines_left, distance_since_last):
+    if len(graph) &lt; lines_left: return 1e9, []
+    if lines_left == 0 and len(graph) == 0: return 0, []
+
+    # option 1: don't take the line
+    value = (1e9, [])
+    if distance_since_last &lt; 10:
+        value = min(value, solve_dp(graph[1:], lines_left, distance_since_last+1))
+
+    # option 2: take the line
+    if lines_left &gt; 0:
+        sub, how = solve_dp(graph[1:], lines_left-1, 0)
+        sub += graph[0] + (distance_since_last-8)**2
+        value = min(value, (sub, how + [len(graph)]))
+
+    return value</p>
+<h2>Output</h2>
+<p>The given code defines a recursive function `solve_dp` that calculates the minimum cost to visit a set of nodes in a graph, given a certain number of lines left (`lines_left`) and the distance since the last line taken (`distance_since_last`). The function uses dynamic programming with memoization (using `lru_cache` decorator) to optimize performance.
+
+Here's a step-by-step explanation of the function:
+
+1. The function checks if there are less than `lines_left` nodes left in the graph. If so, it returns a very large number (1e9) and an empty list, indicating that it's not possible to complete the task.
+2. If `lines_left` is 0 and the graph is empty, it returns 0 (the optimal cost) and an empty list, as there's nothing to do.
+3. The function explores two options:
+   - Option 1: Don't take the current line. It recursively calls `solve_dp` with the remaining graph (`graph[1:]`, `lines_left`, and `distance_since_last + 1`), and returns the maximum value found.
+   - Option 2: Take the current line. It recursively calls `solve_dp` with the remaining graph and `lines_left - 1`, and calculates the cost by adding the cost of the current node (`graph[0]`) to the square of the distance since the last line (`(distance_since_last - 8)**2`). It also adds the length of the current graph to the `how` list (to keep track of which lines were taken).
+4. The function returns the minimum value between the two options.
+
+To convert this recursive function to an iterative one, we can use a stack to simulate the recursive calls and avoid the overhead of function calls. Here's the implementation of `solve_iterative` with the same type signature:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="k">def</span> <span class="nf">solve_iterative</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">lines_left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">lines_left</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1e9</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lines_left</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="c1"># Initialize the minimum cost and taken lines list</span>
+    <span class="n">min_cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">taken_lines</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Stack to keep track of recursive calls</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span><span class="p">)]</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="n">current_index</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="c1"># Option 1: Don&#39;t take the line</span>
+        <span class="k">if</span> <span class="n">distance_since_last</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span>
+
+        <span class="c1"># Option 2: Take the line</span>
+        <span class="k">if</span> <span class="n">lines_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sub_cost</span> <span class="o">+=</span> <span class="n">current_graph</span><span class="p">[</span><span class="n">current_index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">distance_since_last</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span> <span class="o">+</span> <span class="p">[</span><span class="n">current_index</span><span class="p">]</span>
+
+        <span class="c1"># Check if there are more nodes to explore</span>
+        <span class="k">if</span> <span class="n">current_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_graph</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">distance_since_last</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span>
+</pre></div></td></tr></table></div>
+
+
+In this iterative version, we use a stack to store the current graph, remaining lines, distance, and index. We iterate through the stack, simulating the recursive calls, and update the minimum cost and taken lines accordingly. This approach should be faster than the recursive version as it avoids the overhead of function calls and uses a linear time complexity.</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="k">def</span> <span class="nf">solve_iterative</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">lines_left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">lines_left</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1e9</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lines_left</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="c1"># Initialize the minimum cost and taken lines list</span>
+    <span class="n">min_cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">taken_lines</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Stack to keep track of recursive calls</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span><span class="p">)]</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="n">current_index</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="c1"># Option 1: Don&#39;t take the line</span>
+        <span class="k">if</span> <span class="n">distance_since_last</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span>
+
+        <span class="c1"># Option 2: Take the line</span>
+        <span class="k">if</span> <span class="n">lines_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sub_cost</span> <span class="o">+=</span> <span class="n">current_graph</span><span class="p">[</span><span class="n">current_index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">distance_since_last</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span> <span class="o">+</span> <span class="p">[</span><span class="n">current_index</span><span class="p">]</span>
+
+        <span class="c1"># Check if there are more nodes to explore</span>
+        <span class="k">if</span> <span class="n">current_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_graph</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">distance_since_last</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Check if all of the following conditions are true:</h1>
+<h2>Run Code Interpreter</h2>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="k">def</span> <span class="nf">solve_iterative</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">lines_left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">lines_left</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">1e9</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lines_left</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="c1"># Initialize the minimum cost and taken lines list</span>
+    <span class="n">min_cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+    <span class="n">taken_lines</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Stack to keep track of recursive calls</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[(</span><span class="n">graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span><span class="p">)]</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">,</span> <span class="n">current_index</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="c1"># Option 1: Don&#39;t take the line</span>
+        <span class="k">if</span> <span class="n">distance_since_last</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span>
+
+        <span class="c1"># Option 2: Take the line</span>
+        <span class="k">if</span> <span class="n">lines_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sub_cost</span> <span class="o">+=</span> <span class="n">current_graph</span><span class="p">[</span><span class="n">current_index</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">distance_since_last</span> <span class="o">-</span> <span class="mi">8</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="n">sub_cost</span> <span class="o">&lt;</span> <span class="n">min_cost</span><span class="p">:</span>
+                <span class="n">min_cost</span> <span class="o">=</span> <span class="n">sub_cost</span>
+                <span class="n">taken_lines</span> <span class="o">=</span> <span class="n">current_how</span> <span class="o">+</span> <span class="p">[</span><span class="n">current_index</span><span class="p">]</span>
+
+        <span class="c1"># Check if there are more nodes to explore</span>
+        <span class="k">if</span> <span class="n">current_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_graph</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_graph</span><span class="p">,</span> <span class="n">lines_left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">distance_since_last</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sub_cost</span><span class="p">,</span> <span class="n">current_how</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">min_cost</span><span class="p">,</span> <span class="n">taken_lines</span>
+
+
+
+
+
+<span class="n">answer</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">my_solve_dp</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">lines_left</span><span class="p">:</span> <span class="k">return</span> <span class="mf">1e9</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">lines_left</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+
+    <span class="c1"># option 1: don&#39;t take the line</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1e9</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">if</span> <span class="n">distance_since_last</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">my_solve_dp</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">lines_left</span><span class="p">,</span> <span class="n">distance_since_last</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># option 2: take the line</span>
+    <span class="k">if</span> <span class="n">lines_left</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">sub</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="n">my_solve_dp</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">lines_left</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">sub</span> <span class="o">+=</span> <span class="n">graph</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">distance_since_last</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">how</span> <span class="o">+</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">graph</span><span class="p">)]))</span>
+
+    <span class="k">return</span> <span class="n">value</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">solve_iterative</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">mylist</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">//</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="n">my_solve_dp</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">mylist</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">//</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Wrong answer; got </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1"> instead of </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All tests passed&#39;</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>Traceback (most recent call last):
+  File "/usr/src/app/main.py", line 70, in &lt;module&gt;
+    assert answer == expected, f'Wrong answer; got {answer} instead of {expected}'
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Wrong answer; got (inf, []) instead of (150, [3, 12, 22, 28, 34, 39, 45, 56, 65, 76, 86, 94])</code></p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>All tests passed</code>: False</p>
+<h2>PyFunc</h2>
+<p>
+Resulting in output:
+True</p>
+<h2>Final Answer: False</h2>
+</div>
+    

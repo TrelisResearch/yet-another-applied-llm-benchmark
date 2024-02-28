@@ -49,6 +49,8 @@ class LLM:
             self.model = CustomOpenAIModel(name)
         elif 'Qwen1.5-7B-Chat' in name:
             self.model = CustomOpenAIModel(name)
+        elif 'Qwen1.5-7B-Chat-AWQ' in name:
+            self.model = CustomOpenAIModel(name)
         elif 'Qwen1.5-72B-Chat' in name:
             self.model = CustomOpenAIModel(name)
         # elif 'llama' in name:
@@ -112,7 +114,8 @@ class LLM:
         
         return response
 
-llm = LLM("Qwen1.5-7B-Chat", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("Qwen1.5-7B-Chat-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("Qwen1.5-7B-Chat", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("gemma-7b", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("Mixtral-8x7B-Instruct-v0.1-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("Mixtral-8x7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
