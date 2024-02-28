@@ -1,0 +1,132 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does the VPBROADCASTB instruction do?</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does the VPBROADCASTB instruction do?</p>
+<h2>Output</h2>
+<p>The VPBROADCASTB instruction is a microprocessor instruction found in various architectures, including x86, that performs a broadcast operation on a vector of bytes. It is used to load a single value (usually a scalar or a constant) and replicate it across multiple elements in a vector.
+
+Here's a breakdown of what VPBROADCASTB does:
+
+1. **Operand**: The instruction takes a register (source operand) and a destination register (usually a register that holds the vector).
+2. **Broadcast value**: The source operand contains the value to be broadcast. This can be a scalar or a constant.
+3. **Vector size**: VPBROADCASTB operates on a specific vector size, typically 16, 32, or 64 bits. For example, in x86, it's commonly used with 32-bit vectors (e.g., YMM registers).
+4. **Replication**: The instruction replicates the source value by copying it to each element in the destination vector. The number of elements depends on the vector size. For a 32-bit vector, it would replicate the value 4 times (since each element is 4 bytes).
+5. **Memory access**: If the source is a memory location, the instruction fetches the value once and then stores it in each element of the destination vector.
+
+In summary, VPBROADCASTB is a fast and efficient way to apply a single value to every element in a vector, making it useful for tasks like setting all elements in a vector to a specific value or performing simple arithmetic operations on multiple bytes at once.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Below is a student's answer to a question about what a particular instruction does: The VPBROADCASTB instruction is a microprocessor instruction found in various architectures, including x86, that performs a broadcast operation on a vector of bytes. It is used to load a single value (usually a scalar or a constant) and replicate it across multiple elements in a vector.
+
+Here's a breakdown of what VPBROADCASTB does:
+
+1. **Operand**: The instruction takes a register (source operand) and a destination register (usually a register that holds the vector).
+2. **Broadcast value**: The source operand contains the value to be broadcast. This can be a scalar or a constant.
+3. **Vector size**: VPBROADCASTB operates on a specific vector size, typically 16, 32, or 64 bits. For example, in x86, it's commonly used with 32-bit vectors (e.g., YMM registers).
+4. **Replication**: The instruction replicates the source value by copying it to each element in the destination vector. The number of elements depends on the vector size. For a 32-bit vector, it would replicate the value 4 times (since each element is 4 bytes).
+5. **Memory access**: If the source is a memory location, the instruction fetches the value once and then stores it in each element of the destination vector.
+
+In summary, VPBROADCASTB is a fast and efficient way to apply a single value to every element in a vector, making it useful for tasks like setting all elements in a vector to a specific value or performing simple arithmetic operations on multiple bytes at once.
+
+Does the student's say something similar to "Load integer data from the source operand (the second operand) and broadcast to all elements of the destination operand (the first operand)."?
+
+If the answer is correct say "The student passes" otherwise "The student fails".</p>
+<h2>Output</h2>
+<p>The student passes.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+</div>
+    
