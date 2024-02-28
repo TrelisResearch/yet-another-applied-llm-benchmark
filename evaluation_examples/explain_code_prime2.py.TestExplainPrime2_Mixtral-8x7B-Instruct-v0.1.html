@@ -1,0 +1,135 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does this code do
+
+function z(){let e=[],n=[];for(let r=2;e.length&lt;20;r++)(n=n.map(e=&gt;e-1)).some(e=&gt;0===e)?n=n.map((n,r)=&gt;0===n?e[r]:n):(e.push(r),n.push(r));return e}console.log(z());</p>
+<h2>Output</h2>
+<p>This JavaScript code defines a function `z` that generates the first 20 prime numbers and returns them as an array. Here's a breakdown of the code:
+
+1. The function `z` initializes two empty arrays `e` and `n`. `e` is used to store the prime numbers, and `n` is used as a helper array to keep track of the current state of the numbers less than the current number being checked.
+2. The function enters a loop that continues until `e` contains 20 elements. The loop variable `r` starts at 2, which is the first prime number.
+3. Inside the loop, the code first updates the `n` array by decrementing each of its elements by 1.
+4. The code then checks if any of the elements in the updated `n` array is equal to 0. If so, it means that there is a number less than `r` that is still not marked as non-prime, so `r` is not prime either. In this case, the code skips to the next iteration of the loop.
+5. If none of the elements in the updated `n` array is equal to 0, it means that all numbers less than `r` have been marked as non-prime. In this case, `r` is a prime number, so the code adds it to the `e` array and adds a copy of `r` to the `n` array.
+6. Once the loop is complete, the function returns the `e` array, which contains the first 20 prime numbers.
+7. The `console.log` statement outside the function calls the `z` function and logs the result to the console.
+
+So, in summary, this code generates the first 20 prime numbers and logs them to the console.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>I showed a student some code that calculates 20 primes. I then tested their understanding by asking them to explain it to me. I'm going to show you their answer, I want you to evaluate whether or not their answer says something to the effect of "it calculates the first 20 primes". Do not judge their reasonining, just tell me if they got it right. 
+ Student Answer: " This JavaScript code defines a function `z` that generates the first 20 prime numbers and returns them as an array. Here's a breakdown of the code:
+
+1. The function `z` initializes two empty arrays `e` and `n`. `e` is used to store the prime numbers, and `n` is used as a helper array to keep track of the current state of the numbers less than the current number being checked.
+2. The function enters a loop that continues until `e` contains 20 elements. The loop variable `r` starts at 2, which is the first prime number.
+3. Inside the loop, the code first updates the `n` array by decrementing each of its elements by 1.
+4. The code then checks if any of the elements in the updated `n` array is equal to 0. If so, it means that there is a number less than `r` that is still not marked as non-prime, so `r` is not prime either. In this case, the code skips to the next iteration of the loop.
+5. If none of the elements in the updated `n` array is equal to 0, it means that all numbers less than `r` have been marked as non-prime. In this case, `r` is a prime number, so the code adds it to the `e` array and adds a copy of `r` to the `n` array.
+6. Once the loop is complete, the function returns the `e` array, which contains the first 20 prime numbers.
+7. The `console.log` statement outside the function calls the `z` function and logs the result to the console.
+
+So, in summary, this code generates the first 20 prime numbers and logs them to the console."
+
+ Think out loud then answer either "The student passes" or "The student fails".</p>
+<h2>Output</h2>
+<p>The student passes.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+</div>
+    

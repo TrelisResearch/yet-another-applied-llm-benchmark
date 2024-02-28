@@ -112,17 +112,10 @@ class LLM:
         
         return response
 
-# Create the parser
-parser = argparse.ArgumentParser(description='Run LLM with optional test LLM argument.')
-
-# Add an argument
-parser.add_argument('--test_llm', type=str, help='The test LLM to use', default="")
-
-# Parse the arguments
-args = parser.parse_args()
-
-llm = LLM("Mixtral-8x7B-Instruct-v0.1-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
-llm = LLM("Mixtral-8x7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("Qwen1.5-7B-Chat", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("gemma-7b", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("Mixtral-8x7B-Instruct-v0.1-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("Mixtral-8x7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.

@@ -261,13 +261,15 @@ directory `evaluation_examples`.
 It will also save a cache of this run, so that the next time you can run
 a new model and view the two results side-by-side.
 
+> Pro tip: it can be better to run models one by one rather than all models because - if there is a bug, the program will hang and further models won't run.
+
 If you want to run individual test cases, you can do that too in two ways.
 One is to just directly run test
 
 ```bash
 PYTHONPATH='.' python tests/print_hello.py
 ```
-Note that when 
+Note that when you run this, the default test llm in llm.py will be the one tested.
 
 * Explore the `run_a_simple_testcase.ipynb` notebook to quickly run a sample test case on Colab.
 

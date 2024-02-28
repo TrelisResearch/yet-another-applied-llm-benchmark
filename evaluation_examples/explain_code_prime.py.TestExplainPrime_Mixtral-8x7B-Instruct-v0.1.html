@@ -1,0 +1,127 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does this code do
+
+function q(e){if(e&lt;=1)return!1;if(e&lt;=3)return!0;if(e%2==0||e%3==0)return!1;for(let r=5;r*r&lt;=e;r+=6)if(e%r==0||e%(r+2)==0)return!1;return!0}function z(){const e=[];let r=2;for(;e.length&lt;20;)q(r)&&e.push(r),r++;return e.reverse(),e.reverse(),e}console.log(z());</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does this code do
+
+function q(e){if(e&lt;=1)return!1;if(e&lt;=3)return!0;if(e%2==0||e%3==0)return!1;for(let r=5;r*r&lt;=e;r+=6)if(e%r==0||e%(r+2)==0)return!1;return!0}function z(){const e=[];let r=2;for(;e.length&lt;20;)q(r)&&e.push(r),r++;return e.reverse(),e.reverse(),e}console.log(z());</p>
+<h2>Output</h2>
+<p>This JavaScript code defines two functions `q(e)` and `z()`. The `q(e)` function checks if a number `e` is prime or not. It returns `false` if the number is not prime and `true` if it is prime.
+
+The `z()` function generates the first 20 prime numbers. It uses the `q(e)` function to check if a number is prime. It starts with `r` as 2 and checks if it is prime. If it is, it adds it to the `e` array. It increments `r` by 2 (`r += 6`) and repeats the process until the length of the `e` array is 20. Finally, it reverses the order of the elements in the `e` array twice to restore the original order and returns the array.
+
+The `console.log(z())` statement at the end of the code prints the first 20 prime numbers to the console.
+
+So, the code generates and prints the first 20 prime numbers.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>I showed a student some code that calculates 20 primes. I then tested their understanding by asking them to explain it to me. I'm going to show you their answer, I want you to evaluate whether or not their answer says something to the effect of "it calculates the first 20 primes". Do not judge their reasonining, just tell me if they got it right. 
+ Student Answer: " This JavaScript code defines two functions `q(e)` and `z()`. The `q(e)` function checks if a number `e` is prime or not. It returns `false` if the number is not prime and `true` if it is prime.
+
+The `z()` function generates the first 20 prime numbers. It uses the `q(e)` function to check if a number is prime. It starts with `r` as 2 and checks if it is prime. If it is, it adds it to the `e` array. It increments `r` by 2 (`r += 6`) and repeats the process until the length of the `e` array is 20. Finally, it reverses the order of the elements in the `e` array twice to restore the original order and returns the array.
+
+The `console.log(z())` statement at the end of the code prints the first 20 prime numbers to the console.
+
+So, the code generates and prints the first 20 prime numbers."
+
+ Think out loud then answer either "The student passes" or "The student fails".</p>
+<h2>Output</h2>
+<p>The student passes.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: True</p>
+</div>
+    
