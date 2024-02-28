@@ -1,0 +1,148 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h2>Output</h2>
+<p>Sure, let's break down the expression `-~++*x--` step by step:
+
+1. `*x--`: This expression dereferences the pointer `x` and then decrements the value of `x`. However, since we're ignoring side effects, we're only interested in the value at the memory location `x` points to, not the decrement operation.
+
+2. `++*x--`: This expression increments the value at the memory location `x` points to. Again, we're ignoring the side effect of the decrement operation on `x`.
+
+3. `~++*x--`: The tilde `~` is a bitwise NOT operator. It flips all the bits of the number. However, it's applied after the increment operation.
+
+4. `-~++*x--`: The minus `-` sign changes the sign of the number. It's applied after the bitwise NOT operation.
+
+So, in simplest form, the expression `-~++*x--` could be broken down as follows:
+
+1. Take the value at the memory location `x` points to.
+2. Increment that value.
+3. Flip all the bits of the incremented value.
+4. Change the sign of the result.
+
+In summary, the expression `-~++*x--` increments the value at the memory location `x` points to, then performs a bitwise NOT operation on the incremented value, and finally changes the sign of the result. However, this is a somewhat complex expression and its actual result would depend on the specific value stored at the memory location `x` points to.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Below is a student's answer to a question about what a particular C expression evaluates to: Sure, let's break down the expression `-~++*x--` step by step:
+
+1. `*x--`: This expression dereferences the pointer `x` and then decrements the value of `x`. However, since we're ignoring side effects, we're only interested in the value at the memory location `x` points to, not the decrement operation.
+
+2. `++*x--`: This expression increments the value at the memory location `x` points to. Again, we're ignoring the side effect of the decrement operation on `x`.
+
+3. `~++*x--`: The tilde `~` is a bitwise NOT operator. It flips all the bits of the number. However, it's applied after the increment operation.
+
+4. `-~++*x--`: The minus `-` sign changes the sign of the number. It's applied after the bitwise NOT operation.
+
+So, in simplest form, the expression `-~++*x--` could be broken down as follows:
+
+1. Take the value at the memory location `x` points to.
+2. Increment that value.
+3. Flip all the bits of the incremented value.
+4. Change the sign of the result.
+
+In summary, the expression `-~++*x--` increments the value at the memory location `x` points to, then performs a bitwise NOT operation on the incremented value, and finally changes the sign of the result. However, this is a somewhat complex expression and its actual result would depend on the specific value stored at the memory location `x` points to.
+
+Does the student's final answer say that the expression evaluates to *x+2?
+
+Ignore their reasoning. Just look at the final answer, if they say **EXPLICITLY** that the answer is *x+2. Giving something that's equal but more complicated is wrong. 
+
+If the answer is correct say "The student passes" otherwise "The student fails".</p>
+<h2>Output</h2>
+<p>The student fails.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: False</p>
+</div>
+    

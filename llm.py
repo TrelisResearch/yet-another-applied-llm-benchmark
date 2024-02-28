@@ -20,6 +20,7 @@ import requests
 import json
 import pickle
 import time
+import argparse
 
 # Update imports with CustomOpenAIModel
 from llms.runpod_model import CustomOpenAIModel
@@ -40,7 +41,7 @@ class LLM:
             self.model = CustomOpenAIModel(name)
         elif 'openchat_3.5' in name:
             self.model = CustomOpenAIModel(name)
-        elif 'Mistral-7B-Instruct-v0.1-GGUF' in name:
+        elif 'Mixtral-8x7B-Instruct-v0.1' in name:
             self.model = CustomOpenAIModel(name)
         elif 'Mistral-7B-Instruct-v0.1-AWQ' in name:
             self.model = CustomOpenAIModel(name)
@@ -78,7 +79,7 @@ class LLM:
         else:
             self.cache = {}
 
-    def __call__(self, conversation, add_image=None, max_tokens=None, skip_cache=False):
+    def __call__(self, conversation, add_image=None, max_tokens=4096, skip_cache=False):
         if type(conversation) == str:
             conversation = [conversation]
 
@@ -111,9 +112,20 @@ class LLM:
         
         return response
 
-# llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
-llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# Create the parser
+parser = argparse.ArgumentParser(description='Run LLM with optional test LLM argument.')
 
+# Add an argument
+parser.add_argument('--test_llm', type=str, help='The test LLM to use', default="")
+
+# Parse the arguments
+args = parser.parse_args()
+
+llm = LLM("Mixtral-8x7B-Instruct-v0.1-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("Mixtral-8x7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("gpt-3.5-turbo", override_hparams={'temperature': 0.1})
 #llm = LLM("command")
 # llm = LLM("gpt-4-1106-preview")

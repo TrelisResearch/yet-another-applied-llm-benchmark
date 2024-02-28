@@ -1,0 +1,721 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_1"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Write a c program that calculates the crc32 hash of the string "correct horse battery staple" and prints it to stdout. Dont call any builtin crc32 functions.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write a c program that calculates the crc32 hash of the string "correct horse battery staple" and prints it to stdout. Dont call any builtin crc32 functions.</p>
+<h2>Output</h2>
+<p>Sure, here's a simple CRC32 implementation in C. This program uses the standard CRC32 polynomial (0xEDB88320) and starts with the initial value 0xFFFFFFFF. The string "correct horse battery staple" is hashed and the result is printed to stdout.
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+
+<span class="kt">uint32_t</span><span class="w"> </span><span class="nf">crc32</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">crc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">table</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="mh">0x00000000</span><span class="p">,</span><span class="w"> </span><span class="mh">0x77073096</span><span class="p">,</span><span class="w"> </span><span class="mh">0xee0e612c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x990951ba</span><span class="p">,</span><span class="w"> </span><span class="mh">0x076dc419</span><span class="p">,</span><span class="w"> </span><span class="mh">0x706af48f</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xe963a535</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9e6495a3</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0edb8832</span><span class="p">,</span><span class="w"> </span><span class="mh">0x79dcb8a4</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe0d5e91e</span><span class="p">,</span><span class="w"> </span><span class="mh">0x97d2d988</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x09b64c2b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7eb17cbd</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe7b82d07</span><span class="p">,</span><span class="w"> </span><span class="mh">0x90bf1d91</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1db71064</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6ab020f2</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xf3b97148</span><span class="p">,</span><span class="w"> </span><span class="mh">0x84be41de</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1adad47d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6ddde4eb</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf4d4b551</span><span class="p">,</span><span class="w"> </span><span class="mh">0x83d385c7</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x136c9856</span><span class="p">,</span><span class="w"> </span><span class="mh">0x646ba8c0</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfd62f97a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8a65c9ec</span><span class="p">,</span><span class="w"> </span><span class="mh">0x14015c4f</span><span class="p">,</span><span class="w"> </span><span class="mh">0x63066cd9</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xfa0f3d63</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8d080df5</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3b6e20c8</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4c69105e</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd56041e4</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa2677172</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x3c03e4d1</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4b04d447</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd20d85fd</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa50ab56b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x35b5a8fa</span><span class="p">,</span><span class="w"> </span><span class="mh">0x42b2986c</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xdbbbc9d6</span><span class="p">,</span><span class="w"> </span><span class="mh">0xacbcf940</span><span class="p">,</span><span class="w"> </span><span class="mh">0x32d86ce3</span><span class="p">,</span><span class="w"> </span><span class="mh">0x45df5c75</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdcd60dcf</span><span class="p">,</span><span class="w"> </span><span class="mh">0xabd13d59</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x26d930ac</span><span class="p">,</span><span class="w"> </span><span class="mh">0x51de003a</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc8d75180</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbfd06116</span><span class="p">,</span><span class="w"> </span><span class="mh">0x21b4f4b5</span><span class="p">,</span><span class="w"> </span><span class="mh">0x56b3c423</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xcfba9599</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb8bda50f</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2802b89e</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5f058808</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc60cd9b2</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb10be924</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x2f6f7c87</span><span class="p">,</span><span class="w"> </span><span class="mh">0x58684c11</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc1611dab</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb6662d3d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x76dc4190</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01db7106</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x98d220bc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xefd5102a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x71b18589</span><span class="p">,</span><span class="w"> </span><span class="mh">0x06b6b51f</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9fbfe4a5</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe8b8d433</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x7807c9a2</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0f00f934</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9609a88e</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe10e9818</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7f6a0dbb</span><span class="p">,</span><span class="w"> </span><span class="mh">0x086d3d2d</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x91646c97</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe6635c01</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6b6b51f4</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1c6c6162</span><span class="p">,</span><span class="w"> </span><span class="mh">0x856530d8</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf262004e</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x6c0695ed</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1b01a57b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8208f4c1</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf50fc457</span><span class="p">,</span><span class="w"> </span><span class="mh">0x65b0d9c6</span><span class="p">,</span><span class="w"> </span><span class="mh">0x12b7e950</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x8bbeb8ea</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfcb9887c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x62dd1ddf</span><span class="p">,</span><span class="w"> </span><span class="mh">0x15da2d49</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8cd37cf3</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfbd44c65</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x4db26158</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3ab551ce</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa3bc0074</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd4bb30e2</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4adfa541</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3dd895d7</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xa4d1c46d</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd3d6f4fb</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4369e96a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x346ed9fc</span><span class="p">,</span><span class="w"> </span><span class="mh">0xad678846</span><span class="p">,</span><span class="w"> </span><span class="mh">0xda60b8d0</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x44042d73</span><span class="p">,</span><span class="w"> </span><span class="mh">0x33031de5</span><span class="p">,</span><span class="w"> </span><span class="mh">0xaa0a4c5f</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdd0d7cc9</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5005713c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x270241aa</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xbe0b1010</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc90c2086</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5768b525</span><span class="p">,</span><span class="w"> </span><span class="mh">0x206f85b3</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb966d409</span><span class="p">,</span><span class="w"> </span><span class="mh">0xce61e49f</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x5edef90e</span><span class="p">,</span><span class="w"> </span><span class="mh">0x29d9c998</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb0d09822</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc7d7a8b4</span><span class="p">,</span><span class="w"> </span><span class="mh">0x59b33d17</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2eb40d81</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xb7bd5c3b</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc0ba6cad</span><span class="p">,</span><span class="w"> </span><span class="mh">0xedb88320</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9abfb3b6</span><span class="p">,</span><span class="w"> </span><span class="mh">0x03b6e20c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x74b1d29a</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xead54739</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9dd277af</span><span class="p">,</span><span class="w"> </span><span class="mh">0x04db2615</span><span class="p">,</span><span class="w"> </span><span class="mh">0x73dc1683</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe3630b12</span><span class="p">,</span><span class="w"> </span><span class="mh">0x94643b84</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x0d6d6a3e</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7a6a5aa8</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe40ecf0b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9309ff9d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0a00ae27</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7d079eb1</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xf00f9344</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8708a3d2</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1e01f268</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6906c2fe</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf762575d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x806567cb</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x196c3671</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6e6b06e7</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfed41b76</span><span class="p">,</span><span class="w"> </span><span class="mh">0x89d32be0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x10da7a5a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x67dd4acc</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xf9b9df6f</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8ebeeff9</span><span class="p">,</span><span class="w"> </span><span class="mh">0x17b7be43</span><span class="p">,</span><span class="w"> </span><span class="mh">0x60b08ed5</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd6d6a3e8</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa1d1937e</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x38d8c2c4</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4fdff252</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd1bb67f1</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa6bc5767</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3fb506dd</span><span class="p">,</span><span class="w"> </span><span class="mh">0x48b2364b</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xd80d2bda</span><span class="p">,</span><span class="w"> </span><span class="mh">0xaf0a1b4c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x36034af6</span><span class="p">,</span><span class="w"> </span><span class="mh">0x41047a60</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdf60efc3</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa867df55</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x316e8eef</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4669be79</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcb61b38c</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbc66831a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x256fd2a0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5268e236</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xcc0c7795</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbb0b4703</span><span class="p">,</span><span class="w"> </span><span class="mh">0x220216b9</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5505262f</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc5ba3bbe</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb2bd0b28</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x2bb45a92</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5cb36a04</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc2d7ffa7</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb5d0cf31</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2cd99e8b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5bdeae1d</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x9b64c2b0</span><span class="p">,</span><span class="w"> </span><span class="mh">0xec63f226</span><span class="p">,</span><span class="w"> </span><span class="mh">0x756aa39c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x026d930a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x9c0906a9</span><span class="p">,</span><span class="w"> </span><span class="mh">0xeb0e363f</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x72076785</span><span class="p">,</span><span class="w"> </span><span class="mh">0x05005713</span><span class="p">,</span><span class="w"> </span><span class="mh">0x95bf4a82</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe2b87a14</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7bb12bae</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0cb61b38</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x92d28e9b</span><span class="p">,</span><span class="w"> </span><span class="mh">0xe5d5be0d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x7cdcefb7</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0bdbdf21</span><span class="p">,</span><span class="w"> </span><span class="mh">0x86d3d2d4</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf1d4e242</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x68ddb3f8</span><span class="p">,</span><span class="w"> </span><span class="mh">0x1fda836e</span><span class="p">,</span><span class="w"> </span><span class="mh">0x81be16cd</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf6b9265b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x6fb077e1</span><span class="p">,</span><span class="w"> </span><span class="mh">0x18b74777</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x88085ae6</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff0f6a70</span><span class="p">,</span><span class="w"> </span><span class="mh">0x66063bca</span><span class="p">,</span><span class="w"> </span><span class="mh">0x11010b5c</span><span class="p">,</span><span class="w"> </span><span class="mh">0x8f659eff</span><span class="p">,</span><span class="w"> </span><span class="mh">0xf862ae69</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x616bffd3</span><span class="p">,</span><span class="w"> </span><span class="mh">0x166ccf45</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa00ae278</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd70dd2ee</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4e048354</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3903b3c2</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xa7672661</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd06016f7</span><span class="p">,</span><span class="w"> </span><span class="mh">0x4969474d</span><span class="p">,</span><span class="w"> </span><span class="mh">0x3e6e77db</span><span class="p">,</span><span class="w"> </span><span class="mh">0xaed16a4a</span><span class="p">,</span><span class="w"> </span><span class="mh">0xd9d65adc</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x40df0b66</span><span class="p">,</span><span class="w"> </span><span class="mh">0x37d83bf0</span><span class="p">,</span><span class="w"> </span><span class="mh">0xa9bcae53</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdebb9ec5</span><span class="p">,</span><span class="w"> </span><span class="mh">0x47b2cf7f</span><span class="p">,</span><span class="w"> </span><span class="mh">0x30b5ffe9</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xbdbdf21c</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcabac28a</span><span class="p">,</span><span class="w"> </span><span class="mh">0x53b39330</span><span class="p">,</span><span class="w"> </span><span class="mh">0x24b4a3a6</span><span class="p">,</span><span class="w"> </span><span class="mh">0xbad03605</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcdd70693</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0x54de5729</span><span class="p">,</span><span class="w"> </span><span class="mh">0x23d967bf</span><span class="p">,</span><span class="w"> </span><span class="mh">0xb3667a2e</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc4614ab8</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5d681b02</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2a6f2b94</span><span class="p">,</span>
+<span class="w">        </span><span class="mh">0xb40bbe37</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc30c8ea1</span><span class="p">,</span><span class="w"> </span><span class="mh">0x5a05df1b</span><span class="p">,</span><span class="w"> </span><span class="mh">0x2d02ef8d</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">;</span><span class="w"> </span><span class="n">buf</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">crc</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">table</span><span class="p">[(</span><span class="n">crc</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mh">0xFFFFFFFF</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;correct horse battery staple&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crc32</span><span class="p">(</span><span class="mh">0xFFFFFFFF</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;CRC32: %08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">crc</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+
+This program should compile and run on any standard C compiler. It calculates the CRC32 hash of the given string and prints it to stdout.</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdint.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+
+<span class="n">uint32_t</span> <span class="n">crc32</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">crc</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">static</span> <span class="n">const</span> <span class="n">uint32_t</span> <span class="n">table</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x00000000</span><span class="p">,</span> <span class="mh">0x77073096</span><span class="p">,</span> <span class="mh">0xee0e612c</span><span class="p">,</span> <span class="mh">0x990951ba</span><span class="p">,</span> <span class="mh">0x076dc419</span><span class="p">,</span> <span class="mh">0x706af48f</span><span class="p">,</span>
+        <span class="mh">0xe963a535</span><span class="p">,</span> <span class="mh">0x9e6495a3</span><span class="p">,</span> <span class="mh">0x0edb8832</span><span class="p">,</span> <span class="mh">0x79dcb8a4</span><span class="p">,</span> <span class="mh">0xe0d5e91e</span><span class="p">,</span> <span class="mh">0x97d2d988</span><span class="p">,</span>
+        <span class="mh">0x09b64c2b</span><span class="p">,</span> <span class="mh">0x7eb17cbd</span><span class="p">,</span> <span class="mh">0xe7b82d07</span><span class="p">,</span> <span class="mh">0x90bf1d91</span><span class="p">,</span> <span class="mh">0x1db71064</span><span class="p">,</span> <span class="mh">0x6ab020f2</span><span class="p">,</span>
+        <span class="mh">0xf3b97148</span><span class="p">,</span> <span class="mh">0x84be41de</span><span class="p">,</span> <span class="mh">0x1adad47d</span><span class="p">,</span> <span class="mh">0x6ddde4eb</span><span class="p">,</span> <span class="mh">0xf4d4b551</span><span class="p">,</span> <span class="mh">0x83d385c7</span><span class="p">,</span>
+        <span class="mh">0x136c9856</span><span class="p">,</span> <span class="mh">0x646ba8c0</span><span class="p">,</span> <span class="mh">0xfd62f97a</span><span class="p">,</span> <span class="mh">0x8a65c9ec</span><span class="p">,</span> <span class="mh">0x14015c4f</span><span class="p">,</span> <span class="mh">0x63066cd9</span><span class="p">,</span>
+        <span class="mh">0xfa0f3d63</span><span class="p">,</span> <span class="mh">0x8d080df5</span><span class="p">,</span> <span class="mh">0x3b6e20c8</span><span class="p">,</span> <span class="mh">0x4c69105e</span><span class="p">,</span> <span class="mh">0xd56041e4</span><span class="p">,</span> <span class="mh">0xa2677172</span><span class="p">,</span>
+        <span class="mh">0x3c03e4d1</span><span class="p">,</span> <span class="mh">0x4b04d447</span><span class="p">,</span> <span class="mh">0xd20d85fd</span><span class="p">,</span> <span class="mh">0xa50ab56b</span><span class="p">,</span> <span class="mh">0x35b5a8fa</span><span class="p">,</span> <span class="mh">0x42b2986c</span><span class="p">,</span>
+        <span class="mh">0xdbbbc9d6</span><span class="p">,</span> <span class="mh">0xacbcf940</span><span class="p">,</span> <span class="mh">0x32d86ce3</span><span class="p">,</span> <span class="mh">0x45df5c75</span><span class="p">,</span> <span class="mh">0xdcd60dcf</span><span class="p">,</span> <span class="mh">0xabd13d59</span><span class="p">,</span>
+        <span class="mh">0x26d930ac</span><span class="p">,</span> <span class="mh">0x51de003a</span><span class="p">,</span> <span class="mh">0xc8d75180</span><span class="p">,</span> <span class="mh">0xbfd06116</span><span class="p">,</span> <span class="mh">0x21b4f4b5</span><span class="p">,</span> <span class="mh">0x56b3c423</span><span class="p">,</span>
+        <span class="mh">0xcfba9599</span><span class="p">,</span> <span class="mh">0xb8bda50f</span><span class="p">,</span> <span class="mh">0x2802b89e</span><span class="p">,</span> <span class="mh">0x5f058808</span><span class="p">,</span> <span class="mh">0xc60cd9b2</span><span class="p">,</span> <span class="mh">0xb10be924</span><span class="p">,</span>
+        <span class="mh">0x2f6f7c87</span><span class="p">,</span> <span class="mh">0x58684c11</span><span class="p">,</span> <span class="mh">0xc1611dab</span><span class="p">,</span> <span class="mh">0xb6662d3d</span><span class="p">,</span> <span class="mh">0x76dc4190</span><span class="p">,</span> <span class="mh">0x01db7106</span><span class="p">,</span>
+        <span class="mh">0x98d220bc</span><span class="p">,</span> <span class="mh">0xefd5102a</span><span class="p">,</span> <span class="mh">0x71b18589</span><span class="p">,</span> <span class="mh">0x06b6b51f</span><span class="p">,</span> <span class="mh">0x9fbfe4a5</span><span class="p">,</span> <span class="mh">0xe8b8d433</span><span class="p">,</span>
+        <span class="mh">0x7807c9a2</span><span class="p">,</span> <span class="mh">0x0f00f934</span><span class="p">,</span> <span class="mh">0x9609a88e</span><span class="p">,</span> <span class="mh">0xe10e9818</span><span class="p">,</span> <span class="mh">0x7f6a0dbb</span><span class="p">,</span> <span class="mh">0x086d3d2d</span><span class="p">,</span>
+        <span class="mh">0x91646c97</span><span class="p">,</span> <span class="mh">0xe6635c01</span><span class="p">,</span> <span class="mh">0x6b6b51f4</span><span class="p">,</span> <span class="mh">0x1c6c6162</span><span class="p">,</span> <span class="mh">0x856530d8</span><span class="p">,</span> <span class="mh">0xf262004e</span><span class="p">,</span>
+        <span class="mh">0x6c0695ed</span><span class="p">,</span> <span class="mh">0x1b01a57b</span><span class="p">,</span> <span class="mh">0x8208f4c1</span><span class="p">,</span> <span class="mh">0xf50fc457</span><span class="p">,</span> <span class="mh">0x65b0d9c6</span><span class="p">,</span> <span class="mh">0x12b7e950</span><span class="p">,</span>
+        <span class="mh">0x8bbeb8ea</span><span class="p">,</span> <span class="mh">0xfcb9887c</span><span class="p">,</span> <span class="mh">0x62dd1ddf</span><span class="p">,</span> <span class="mh">0x15da2d49</span><span class="p">,</span> <span class="mh">0x8cd37cf3</span><span class="p">,</span> <span class="mh">0xfbd44c65</span><span class="p">,</span>
+        <span class="mh">0x4db26158</span><span class="p">,</span> <span class="mh">0x3ab551ce</span><span class="p">,</span> <span class="mh">0xa3bc0074</span><span class="p">,</span> <span class="mh">0xd4bb30e2</span><span class="p">,</span> <span class="mh">0x4adfa541</span><span class="p">,</span> <span class="mh">0x3dd895d7</span><span class="p">,</span>
+        <span class="mh">0xa4d1c46d</span><span class="p">,</span> <span class="mh">0xd3d6f4fb</span><span class="p">,</span> <span class="mh">0x4369e96a</span><span class="p">,</span> <span class="mh">0x346ed9fc</span><span class="p">,</span> <span class="mh">0xad678846</span><span class="p">,</span> <span class="mh">0xda60b8d0</span><span class="p">,</span>
+        <span class="mh">0x44042d73</span><span class="p">,</span> <span class="mh">0x33031de5</span><span class="p">,</span> <span class="mh">0xaa0a4c5f</span><span class="p">,</span> <span class="mh">0xdd0d7cc9</span><span class="p">,</span> <span class="mh">0x5005713c</span><span class="p">,</span> <span class="mh">0x270241aa</span><span class="p">,</span>
+        <span class="mh">0xbe0b1010</span><span class="p">,</span> <span class="mh">0xc90c2086</span><span class="p">,</span> <span class="mh">0x5768b525</span><span class="p">,</span> <span class="mh">0x206f85b3</span><span class="p">,</span> <span class="mh">0xb966d409</span><span class="p">,</span> <span class="mh">0xce61e49f</span><span class="p">,</span>
+        <span class="mh">0x5edef90e</span><span class="p">,</span> <span class="mh">0x29d9c998</span><span class="p">,</span> <span class="mh">0xb0d09822</span><span class="p">,</span> <span class="mh">0xc7d7a8b4</span><span class="p">,</span> <span class="mh">0x59b33d17</span><span class="p">,</span> <span class="mh">0x2eb40d81</span><span class="p">,</span>
+        <span class="mh">0xb7bd5c3b</span><span class="p">,</span> <span class="mh">0xc0ba6cad</span><span class="p">,</span> <span class="mh">0xedb88320</span><span class="p">,</span> <span class="mh">0x9abfb3b6</span><span class="p">,</span> <span class="mh">0x03b6e20c</span><span class="p">,</span> <span class="mh">0x74b1d29a</span><span class="p">,</span>
+        <span class="mh">0xead54739</span><span class="p">,</span> <span class="mh">0x9dd277af</span><span class="p">,</span> <span class="mh">0x04db2615</span><span class="p">,</span> <span class="mh">0x73dc1683</span><span class="p">,</span> <span class="mh">0xe3630b12</span><span class="p">,</span> <span class="mh">0x94643b84</span><span class="p">,</span>
+        <span class="mh">0x0d6d6a3e</span><span class="p">,</span> <span class="mh">0x7a6a5aa8</span><span class="p">,</span> <span class="mh">0xe40ecf0b</span><span class="p">,</span> <span class="mh">0x9309ff9d</span><span class="p">,</span> <span class="mh">0x0a00ae27</span><span class="p">,</span> <span class="mh">0x7d079eb1</span><span class="p">,</span>
+        <span class="mh">0xf00f9344</span><span class="p">,</span> <span class="mh">0x8708a3d2</span><span class="p">,</span> <span class="mh">0x1e01f268</span><span class="p">,</span> <span class="mh">0x6906c2fe</span><span class="p">,</span> <span class="mh">0xf762575d</span><span class="p">,</span> <span class="mh">0x806567cb</span><span class="p">,</span>
+        <span class="mh">0x196c3671</span><span class="p">,</span> <span class="mh">0x6e6b06e7</span><span class="p">,</span> <span class="mh">0xfed41b76</span><span class="p">,</span> <span class="mh">0x89d32be0</span><span class="p">,</span> <span class="mh">0x10da7a5a</span><span class="p">,</span> <span class="mh">0x67dd4acc</span><span class="p">,</span>
+        <span class="mh">0xf9b9df6f</span><span class="p">,</span> <span class="mh">0x8ebeeff9</span><span class="p">,</span> <span class="mh">0x17b7be43</span><span class="p">,</span> <span class="mh">0x60b08ed5</span><span class="p">,</span> <span class="mh">0xd6d6a3e8</span><span class="p">,</span> <span class="mh">0xa1d1937e</span><span class="p">,</span>
+        <span class="mh">0x38d8c2c4</span><span class="p">,</span> <span class="mh">0x4fdff252</span><span class="p">,</span> <span class="mh">0xd1bb67f1</span><span class="p">,</span> <span class="mh">0xa6bc5767</span><span class="p">,</span> <span class="mh">0x3fb506dd</span><span class="p">,</span> <span class="mh">0x48b2364b</span><span class="p">,</span>
+        <span class="mh">0xd80d2bda</span><span class="p">,</span> <span class="mh">0xaf0a1b4c</span><span class="p">,</span> <span class="mh">0x36034af6</span><span class="p">,</span> <span class="mh">0x41047a60</span><span class="p">,</span> <span class="mh">0xdf60efc3</span><span class="p">,</span> <span class="mh">0xa867df55</span><span class="p">,</span>
+        <span class="mh">0x316e8eef</span><span class="p">,</span> <span class="mh">0x4669be79</span><span class="p">,</span> <span class="mh">0xcb61b38c</span><span class="p">,</span> <span class="mh">0xbc66831a</span><span class="p">,</span> <span class="mh">0x256fd2a0</span><span class="p">,</span> <span class="mh">0x5268e236</span><span class="p">,</span>
+        <span class="mh">0xcc0c7795</span><span class="p">,</span> <span class="mh">0xbb0b4703</span><span class="p">,</span> <span class="mh">0x220216b9</span><span class="p">,</span> <span class="mh">0x5505262f</span><span class="p">,</span> <span class="mh">0xc5ba3bbe</span><span class="p">,</span> <span class="mh">0xb2bd0b28</span><span class="p">,</span>
+        <span class="mh">0x2bb45a92</span><span class="p">,</span> <span class="mh">0x5cb36a04</span><span class="p">,</span> <span class="mh">0xc2d7ffa7</span><span class="p">,</span> <span class="mh">0xb5d0cf31</span><span class="p">,</span> <span class="mh">0x2cd99e8b</span><span class="p">,</span> <span class="mh">0x5bdeae1d</span><span class="p">,</span>
+        <span class="mh">0x9b64c2b0</span><span class="p">,</span> <span class="mh">0xec63f226</span><span class="p">,</span> <span class="mh">0x756aa39c</span><span class="p">,</span> <span class="mh">0x026d930a</span><span class="p">,</span> <span class="mh">0x9c0906a9</span><span class="p">,</span> <span class="mh">0xeb0e363f</span><span class="p">,</span>
+        <span class="mh">0x72076785</span><span class="p">,</span> <span class="mh">0x05005713</span><span class="p">,</span> <span class="mh">0x95bf4a82</span><span class="p">,</span> <span class="mh">0xe2b87a14</span><span class="p">,</span> <span class="mh">0x7bb12bae</span><span class="p">,</span> <span class="mh">0x0cb61b38</span><span class="p">,</span>
+        <span class="mh">0x92d28e9b</span><span class="p">,</span> <span class="mh">0xe5d5be0d</span><span class="p">,</span> <span class="mh">0x7cdcefb7</span><span class="p">,</span> <span class="mh">0x0bdbdf21</span><span class="p">,</span> <span class="mh">0x86d3d2d4</span><span class="p">,</span> <span class="mh">0xf1d4e242</span><span class="p">,</span>
+        <span class="mh">0x68ddb3f8</span><span class="p">,</span> <span class="mh">0x1fda836e</span><span class="p">,</span> <span class="mh">0x81be16cd</span><span class="p">,</span> <span class="mh">0xf6b9265b</span><span class="p">,</span> <span class="mh">0x6fb077e1</span><span class="p">,</span> <span class="mh">0x18b74777</span><span class="p">,</span>
+        <span class="mh">0x88085ae6</span><span class="p">,</span> <span class="mh">0xff0f6a70</span><span class="p">,</span> <span class="mh">0x66063bca</span><span class="p">,</span> <span class="mh">0x11010b5c</span><span class="p">,</span> <span class="mh">0x8f659eff</span><span class="p">,</span> <span class="mh">0xf862ae69</span><span class="p">,</span>
+        <span class="mh">0x616bffd3</span><span class="p">,</span> <span class="mh">0x166ccf45</span><span class="p">,</span> <span class="mh">0xa00ae278</span><span class="p">,</span> <span class="mh">0xd70dd2ee</span><span class="p">,</span> <span class="mh">0x4e048354</span><span class="p">,</span> <span class="mh">0x3903b3c2</span><span class="p">,</span>
+        <span class="mh">0xa7672661</span><span class="p">,</span> <span class="mh">0xd06016f7</span><span class="p">,</span> <span class="mh">0x4969474d</span><span class="p">,</span> <span class="mh">0x3e6e77db</span><span class="p">,</span> <span class="mh">0xaed16a4a</span><span class="p">,</span> <span class="mh">0xd9d65adc</span><span class="p">,</span>
+        <span class="mh">0x40df0b66</span><span class="p">,</span> <span class="mh">0x37d83bf0</span><span class="p">,</span> <span class="mh">0xa9bcae53</span><span class="p">,</span> <span class="mh">0xdebb9ec5</span><span class="p">,</span> <span class="mh">0x47b2cf7f</span><span class="p">,</span> <span class="mh">0x30b5ffe9</span><span class="p">,</span>
+        <span class="mh">0xbdbdf21c</span><span class="p">,</span> <span class="mh">0xcabac28a</span><span class="p">,</span> <span class="mh">0x53b39330</span><span class="p">,</span> <span class="mh">0x24b4a3a6</span><span class="p">,</span> <span class="mh">0xbad03605</span><span class="p">,</span> <span class="mh">0xcdd70693</span><span class="p">,</span>
+        <span class="mh">0x54de5729</span><span class="p">,</span> <span class="mh">0x23d967bf</span><span class="p">,</span> <span class="mh">0xb3667a2e</span><span class="p">,</span> <span class="mh">0xc4614ab8</span><span class="p">,</span> <span class="mh">0x5d681b02</span><span class="p">,</span> <span class="mh">0x2a6f2b94</span><span class="p">,</span>
+        <span class="mh">0xb40bbe37</span><span class="p">,</span> <span class="mh">0xc30c8ea1</span><span class="p">,</span> <span class="mh">0x5a05df1b</span><span class="p">,</span> <span class="mh">0x2d02ef8d</span>
+    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(;</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span> <span class="n">buf</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crc</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="n">table</span><span class="p">[(</span><span class="n">crc</span> <span class="o">^</span> <span class="o">*</span><span class="n">buf</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">crc</span> <span class="o">^</span> <span class="mh">0xFFFFFFFF</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;correct horse battery staple&quot;</span><span class="p">;</span>
+    <span class="n">uint32_t</span> <span class="n">crc</span> <span class="o">=</span> <span class="n">crc32</span><span class="p">(</span><span class="mh">0xFFFFFFFF</span><span class="p">,</span> <span class="nb">str</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;CRC32: </span><span class="si">%08X</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">crc</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdint.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+
+<span class="n">uint32_t</span> <span class="n">crc32</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">crc</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">buf</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">static</span> <span class="n">const</span> <span class="n">uint32_t</span> <span class="n">table</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mh">0x00000000</span><span class="p">,</span> <span class="mh">0x77073096</span><span class="p">,</span> <span class="mh">0xee0e612c</span><span class="p">,</span> <span class="mh">0x990951ba</span><span class="p">,</span> <span class="mh">0x076dc419</span><span class="p">,</span> <span class="mh">0x706af48f</span><span class="p">,</span>
+        <span class="mh">0xe963a535</span><span class="p">,</span> <span class="mh">0x9e6495a3</span><span class="p">,</span> <span class="mh">0x0edb8832</span><span class="p">,</span> <span class="mh">0x79dcb8a4</span><span class="p">,</span> <span class="mh">0xe0d5e91e</span><span class="p">,</span> <span class="mh">0x97d2d988</span><span class="p">,</span>
+        <span class="mh">0x09b64c2b</span><span class="p">,</span> <span class="mh">0x7eb17cbd</span><span class="p">,</span> <span class="mh">0xe7b82d07</span><span class="p">,</span> <span class="mh">0x90bf1d91</span><span class="p">,</span> <span class="mh">0x1db71064</span><span class="p">,</span> <span class="mh">0x6ab020f2</span><span class="p">,</span>
+        <span class="mh">0xf3b97148</span><span class="p">,</span> <span class="mh">0x84be41de</span><span class="p">,</span> <span class="mh">0x1adad47d</span><span class="p">,</span> <span class="mh">0x6ddde4eb</span><span class="p">,</span> <span class="mh">0xf4d4b551</span><span class="p">,</span> <span class="mh">0x83d385c7</span><span class="p">,</span>
+        <span class="mh">0x136c9856</span><span class="p">,</span> <span class="mh">0x646ba8c0</span><span class="p">,</span> <span class="mh">0xfd62f97a</span><span class="p">,</span> <span class="mh">0x8a65c9ec</span><span class="p">,</span> <span class="mh">0x14015c4f</span><span class="p">,</span> <span class="mh">0x63066cd9</span><span class="p">,</span>
+        <span class="mh">0xfa0f3d63</span><span class="p">,</span> <span class="mh">0x8d080df5</span><span class="p">,</span> <span class="mh">0x3b6e20c8</span><span class="p">,</span> <span class="mh">0x4c69105e</span><span class="p">,</span> <span class="mh">0xd56041e4</span><span class="p">,</span> <span class="mh">0xa2677172</span><span class="p">,</span>
+        <span class="mh">0x3c03e4d1</span><span class="p">,</span> <span class="mh">0x4b04d447</span><span class="p">,</span> <span class="mh">0xd20d85fd</span><span class="p">,</span> <span class="mh">0xa50ab56b</span><span class="p">,</span> <span class="mh">0x35b5a8fa</span><span class="p">,</span> <span class="mh">0x42b2986c</span><span class="p">,</span>
+        <span class="mh">0xdbbbc9d6</span><span class="p">,</span> <span class="mh">0xacbcf940</span><span class="p">,</span> <span class="mh">0x32d86ce3</span><span class="p">,</span> <span class="mh">0x45df5c75</span><span class="p">,</span> <span class="mh">0xdcd60dcf</span><span class="p">,</span> <span class="mh">0xabd13d59</span><span class="p">,</span>
+        <span class="mh">0x26d930ac</span><span class="p">,</span> <span class="mh">0x51de003a</span><span class="p">,</span> <span class="mh">0xc8d75180</span><span class="p">,</span> <span class="mh">0xbfd06116</span><span class="p">,</span> <span class="mh">0x21b4f4b5</span><span class="p">,</span> <span class="mh">0x56b3c423</span><span class="p">,</span>
+        <span class="mh">0xcfba9599</span><span class="p">,</span> <span class="mh">0xb8bda50f</span><span class="p">,</span> <span class="mh">0x2802b89e</span><span class="p">,</span> <span class="mh">0x5f058808</span><span class="p">,</span> <span class="mh">0xc60cd9b2</span><span class="p">,</span> <span class="mh">0xb10be924</span><span class="p">,</span>
+        <span class="mh">0x2f6f7c87</span><span class="p">,</span> <span class="mh">0x58684c11</span><span class="p">,</span> <span class="mh">0xc1611dab</span><span class="p">,</span> <span class="mh">0xb6662d3d</span><span class="p">,</span> <span class="mh">0x76dc4190</span><span class="p">,</span> <span class="mh">0x01db7106</span><span class="p">,</span>
+        <span class="mh">0x98d220bc</span><span class="p">,</span> <span class="mh">0xefd5102a</span><span class="p">,</span> <span class="mh">0x71b18589</span><span class="p">,</span> <span class="mh">0x06b6b51f</span><span class="p">,</span> <span class="mh">0x9fbfe4a5</span><span class="p">,</span> <span class="mh">0xe8b8d433</span><span class="p">,</span>
+        <span class="mh">0x7807c9a2</span><span class="p">,</span> <span class="mh">0x0f00f934</span><span class="p">,</span> <span class="mh">0x9609a88e</span><span class="p">,</span> <span class="mh">0xe10e9818</span><span class="p">,</span> <span class="mh">0x7f6a0dbb</span><span class="p">,</span> <span class="mh">0x086d3d2d</span><span class="p">,</span>
+        <span class="mh">0x91646c97</span><span class="p">,</span> <span class="mh">0xe6635c01</span><span class="p">,</span> <span class="mh">0x6b6b51f4</span><span class="p">,</span> <span class="mh">0x1c6c6162</span><span class="p">,</span> <span class="mh">0x856530d8</span><span class="p">,</span> <span class="mh">0xf262004e</span><span class="p">,</span>
+        <span class="mh">0x6c0695ed</span><span class="p">,</span> <span class="mh">0x1b01a57b</span><span class="p">,</span> <span class="mh">0x8208f4c1</span><span class="p">,</span> <span class="mh">0xf50fc457</span><span class="p">,</span> <span class="mh">0x65b0d9c6</span><span class="p">,</span> <span class="mh">0x12b7e950</span><span class="p">,</span>
+        <span class="mh">0x8bbeb8ea</span><span class="p">,</span> <span class="mh">0xfcb9887c</span><span class="p">,</span> <span class="mh">0x62dd1ddf</span><span class="p">,</span> <span class="mh">0x15da2d49</span><span class="p">,</span> <span class="mh">0x8cd37cf3</span><span class="p">,</span> <span class="mh">0xfbd44c65</span><span class="p">,</span>
+        <span class="mh">0x4db26158</span><span class="p">,</span> <span class="mh">0x3ab551ce</span><span class="p">,</span> <span class="mh">0xa3bc0074</span><span class="p">,</span> <span class="mh">0xd4bb30e2</span><span class="p">,</span> <span class="mh">0x4adfa541</span><span class="p">,</span> <span class="mh">0x3dd895d7</span><span class="p">,</span>
+        <span class="mh">0xa4d1c46d</span><span class="p">,</span> <span class="mh">0xd3d6f4fb</span><span class="p">,</span> <span class="mh">0x4369e96a</span><span class="p">,</span> <span class="mh">0x346ed9fc</span><span class="p">,</span> <span class="mh">0xad678846</span><span class="p">,</span> <span class="mh">0xda60b8d0</span><span class="p">,</span>
+        <span class="mh">0x44042d73</span><span class="p">,</span> <span class="mh">0x33031de5</span><span class="p">,</span> <span class="mh">0xaa0a4c5f</span><span class="p">,</span> <span class="mh">0xdd0d7cc9</span><span class="p">,</span> <span class="mh">0x5005713c</span><span class="p">,</span> <span class="mh">0x270241aa</span><span class="p">,</span>
+        <span class="mh">0xbe0b1010</span><span class="p">,</span> <span class="mh">0xc90c2086</span><span class="p">,</span> <span class="mh">0x5768b525</span><span class="p">,</span> <span class="mh">0x206f85b3</span><span class="p">,</span> <span class="mh">0xb966d409</span><span class="p">,</span> <span class="mh">0xce61e49f</span><span class="p">,</span>
+        <span class="mh">0x5edef90e</span><span class="p">,</span> <span class="mh">0x29d9c998</span><span class="p">,</span> <span class="mh">0xb0d09822</span><span class="p">,</span> <span class="mh">0xc7d7a8b4</span><span class="p">,</span> <span class="mh">0x59b33d17</span><span class="p">,</span> <span class="mh">0x2eb40d81</span><span class="p">,</span>
+        <span class="mh">0xb7bd5c3b</span><span class="p">,</span> <span class="mh">0xc0ba6cad</span><span class="p">,</span> <span class="mh">0xedb88320</span><span class="p">,</span> <span class="mh">0x9abfb3b6</span><span class="p">,</span> <span class="mh">0x03b6e20c</span><span class="p">,</span> <span class="mh">0x74b1d29a</span><span class="p">,</span>
+        <span class="mh">0xead54739</span><span class="p">,</span> <span class="mh">0x9dd277af</span><span class="p">,</span> <span class="mh">0x04db2615</span><span class="p">,</span> <span class="mh">0x73dc1683</span><span class="p">,</span> <span class="mh">0xe3630b12</span><span class="p">,</span> <span class="mh">0x94643b84</span><span class="p">,</span>
+        <span class="mh">0x0d6d6a3e</span><span class="p">,</span> <span class="mh">0x7a6a5aa8</span><span class="p">,</span> <span class="mh">0xe40ecf0b</span><span class="p">,</span> <span class="mh">0x9309ff9d</span><span class="p">,</span> <span class="mh">0x0a00ae27</span><span class="p">,</span> <span class="mh">0x7d079eb1</span><span class="p">,</span>
+        <span class="mh">0xf00f9344</span><span class="p">,</span> <span class="mh">0x8708a3d2</span><span class="p">,</span> <span class="mh">0x1e01f268</span><span class="p">,</span> <span class="mh">0x6906c2fe</span><span class="p">,</span> <span class="mh">0xf762575d</span><span class="p">,</span> <span class="mh">0x806567cb</span><span class="p">,</span>
+        <span class="mh">0x196c3671</span><span class="p">,</span> <span class="mh">0x6e6b06e7</span><span class="p">,</span> <span class="mh">0xfed41b76</span><span class="p">,</span> <span class="mh">0x89d32be0</span><span class="p">,</span> <span class="mh">0x10da7a5a</span><span class="p">,</span> <span class="mh">0x67dd4acc</span><span class="p">,</span>
+        <span class="mh">0xf9b9df6f</span><span class="p">,</span> <span class="mh">0x8ebeeff9</span><span class="p">,</span> <span class="mh">0x17b7be43</span><span class="p">,</span> <span class="mh">0x60b08ed5</span><span class="p">,</span> <span class="mh">0xd6d6a3e8</span><span class="p">,</span> <span class="mh">0xa1d1937e</span><span class="p">,</span>
+        <span class="mh">0x38d8c2c4</span><span class="p">,</span> <span class="mh">0x4fdff252</span><span class="p">,</span> <span class="mh">0xd1bb67f1</span><span class="p">,</span> <span class="mh">0xa6bc5767</span><span class="p">,</span> <span class="mh">0x3fb506dd</span><span class="p">,</span> <span class="mh">0x48b2364b</span><span class="p">,</span>
+        <span class="mh">0xd80d2bda</span><span class="p">,</span> <span class="mh">0xaf0a1b4c</span><span class="p">,</span> <span class="mh">0x36034af6</span><span class="p">,</span> <span class="mh">0x41047a60</span><span class="p">,</span> <span class="mh">0xdf60efc3</span><span class="p">,</span> <span class="mh">0xa867df55</span><span class="p">,</span>
+        <span class="mh">0x316e8eef</span><span class="p">,</span> <span class="mh">0x4669be79</span><span class="p">,</span> <span class="mh">0xcb61b38c</span><span class="p">,</span> <span class="mh">0xbc66831a</span><span class="p">,</span> <span class="mh">0x256fd2a0</span><span class="p">,</span> <span class="mh">0x5268e236</span><span class="p">,</span>
+        <span class="mh">0xcc0c7795</span><span class="p">,</span> <span class="mh">0xbb0b4703</span><span class="p">,</span> <span class="mh">0x220216b9</span><span class="p">,</span> <span class="mh">0x5505262f</span><span class="p">,</span> <span class="mh">0xc5ba3bbe</span><span class="p">,</span> <span class="mh">0xb2bd0b28</span><span class="p">,</span>
+        <span class="mh">0x2bb45a92</span><span class="p">,</span> <span class="mh">0x5cb36a04</span><span class="p">,</span> <span class="mh">0xc2d7ffa7</span><span class="p">,</span> <span class="mh">0xb5d0cf31</span><span class="p">,</span> <span class="mh">0x2cd99e8b</span><span class="p">,</span> <span class="mh">0x5bdeae1d</span><span class="p">,</span>
+        <span class="mh">0x9b64c2b0</span><span class="p">,</span> <span class="mh">0xec63f226</span><span class="p">,</span> <span class="mh">0x756aa39c</span><span class="p">,</span> <span class="mh">0x026d930a</span><span class="p">,</span> <span class="mh">0x9c0906a9</span><span class="p">,</span> <span class="mh">0xeb0e363f</span><span class="p">,</span>
+        <span class="mh">0x72076785</span><span class="p">,</span> <span class="mh">0x05005713</span><span class="p">,</span> <span class="mh">0x95bf4a82</span><span class="p">,</span> <span class="mh">0xe2b87a14</span><span class="p">,</span> <span class="mh">0x7bb12bae</span><span class="p">,</span> <span class="mh">0x0cb61b38</span><span class="p">,</span>
+        <span class="mh">0x92d28e9b</span><span class="p">,</span> <span class="mh">0xe5d5be0d</span><span class="p">,</span> <span class="mh">0x7cdcefb7</span><span class="p">,</span> <span class="mh">0x0bdbdf21</span><span class="p">,</span> <span class="mh">0x86d3d2d4</span><span class="p">,</span> <span class="mh">0xf1d4e242</span><span class="p">,</span>
+        <span class="mh">0x68ddb3f8</span><span class="p">,</span> <span class="mh">0x1fda836e</span><span class="p">,</span> <span class="mh">0x81be16cd</span><span class="p">,</span> <span class="mh">0xf6b9265b</span><span class="p">,</span> <span class="mh">0x6fb077e1</span><span class="p">,</span> <span class="mh">0x18b74777</span><span class="p">,</span>
+        <span class="mh">0x88085ae6</span><span class="p">,</span> <span class="mh">0xff0f6a70</span><span class="p">,</span> <span class="mh">0x66063bca</span><span class="p">,</span> <span class="mh">0x11010b5c</span><span class="p">,</span> <span class="mh">0x8f659eff</span><span class="p">,</span> <span class="mh">0xf862ae69</span><span class="p">,</span>
+        <span class="mh">0x616bffd3</span><span class="p">,</span> <span class="mh">0x166ccf45</span><span class="p">,</span> <span class="mh">0xa00ae278</span><span class="p">,</span> <span class="mh">0xd70dd2ee</span><span class="p">,</span> <span class="mh">0x4e048354</span><span class="p">,</span> <span class="mh">0x3903b3c2</span><span class="p">,</span>
+        <span class="mh">0xa7672661</span><span class="p">,</span> <span class="mh">0xd06016f7</span><span class="p">,</span> <span class="mh">0x4969474d</span><span class="p">,</span> <span class="mh">0x3e6e77db</span><span class="p">,</span> <span class="mh">0xaed16a4a</span><span class="p">,</span> <span class="mh">0xd9d65adc</span><span class="p">,</span>
+        <span class="mh">0x40df0b66</span><span class="p">,</span> <span class="mh">0x37d83bf0</span><span class="p">,</span> <span class="mh">0xa9bcae53</span><span class="p">,</span> <span class="mh">0xdebb9ec5</span><span class="p">,</span> <span class="mh">0x47b2cf7f</span><span class="p">,</span> <span class="mh">0x30b5ffe9</span><span class="p">,</span>
+        <span class="mh">0xbdbdf21c</span><span class="p">,</span> <span class="mh">0xcabac28a</span><span class="p">,</span> <span class="mh">0x53b39330</span><span class="p">,</span> <span class="mh">0x24b4a3a6</span><span class="p">,</span> <span class="mh">0xbad03605</span><span class="p">,</span> <span class="mh">0xcdd70693</span><span class="p">,</span>
+        <span class="mh">0x54de5729</span><span class="p">,</span> <span class="mh">0x23d967bf</span><span class="p">,</span> <span class="mh">0xb3667a2e</span><span class="p">,</span> <span class="mh">0xc4614ab8</span><span class="p">,</span> <span class="mh">0x5d681b02</span><span class="p">,</span> <span class="mh">0x2a6f2b94</span><span class="p">,</span>
+        <span class="mh">0xb40bbe37</span><span class="p">,</span> <span class="mh">0xc30c8ea1</span><span class="p">,</span> <span class="mh">0x5a05df1b</span><span class="p">,</span> <span class="mh">0x2d02ef8d</span>
+    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(;</span> <span class="o">*</span><span class="n">buf</span><span class="p">;</span> <span class="n">buf</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">crc</span> <span class="o">=</span> <span class="p">(</span><span class="n">crc</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">^</span> <span class="n">table</span><span class="p">[(</span><span class="n">crc</span> <span class="o">^</span> <span class="o">*</span><span class="n">buf</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">crc</span> <span class="o">^</span> <span class="mh">0xFFFFFFFF</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;correct horse battery staple&quot;</span><span class="p">;</span>
+    <span class="n">uint32_t</span> <span class="n">crc</span> <span class="o">=</span> <span class="n">crc32</span><span class="p">(</span><span class="mh">0xFFFFFFFF</span><span class="p">,</span> <span class="nb">str</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;CRC32: </span><span class="si">%08X</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">crc</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>CRC32: CB7E6E10</code></p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>cb7e6e10</code>: True</p>
+</div>
+    

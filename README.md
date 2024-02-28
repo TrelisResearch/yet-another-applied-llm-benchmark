@@ -247,6 +247,11 @@ And to view the results, you can run:
 ```bash
 open evaluation_examples/index.html
 ```
+If the results are not displayed clearly, you can run:
+```bash
+python generate_report.py
+```
+to regenerate results.
 
 This command will run every single test that's configured on one model.
 It will therefore take some time, and also will cost you a few dollars in

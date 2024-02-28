@@ -9,15 +9,25 @@
             "endpoint": "https://noxh1e30xaiuv1-8080.proxy.runpod.net/v1",
             "slug": "mistralai/Mistral-7B-Instruct-v0.1"
         },
-        "Mistral-7B-Instruct-v0.1-GGUF": {
+        "Mixtral-8x7B-Instruct-v0.1": {
             "api_key": "EMPTY",
             "endpoint": "https://<>-8080.proxy.runpod.net/v1",
-            "slug": "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
-        },  
+            "slug": "mistralai/Mixtral-8x7B-Instruct-v0.1"
+        },
+        "Mixtral-8x7B-Instruct-v0.1-AWQ": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8080.proxy.runpod.net/v1",
+            "slug": "ybelkada/Mixtral-8x7B-Instruct-v0.1-AWQ"
+        },
         "Mistral-7B-Instruct-v0.1-AWQ": {
             "api_key": "EMPTY",
             "endpoint": "https://<>-8080.proxy.runpod.net/v1",
             "slug": "TheBloke/Mistral-7B-Instruct-v0.1-AWQ"
+        },
+        "Mistral-7B-Instruct-v0.1-GGUF": {
+            "api_key": "EMPTY",
+            "endpoint": "https://<>-8080.proxy.runpod.net/v1",
+            "slug": "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
         },
         "openchat_3.5": {
             "api_key": "EMPTY",

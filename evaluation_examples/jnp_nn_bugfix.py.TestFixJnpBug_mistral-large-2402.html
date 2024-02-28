@@ -1,0 +1,583 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Fix the bug in this jnp function. Write out the full correct version of the code.
+
+import jax
+import jax.numpy as jnp
+
+def init_mlp_params(input_size, hidden_size, output_size, key):
+    k1, k2 = jax.random.split(key)
+    # Initialize weights and biases for the first linear layer
+    w1 = jax.random.normal(k1, (hidden_size, input_size)) * jnp.sqrt(2.0 / input_size)
+    b1 = jnp.zeros(hidden_size)
+    # Initialize weights and biases for the second linear layer
+    w2 = jax.random.normal(k2, (output_size, hidden_size)) * jnp.sqrt(2.0 / hidden_size)
+    b2 = jnp.zeros(output_size)
+    return {'w1': w1, 'b1': b1, 'w2': w2, 'b2': b2}
+
+def mlp_apply(params, x):
+    # First linear layer
+    x = jnp.dot(x, params['w1'].T) + params['b1']
+    # Relu activation
+    x = jax.nn.relu(x)
+    # Second linear layer
+    x = jnp.dot(x, params['w2'].T) + params['b2']
+    # Softmax activation
+    return jax.nn.softmax(x, axis=1)
+
+# Example usage:
+key = jax.random.PRNGKey(0)
+params = init_mlp_params(10, 20, 30, key)
+x = jax.random.normal(key, (5, 10)) # random input similar to torch.randn
+y = mlp_apply(params, x)
+print(list(y.flatten().sum(1)))  # The output sum should be very close to [1, 1, 1, 1, 1]</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Fix the bug in this jnp function. Write out the full correct version of the code.
+
+import jax
+import jax.numpy as jnp
+
+def init_mlp_params(input_size, hidden_size, output_size, key):
+    k1, k2 = jax.random.split(key)
+    # Initialize weights and biases for the first linear layer
+    w1 = jax.random.normal(k1, (hidden_size, input_size)) * jnp.sqrt(2.0 / input_size)
+    b1 = jnp.zeros(hidden_size)
+    # Initialize weights and biases for the second linear layer
+    w2 = jax.random.normal(k2, (output_size, hidden_size)) * jnp.sqrt(2.0 / hidden_size)
+    b2 = jnp.zeros(output_size)
+    return {'w1': w1, 'b1': b1, 'w2': w2, 'b2': b2}
+
+def mlp_apply(params, x):
+    # First linear layer
+    x = jnp.dot(x, params['w1'].T) + params['b1']
+    # Relu activation
+    x = jax.nn.relu(x)
+    # Second linear layer
+    x = jnp.dot(x, params['w2'].T) + params['b2']
+    # Softmax activation
+    return jax.nn.softmax(x, axis=1)
+
+# Example usage:
+key = jax.random.PRNGKey(0)
+params = init_mlp_params(10, 20, 30, key)
+x = jax.random.normal(key, (5, 10)) # random input similar to torch.randn
+y = mlp_apply(params, x)
+print(list(y.flatten().sum(1)))  # The output sum should be very close to [1, 1, 1, 1, 1]</p>
+<h2>Output</h2>
+<p>The code you've provided seems to be correct for initializing a simple multi-layer perceptron (MLP) with one hidden layer and applying it to an input. However, the output of the softmax function is a probability distribution, meaning each element in the output will be between 0 and 1, and the sum of each row will be 1. Therefore, the output of `list(y.flatten().sum(1))` should indeed be very close to `[1, 1, 1, 1, 1]`.
+
+If you're experiencing issues, it might be due to numerical instability in the softmax function. To mitigate this, you can use the `jax.nn.log_softmax` function, which applies a logarithm to the softmax output to help with numerical stability. However, this will change the output to log probabilities, so the sum will no longer be close to 1.
+
+Here's the modified code:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="k">def</span> <span class="nf">init_mlp_params</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the first linear layer</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">input_size</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the second linear layer</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="p">(</span><span class="n">output_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">output_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;w1&#39;</span><span class="p">:</span> <span class="n">w1</span><span class="p">,</span> <span class="s1">&#39;b1&#39;</span><span class="p">:</span> <span class="n">b1</span><span class="p">,</span> <span class="s1">&#39;w2&#39;</span><span class="p">:</span> <span class="n">w2</span><span class="p">,</span> <span class="s1">&#39;b2&#39;</span><span class="p">:</span> <span class="n">b2</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># First linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">]</span>
+    <span class="c1"># Relu activation</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Second linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span>
+    <span class="c1"># Log softmax activation</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">init_mlp_params</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># random input similar to torch.randn</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>  <span class="c1"># The output will be log probabilities</span>
+</pre></div></td></tr></table></div>
+
+
+This code should work correctly, but the output will be log probabilities, not probabilities. If you want to check that the output is a valid probability distribution, you should use the original softmax function, not the log softmax function.</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="k">def</span> <span class="nf">init_mlp_params</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the first linear layer</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">input_size</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the second linear layer</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="p">(</span><span class="n">output_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">output_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;w1&#39;</span><span class="p">:</span> <span class="n">w1</span><span class="p">,</span> <span class="s1">&#39;b1&#39;</span><span class="p">:</span> <span class="n">b1</span><span class="p">,</span> <span class="s1">&#39;w2&#39;</span><span class="p">:</span> <span class="n">w2</span><span class="p">,</span> <span class="s1">&#39;b2&#39;</span><span class="p">:</span> <span class="n">b2</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># First linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">]</span>
+    <span class="c1"># Relu activation</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Second linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span>
+    <span class="c1"># Log softmax activation</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">init_mlp_params</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># random input similar to torch.randn</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>  <span class="c1"># The output will be log probabilities</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">import</span> <span class="nn">jax.numpy</span> <span class="k">as</span> <span class="nn">jnp</span>
+
+<span class="k">def</span> <span class="nf">init_mlp_params</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the first linear layer</span>
+    <span class="n">w1</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k1</span><span class="p">,</span> <span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">input_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">input_size</span><span class="p">)</span>
+    <span class="n">b1</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">)</span>
+    <span class="c1"># Initialize weights and biases for the second linear layer</span>
+    <span class="n">w2</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">k2</span><span class="p">,</span> <span class="p">(</span><span class="n">output_size</span><span class="p">,</span> <span class="n">hidden_size</span><span class="p">))</span> <span class="o">*</span> <span class="n">jnp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">hidden_size</span><span class="p">)</span>
+    <span class="n">b2</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">output_size</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;w1&#39;</span><span class="p">:</span> <span class="n">w1</span><span class="p">,</span> <span class="s1">&#39;b1&#39;</span><span class="p">:</span> <span class="n">b1</span><span class="p">,</span> <span class="s1">&#39;w2&#39;</span><span class="p">:</span> <span class="n">w2</span><span class="p">,</span> <span class="s1">&#39;b2&#39;</span><span class="p">:</span> <span class="n">b2</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># First linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b1&#39;</span><span class="p">]</span>
+    <span class="c1"># Relu activation</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c1"># Second linear layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;w2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;b2&#39;</span><span class="p">]</span>
+    <span class="c1"># Log softmax activation</span>
+    <span class="k">return</span> <span class="n">jax</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Example usage:</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">PRNGKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">init_mlp_params</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># random input similar to torch.randn</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">mlp_apply</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>  <span class="c1"># The output will be log probabilities</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>[Array(-4.1551156, dtype=float32), Array(-3.5422955, dtype=float32), Array(-3.559427, dtype=float32), Array(-3.720982, dtype=float32), Array(-2.5133395, dtype=float32), Array(-4.0975595, dtype=float32), Array(-2.9363637, dtype=float32), Array(-3.647161, dtype=float32), Array(-2.275139, dtype=float32), Array(-4.451043, dtype=float32), Array(-3.8313842, dtype=float32), Array(-4.705371, dtype=float32), Array(-5.251462, dtype=float32), Array(-5.5096016, dtype=float32), Array(-3.6122136, dtype=float32), Array(-2.4316008, dtype=float32), Array(-2.4801226, dtype=float32), Array(-2.7956467, dtype=float32), Array(-4.3047276, dtype=float32), Array(-4.584551, dtype=float32), Array(-3.8229585, dtype=float32), Array(-4.029666, dtype=float32), Array(-4.619033, dtype=float32), Array(-5.0892773, dtype=float32), Array(-3.2039933, dtype=float32), Array(-3.7894166, dtype=float32), Array(-3.4182138, dtype=float32), Array(-4.876031, dtype=float32), Array(-3.3622637, dtype=float32), Array(-2.3626904, dtype=float32), Array(-7.5906396, dtype=float32), Array(-2.3046727, dtype=float32), Array(-4.230639, dtype=float32), Array(-4.459672, dtype=float32), Array(-4.5669556, dtype=float32), Array(-5.7758136, dtype=float32), Array(-4.7064133, dtype=float32), Array(-5.8491893, dtype=float32), Array(-1.58083, dtype=float32), Array(-4.1992645, dtype=float32), Array(-3.7701883, dtype=float32), Array(-7.0297546, dtype=float32), Array(-7.2436137, dtype=float32), Array(-8.531839, dtype=float32), Array(-6.404949, dtype=float32), Array(-3.281087, dtype=float32), Array(-2.4155169, dtype=float32), Array(-5.012412, dtype=float32), Array(-5.335994, dtype=float32), Array(-6.5956798, dtype=float32), Array(-2.6426883, dtype=float32), Array(-6.420201, dtype=float32), Array(-5.2273483, dtype=float32), Array(-7.187593, dtype=float32), Array(-4.56723, dtype=float32), Array(-4.5122805, dtype=float32), Array(-4.3816113, dtype=float32), Array(-6.252056, dtype=float32), Array(-3.3193822, dtype=float32), Array(-1.170405, dtype=float32), Array(-3.8166215, dtype=float32), Array(-3.77489, dtype=float32), Array(-3.44315, dtype=float32), Array(-3.8044026, dtype=float32), Array(-3.1513057, dtype=float32), Array(-3.6025622, dtype=float32), Array(-3.304694, dtype=float32), Array(-2.9263616, dtype=float32), Array(-3.2444508, dtype=float32), Array(-2.3627343, dtype=float32), Array(-3.3593545, dtype=float32), Array(-3.552785, dtype=float32), Array(-3.469778, dtype=float32), Array(-5.0265427, dtype=float32), Array(-4.208988, dtype=float32), Array(-3.4485145, dtype=float32), Array(-3.270867, dtype=float32), Array(-3.394911, dtype=float32), Array(-3.9152145, dtype=float32), Array(-3.5489736, dtype=float32), Array(-2.9185452, dtype=float32), Array(-3.631732, dtype=float32), Array(-4.031254, dtype=float32), Array(-4.9595714, dtype=float32), Array(-3.2310543, dtype=float32), Array(-2.9835126, dtype=float32), Array(-3.5414724, dtype=float32), Array(-3.5746117, dtype=float32), Array(-2.9468036, dtype=float32), Array(-3.3672981, dtype=float32), Array(-3.7339473, dtype=float32), Array(-3.2572184, dtype=float32), Array(-3.5065136, dtype=float32), Array(-3.6224756, dtype=float32), Array(-3.267046, dtype=float32), Array(-3.5106397, dtype=float32), Array(-4.969783, dtype=float32), Array(-4.24574, dtype=float32), Array(-3.220703, dtype=float32), Array(-2.8199258, dtype=float32), Array(-3.32595, dtype=float32), Array(-4.8783636, dtype=float32), Array(-2.9525633, dtype=float32), Array(-4.6709857, dtype=float32), Array(-4.2621207, dtype=float32), Array(-2.5560179, dtype=float32), Array(-2.526147, dtype=float32), Array(-3.765393, dtype=float32), Array(-3.3334763, dtype=float32), Array(-4.17276, dtype=float32), Array(-3.0718381, dtype=float32), Array(-3.8276184, dtype=float32), Array(-2.7326477, dtype=float32), Array(-4.4067526, dtype=float32), Array(-4.2685456, dtype=float32), Array(-3.626367, dtype=float32), Array(-3.4029737, dtype=float32), Array(-3.677248, dtype=float32), Array(-2.7372558, dtype=float32), Array(-3.4485798, dtype=float32), Array(-5.184952, dtype=float32), Array(-2.8403533, dtype=float32), Array(-3.7767954, dtype=float32), Array(-3.9381099, dtype=float32), Array(-2.8634193, dtype=float32), Array(-4.32166, dtype=float32), Array(-3.2414339, dtype=float32), Array(-3.9932265, dtype=float32), Array(-2.1361809, dtype=float32), Array(-4.007883, dtype=float32), Array(-2.9667137, dtype=float32), Array(-4.3317766, dtype=float32), Array(-4.451059, dtype=float32), Array(-5.257428, dtype=float32), Array(-4.130802, dtype=float32), Array(-2.7582445, dtype=float32), Array(-3.3387125, dtype=float32), Array(-4.53919, dtype=float32), Array(-5.0723515, dtype=float32), Array(-3.488443, dtype=float32), Array(-2.7027688, dtype=float32), Array(-4.0025144, dtype=float32), Array(-4.308608, dtype=float32), Array(-5.644761, dtype=float32), Array(-3.1619363, dtype=float32), Array(-2.8795006, dtype=float32), Array(-2.91042, dtype=float32), Array(-5.1105566, dtype=float32), Array(-2.4832785, dtype=float32), Array(-3.2001963, dtype=float32)]</code></p>
+<h1>Check if any of the following conditions are true:</h1>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>0.99999</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>1.0</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>1.00000</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>1.0,</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    
