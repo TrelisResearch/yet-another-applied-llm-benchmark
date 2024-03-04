@@ -43,7 +43,7 @@ class LLM:
             self.model = CustomOpenAIModel(name)
         elif 'Mixtral-8x7B-Instruct-v0.1' in name:
             self.model = CustomOpenAIModel(name)
-        elif 'Mistral-7B-Instruct-v0.1-AWQ' in name:
+        elif 'mixtral-instruct-awq' in name:
             self.model = CustomOpenAIModel(name)
         elif 'gemma-7b' in name:
             self.model = CustomOpenAIModel(name)
@@ -114,10 +114,10 @@ class LLM:
         
         return response
 
-llm = LLM("Qwen1.5-7B-Chat-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+# llm = LLM("Qwen1.5-7B-Chat-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("Qwen1.5-7B-Chat", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("gemma-7b", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
-# llm = LLM("Mixtral-8x7B-Instruct-v0.1-AWQ", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
+llm = LLM("mixtral-instruct-awq", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("Mixtral-8x7B-Instruct-v0.1", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("openchat_3.5", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.
 # llm = LLM("mistral-large-2402", override_hparams={'temperature': 0.1}) # For a custom llm via runpod. Model name must match the HuggingFace Repo slug.

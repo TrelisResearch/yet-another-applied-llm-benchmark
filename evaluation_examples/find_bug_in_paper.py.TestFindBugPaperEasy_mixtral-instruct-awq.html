@@ -1,0 +1,278 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p># Setup
+
+Which of the following equations are incorrect according to the specification?
+
+# Notation
+
+A neural network is a function $F(x) = y$ that accepts an input $x \in \mathbb{R}^n$
+and produces an output $y \in \mathbb{R}^m$.
+The model $F$ also implicitly depends on some model parameters $\theta$; in our work
+the model is fixed, so for convenience we don't show the dependence on $\theta$.
+
+In this paper we focus on neural networks used as an $m$-class classifier.
+The output of the network is computed using the softmax function,
+which ensures that the output vector $y$ satisfies
+$0 \le y_i \le 1$ and $y_1 + \dots + y_m = 1$.
+The output vector $y$ is thus treated as a probability distribution, i.e.,
+$y_i$ is treated as the probability that input $x$ has class $i$.
+The classifier assigns the label $C(x) = \arg\max_i F(x)_i$ to the input $x$.
+Let $C^*(x)$ be the correct label of $x$.
+The inputs to the softmax function are called \emph{logits}.
+
+We use the notation from Papernot et al. \cite{distillation}: define $F$ to
+be the full neural network including the softmax function, $Z(x) = z$ to be the output of
+all layers except the softmax (so $z$ are the logits), and
+\begin{equation*}
+F(x) = \softmax(Z(x)) = y.
+\end{equation*}
+A neural network typically \footnote{Most simple networks have this simple
+  linear structure, however other more sophisticated networks have
+  more complicated structures (e.g., ResNet \cite{he2016deep} and Inception \cite{szegedy2015rethinking}).
+  The network architecture does not impact our attacks.}
+consists of layers
+\begin{equation*}
+F = \softmax \circ F_n \circ F_{n-1} \circ \cdots \circ F_1
+\end{equation*}
+where
+\begin{equation*}
+F_i(x)  = \sigma(\theta_i \cdot x) + \hat\theta_i
+\end{equation*}
+for some non-linear activation function $\sigma$, some matrix $\theta_i$ of model
+weights, and some vector $\hat\theta_i$ of model biases. Together $\theta$ and
+$\hat\theta$ make up the model parameters.
+Common choices of $\sigma$
+are tanh \cite{mishkin2015all}, sigmoid, ReLU \cite{maas2013rectifier}, or ELU \cite{clevert2015fast}.
+In this paper we focus primarily on networks that use a ReLU activation function,
+as it currently is the most widely used
+activation function
+\cite{szegedy2015rethinking,springenberg2014striving,mishkin2015all,distillation}.
+
+
+# Specification:
+
+We define an objective function $f$ such that
+$C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$.
+There are many possible choices for $f$:
+
+# The equations
+
+\begin{align*}
+f_{1}(x') &= -\loss_{F,t}(x') + 1\\
+f_{2}(x') &= (\max_{i \ne t}( F(x')_i) - F(x')_t)^+\\
+f_{3}(x') &= \text{softplus}(\max_{i \ne t}(F(x')_i) - F(x')_t)-\log(2)\\
+f_{4}(x') &= (0.5 - F(x')_t)^+\\
+f_{5}(x') &= -\log(2 F(x')_t - 2)\\
+f_{6}(x') &= (\max_{i \ne t}( Z(x')_i) - Z(x')_t)^+\\
+f_{7}(x') &= \text{softplus}(\max_{i \ne t}(Z(x')_i) - Z(x')_t)-\log(2)
+\end{align*}
+where $s$ is the correct classification, $(e)^+$ is short-hand for
+$\max(e,0)$, $\text{softplus}(x) = \log(1+\exp(x))$, and
+$\loss_{F,s}(x)$ is the cross entropy loss for $x$.
+
+# Your task
+
+Consider each equation one by one. End your answer with a python list of numbers [1,2,3,4,5,6,7] for those that are wrong.
+
+Specifically, make sure that $C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$. Think step by step about if this is true for each equation and then give your answer as a python list</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p># Setup
+
+Which of the following equations are incorrect according to the specification?
+
+# Notation
+
+A neural network is a function $F(x) = y$ that accepts an input $x \in \mathbb{R}^n$
+and produces an output $y \in \mathbb{R}^m$.
+The model $F$ also implicitly depends on some model parameters $\theta$; in our work
+the model is fixed, so for convenience we don't show the dependence on $\theta$.
+
+In this paper we focus on neural networks used as an $m$-class classifier.
+The output of the network is computed using the softmax function,
+which ensures that the output vector $y$ satisfies
+$0 \le y_i \le 1$ and $y_1 + \dots + y_m = 1$.
+The output vector $y$ is thus treated as a probability distribution, i.e.,
+$y_i$ is treated as the probability that input $x$ has class $i$.
+The classifier assigns the label $C(x) = \arg\max_i F(x)_i$ to the input $x$.
+Let $C^*(x)$ be the correct label of $x$.
+The inputs to the softmax function are called \emph{logits}.
+
+We use the notation from Papernot et al. \cite{distillation}: define $F$ to
+be the full neural network including the softmax function, $Z(x) = z$ to be the output of
+all layers except the softmax (so $z$ are the logits), and
+\begin{equation*}
+F(x) = \softmax(Z(x)) = y.
+\end{equation*}
+A neural network typically \footnote{Most simple networks have this simple
+  linear structure, however other more sophisticated networks have
+  more complicated structures (e.g., ResNet \cite{he2016deep} and Inception \cite{szegedy2015rethinking}).
+  The network architecture does not impact our attacks.}
+consists of layers
+\begin{equation*}
+F = \softmax \circ F_n \circ F_{n-1} \circ \cdots \circ F_1
+\end{equation*}
+where
+\begin{equation*}
+F_i(x)  = \sigma(\theta_i \cdot x) + \hat\theta_i
+\end{equation*}
+for some non-linear activation function $\sigma$, some matrix $\theta_i$ of model
+weights, and some vector $\hat\theta_i$ of model biases. Together $\theta$ and
+$\hat\theta$ make up the model parameters.
+Common choices of $\sigma$
+are tanh \cite{mishkin2015all}, sigmoid, ReLU \cite{maas2013rectifier}, or ELU \cite{clevert2015fast}.
+In this paper we focus primarily on networks that use a ReLU activation function,
+as it currently is the most widely used
+activation function
+\cite{szegedy2015rethinking,springenberg2014striving,mishkin2015all,distillation}.
+
+
+# Specification:
+
+We define an objective function $f$ such that
+$C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$.
+There are many possible choices for $f$:
+
+# The equations
+
+\begin{align*}
+f_{1}(x') &= -\loss_{F,t}(x') + 1\\
+f_{2}(x') &= (\max_{i \ne t}( F(x')_i) - F(x')_t)^+\\
+f_{3}(x') &= \text{softplus}(\max_{i \ne t}(F(x')_i) - F(x')_t)-\log(2)\\
+f_{4}(x') &= (0.5 - F(x')_t)^+\\
+f_{5}(x') &= -\log(2 F(x')_t - 2)\\
+f_{6}(x') &= (\max_{i \ne t}( Z(x')_i) - Z(x')_t)^+\\
+f_{7}(x') &= \text{softplus}(\max_{i \ne t}(Z(x')_i) - Z(x')_t)-\log(2)
+\end{align*}
+where $s$ is the correct classification, $(e)^+$ is short-hand for
+$\max(e,0)$, $\text{softplus}(x) = \log(1+\exp(x))$, and
+$\loss_{F,s}(x)$ is the cross entropy loss for $x$.
+
+# Your task
+
+Consider each equation one by one. End your answer with a python list of numbers [1,2,3,4,5,6,7] for those that are wrong.
+
+Specifically, make sure that $C(x+\delta) = t$ if and only if $f(x+\delta) \le 0$. Think step by step about if this is true for each equation and then give your answer as a python list</p>
+<h2>Output</h2>
+<p>Let's evaluate each equation one by one to check if $C(x+\delta) = t$ if and only if $f(x+\delta) \leq 0$.
+
+1. $f_1(x') = -\loss_{F,t}(x') + 1$:
+The cross-entropy loss $\loss_{F,t}(x')$ is non-negative, so adding 1 makes the function positive. However, the objective function should be non-positive when $C(x') = t$. Thus, this equation is incorrect.
+
+2. $f_2(x') = (\max\_{i \neq t}( F(x')\_i) - F(x')\_t)^+$:
+This equation is correct because it will be positive if any logit corresponding to a class other than $t$ is greater than the logit for class $t$, and zero otherwise.
+
+3. $f\_3(x') = \text{softplus}(\max\_{i \neq t}(F(x')\_i) - F(x')\_t)-\log(2)$:
+The softplus function is a smooth approximation of the ReLU function, which is non-negative. Adding a constant $\log(2)$ does not change the sign. Therefore, this equation is correct if and only if $f\_2$ is correct.
+
+4. $f\_4(x') = (0.5 - F(x')\_t)^+$:
+This equation is incorrect because it does not depend on the logits of other classes. It only considers the logit of class $t$.
+
+5. $f\_5(x') = -\log(2 F(x')\_t - 2)$:
+This equation is incorrect because it is always negative when $F(x')\_t &gt; 1$, regardless of the correct classification.
+
+6. $f\_6(x') = (\max\_{i \neq t}( Z(x')\_i) - Z(x')\_t)^+$:
+This equation is equivalent to $f\_2$ but for the pre-softmax outputs. It is correct if and only if $f\_2$ is correct.
+
+7. $f\_7(x') = \text{softplus}(\max\_{i \neq t}(Z(x')\_i) - Z(x')\_t)-\log(2)$:
+This equation is equivalent to $f\_3$ but for the pre-softmax outputs. It is correct if and only if $f\_3$ is correct.
+
+Based on the evaluation, the correct equations are $f\_2$, $f\_3$, $f\_6$, and $f\_7$. The incorrect equations are $f\_1$, $f\_4$, and $f\_5$. Thus, the Python list of numbers for the wrong equations is [1, 4, 5].</p>
+<h1>PyFunc</h1>
+<p>
+Resulting in output:
+False</p>
+</div>
+    

@@ -1,0 +1,130 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h2>Output</h2>
+<p>To evaluate the expression `-~++*x--`, we need to follow the order of operations, also known as operator precedence. Here's the step-by-step evaluation:
+
+1. `x--`: This is a postfix decrement operator, meaning it decrements the value of `x` after the expression has been evaluated. Let's assume the initial value of `x` is `n`. At this stage, the expression evaluates to `n`.
+2. `*x--`: The dereference operator `*` has higher precedence than the postfix decrement operator. Therefore, we first dereference `x` to get its value, which is `n`. The expression now becomes `-~++n`.
+3. `++`: The prefix increment operator has higher precedence than the unary minus operator. Therefore, we first increment `n` by 1, and the expression becomes `-~n`.
+4. `~`: The bitwise NOT operator inverts all the bits of `n`. Let's assume `n` is `5` (binary `101`). After the bitwise NOT operation, `n` becomes `-6` (binary `1111110`).
+5. `-`: The unary minus operator negates the value, making it `5`.
+
+So, the expression `-~++*x--` evaluates to `5`, ignoring side effects.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Below is a student's answer to a question about what a particular C expression evaluates to:  To evaluate the expression `-~++*x--`, we need to follow the order of operations, also known as operator precedence. Here's the step-by-step evaluation:
+
+1. `x--`: This is a postfix decrement operator, meaning it decrements the value of `x` after the expression has been evaluated. Let's assume the initial value of `x` is `n`. At this stage, the expression evaluates to `n`.
+2. `*x--`: The dereference operator `*` has higher precedence than the postfix decrement operator. Therefore, we first dereference `x` to get its value, which is `n`. The expression now becomes `-~++n`.
+3. `++`: The prefix increment operator has higher precedence than the unary minus operator. Therefore, we first increment `n` by 1, and the expression becomes `-~n`.
+4. `~`: The bitwise NOT operator inverts all the bits of `n`. Let's assume `n` is `5` (binary `101`). After the bitwise NOT operation, `n` becomes `-6` (binary `1111110`).
+5. `-`: The unary minus operator negates the value, making it `5`.
+
+So, the expression `-~++*x--` evaluates to `5`, ignoring side effects.
+
+Does the student's final answer say that the expression evaluates to *x+2?
+
+Ignore their reasoning. Just look at the final answer, if they say **EXPLICITLY** that the answer is *x+2. Giving something that's equal but more complicated is wrong. 
+
+If the answer is correct say "The student passes" otherwise "The student fails".</p>
+<h2>Output</h2>
+<p>The student fails.</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: False</p>
+</div>
+    
