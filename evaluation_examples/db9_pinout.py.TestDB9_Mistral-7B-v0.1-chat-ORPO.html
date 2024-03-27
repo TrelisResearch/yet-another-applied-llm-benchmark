@@ -1,0 +1,117 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What port has 5 pins on the top and 4 on the bottom?</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What port has 5 pins on the top and 4 on the bottom?</p>
+<h2>Output</h2>
+<p>The port you are referring to is a USB Type-C port. It is a reversible connector that can be plugged in either way, making it easier to connect devices. The USB Type-C port has a total of 20 pins, with 5 pins on the top and 4 pins on the bottom. This configuration allows for a variety of different connections, including power, data, and video.
+
+The USB Type-C port is becoming increasingly popular due to its versatility and ease of use. It is commonly found on smartphones, tablets, and laptops, and is also used for charging devices. The port is also compatible with a variety of different cables, including USB-C to USB-A, USB-C to USB-C, and USB-C to HDMI.
+
+In addition to its versatility, the USB Type-C port is also very fast. It can transfer data at speeds of up to 10 gigabits per second, making it ideal for transferring large files and streaming high-definition video. The port is also compatible with a variety of different power adapters, allowing for fast charging of devices.
+
+Overall, the USB Type-C port is a versatile and convenient port that is becoming increasingly popular. It is a great choice for transferring data, charging devices, and streaming video.</p>
+<h1>Check if any of the following conditions are true:</h1>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>DE9</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>DE-9</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>DB9</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>DB-9</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    

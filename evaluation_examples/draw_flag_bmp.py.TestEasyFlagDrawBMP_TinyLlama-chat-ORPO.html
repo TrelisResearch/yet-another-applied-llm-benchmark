@@ -1,0 +1,563 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Write me a C program that emits a .bmp that's a depiction of an italian flag to stdout.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write me a C program that emits a .bmp that's a depiction of an italian flag to stdout.</p>
+<h2>Output</h2>
+<p>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int width = 100, height = 100;
+    unsigned char *buffer = (unsigned char *)malloc(width * height * 3);
+    for (int i = 0; i &lt; width * height * 3; i++)
+    {
+        buffer[i] = 0x00;
+    }
+    buffer[0x0000] = 0x00;
+    buffer[0x0001] = 0x00;
+    buffer[0x0002] = 0x00;
+    buffer[0x0003] = 0x00;
+    buffer[0x0004] = 0x00;
+    buffer[0x0005] = 0x00;
+    buffer[0x0006] = 0x00;
+    buffer[0x0007] = 0x00;
+    buffer[0x0008] = 0x00;
+    buffer[0x0009] = 0x00;
+    buffer[0x000A] = 0x00;
+    buffer[0x000B] = 0x00;
+    buffer[0x000C] = 0x00;
+    buffer[0x000D] = 0x00;
+    buffer[0x000E] = 0x00;
+    buffer[0x000F] = 0x00;
+    buffer[0x0010] = 0x00;
+    buffer[0x0011] = 0x00;
+    buffer[0x0012] = 0x00;
+    buffer[0x0013] = 0x00;
+    buffer[0x0014] = 0x00;
+    buffer[0x0015] = 0x00;
+    buffer[0x0016] = 0x00;
+    buffer[0x0017] = 0x00;
+    buffer[0x0018] = 0x00;
+    buffer[0x0019] = 0x00;
+    buffer[0x001A] = 0x00;
+    buffer[0x001B] = 0x00;
+    buffer[0x001C] = 0x00;
+    buffer[0x001D] = 0x00;
+    buffer[0x001E] = 0x00;
+    buffer[0x001F] = 0x00;
+    buffer[0x0020] = 0x00;
+    buffer[0x0021] = 0x00;
+    buffer[0x0022] = 0x00;
+    buffer[0x0023] = 0x00;
+    buffer[0x0024] = 0x00;
+    buffer[0x0025] = 0x00;
+    buffer[0x0026] = 0x00;
+    buffer[0x0027] = 0x00;
+    buffer[0x0028] = 0x00;
+    buffer[0x0029] = 0x00;
+    buffer[0x002A] = 0x00;
+    buffer[0x002B] = 0x00;
+    buffer[0x002C] = 0x00;
+    buffer[0x002D] = 0x00;
+    buffer[0x002E] = 0x00;
+    buffer[0x002F] = 0x00;
+    buffer[0x0030] = 0x00;
+    buffer[0x0031] = 0x00;
+    buffer[0x0032] = 0x00;
+    buffer[0x0033] = 0x00;
+    buffer[0x0034] = 0x00;
+    buffer[0x0035] = 0x00;
+    buffer[0x0036] = 0x00;
+    buffer[0x0037] = 0x00;
+    buffer[0x0038] = 0x00;
+    buffer[0x0039] = 0x00;
+    buffer[0x003A] = 0x00;
+    buffer[0x003B] = 0x00;
+    buffer[0x003C] = 0x00;
+    buffer[0x003D] = 0x00;
+    buffer[0x003E] = 0x00;
+    buffer[0x003F] = 0x00;
+    buffer[0x0040] = 0x00;
+    buffer[0x0041] = 0x00;
+    buffer[0x0042] = 0x00;
+    buffer[0x0043] = 0x00;
+    buffer[0x0044] = 0x00;
+    buffer[0x0045] = 0x00;
+    buffer[0x0046] = 0x00;
+    buffer[0x0047] = 0x00;
+    buffer[0x0048] = 0x00;
+    buffer[0x0049] = 0x00;
+    buffer[0x004A] = 0x00;
+    buffer[0x004B] = 0x00;
+    buffer[0x004C] = 0x00;
+    buffer[0x004D] = 0x00;
+    buffer[0x004E] = 0x00;
+    buffer[0x004F] = 0x00;
+    buffer[0x0050] = 0x00;
+    buffer[0x0051] = 0x00;
+    buffer[0x0052] = 0x00;
+    buffer[0x0053] = 0x00;
+    buffer[0x0054] = 0x00;
+    buffer[0x0055] = 0x00;
+    buffer[0x0056] = 0x00;
+    buffer[0x0057] = 0x00;
+    buffer[0x0058] = 0x00;
+    buffer[0x0059] = 0x00;
+    buffer[0x005A] = 0x00;
+    buffer[0x005B] = 0x00;
+    buffer[0x005C] = 0x00;
+    buffer[0x005D] = 0x00;
+    buffer[0x005E] = 0x00;
+    buffer[0x005F] = 0x00;
+    buffer[0x0060] = 0x00;
+    buffer[0x0061] = 0x00;
+    buffer[0x0062] = 0x00;
+    buffer[0x0063] = 0x00;
+    buffer[0x0064] = 0x00;
+    buffer[0x0065] = 0x00;
+    buffer[0x0066] = 0x00;
+    buffer[0x0067] = 0x00;
+    buffer[0x0068] = 0x00;
+    buffer[0x0069] = 0x00;
+    buffer[0x006A] = 0x00;
+    buffer[0x006B] = 0x00;
+    buffer[0x006C] = 0x00;
+    buffer[0x006D] = 0x00;
+    buffer[0x006E] = 0x00;
+    buffer[0x006F] = 0x00;
+    buffer[0x0070] = 0x00;
+    buffer[0x0071] = 0x00;
+    buffer[0x0072] = 0x00;
+    buffer[0x0073] = 0x00;
+    buffer[0x0074] = 0x00;
+    buffer[0x0075] = 0x0076000000.00.000.0.000.
+0.0.000.
+0.
+0000.
+00000.
+00.000000.000000000000000.0,0000000000000000000000000000,0,0
+the 00000
+the code0000000000000000{0;0
+0
+000000000000;00000]size000000000
+to000000
+0000
+buffer;
+   0000
+the {0;
+the0;0;
+the0.000]
+0]
+size]    0]0]    0000
+   0]000
+to the;    00, thepp000, the sizeenedled the height, theledled.heighten the pixel of the
+theppsptop
+with the
+thewed
+with the
+the1
+wither in a or a][with a aws or the the the the width of the pixel, the widthward with a, the pixel withged using a, ore
+with a
+using aftw image, image image image with a image, the image;height, the pixel
+picture
+height pixel pixel
+theledenwers
+the pixel pixelterpadpad
+picture image
+the image
+the image image image pixel pixel pixel pixel pixel
+the pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel of pixel pixel pixel pixel pixel pixel pixel pixelged pixel pixel to pixel pixel pixel pixel pixel image image image to a pixel image display image code code code code display pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel display
+display
+
+
+
+
+display
+
+
+
+
+
+
+
+display
+display
+
+
+
+
+display
+
+
+
+with pixel width pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel pixel with pixel pixel pixel pixel of pixel pixel on pixel pixel
+square
+square
+[[[[sims pixel pixel pixel of the pixel pixel on pixel on the pixel on the on on of on the on
+size
+inst
+b pixel width width
+square
+square
+display
+
+
+
+{
+width of b b b 
+b b display display display display 676 display display display width width of width of width;b b display b56 b b b b inst b b b b77 b6b b64 b b inst b 66 b b b6 b b b b 66 st66;b;b644 b66b6bb dep6bbbbb6b dep dep b dep dep dep dep of
+dep
+6
+dep
+b
+dep dep dep dep dep dep dep dep dep dep b dep dep dep dep dep dep dep dep
+dep b
+b b bbb b b6b b bbb bbbbb66646b dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep b dep dep
+dep
+b
+dep b b b dep dep dep dep dep dep dep dep dep dep dep b6 dep dep dep dep dep dep dep dep dep dep b b b b b      dep dep dep b b dep b dep dep dep dep dep of dep dep dep dep dep dep dep dep dep dep dep dep bbb
+b
+b
+of
+b
+b
+b
+b
+b
+b
+b
+b b
+b
+b 
+b 
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b b
+b
+
+
+
+
+
+
+
+
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b_b
+b           b (dep b b b (b     b dep b b b dep b dep b b b b b b bb   
+b 
+b of dep b b b b b b dep dep dep b dep dep dep b dep b b dep b b b b b dep b
+
+dep dep dep dep dep dep bb dep dep dep dep; dep dep; dep_dep_dep dep b b   dep dep dep dep dep b  dep b dep b b dep b dep dep b dep b dep b dep b dep b b b b   
+dep
+dep b 
+dep b b b b dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep b dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep dep b dep dep dep dep dep to to to to (dep (dep (dep (dep dep (dep (dep dep dep dep dep dep dep dep dep b; dep (dep dep dep dep dep dep dep dep dep dep dep b dep dep dep dep (dep (dep (dep (b dep dep b (b (dep (dep (b (dep (dep (b (b (dep (b buffer buffer buffer buffer (b (b (dep buffer buffer buffer dep dep buffer buffer buffer  buffer b buffer to b b dep to to buffer buffer &lt;&lt; (b06 of of of of of of dep buffer buffer buffer buffer (b b dep buffer&gt;b&lt;b
+b
+b&gt;b&gt;b
+b
+b}dep {dep {b_b_b_bb_dep b=dep buffer;b b_b;b;b b(b(b_b; b b  (b b b b buffer buffer b b dep b b dep a a buffer dep b dep dep dep b dep dep buffer buffer buffer buffer buffer buffer buffer buffer a b b a a buffer buffer buffer buffer buffer 
+b
+b
+b
+b b b
+b buffer buffer buffer dep buffer buffer buffer buffer buffer
+
+
+
+
+
+b b b
+b
+b 
+b b b b b b b to b to buffer b b b b b b b b b b b buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer b 
+  buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer b b b b dep buffer b b b buffer b b buffer buffer buffer buffer buffer buffer      buffer buffer buffer buffer b b b b b b b b b b b b b b b b b b buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer b b b b buffer buffer  b buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer b b b b b b b b b b b buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer    {                  buffer buffer buffer buffer buffer b b b b b b b buffer buffer buffer buffer b   buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer b b buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer
+
+
+  buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer  buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer buffer</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>b"main.c:1:1: error: unknown type name 'Model'\n    1 | Model API request failed\n      | ^~~~~\nmain.c:1:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'request'\n    1 | Model API request failed\n      |           ^~~~~~~\nmain.c:1:11: error: unknown type name 'request'\nmain.sh: line 2: ./a.out: No such file or directory\n"</code></p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What flag is shown in this image?</p>
+<h2>Output</h2>
+<p>cannot identify image file &lt;_io.BytesIO object at 0x14cf8fe70&gt;</p>
+<h1>Check if any of the following conditions are true:</h1>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>Italian</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>Italy</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    

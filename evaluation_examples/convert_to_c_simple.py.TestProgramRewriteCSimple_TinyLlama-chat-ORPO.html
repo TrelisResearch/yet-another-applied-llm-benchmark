@@ -1,0 +1,891 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Here's a python program. Please rewrite it in c with the type signature float my_sqrt(float, float).
+
+def my_sqrt(number, precision=0.0001):
+    guess = number / 2  # Start with an initial guess
+    
+    while abs(guess * guess - number) &gt;= precision:
+        guess = (guess + number / guess) / 2  # Improve the guess using the Babylonian method
+    
+    return guess</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Here's a python program. Please rewrite it in c with the type signature float my_sqrt(float, float).
+
+def my_sqrt(number, precision=0.0001):
+    guess = number / 2  # Start with an initial guess
+    
+    while abs(guess * guess - number) &gt;= precision:
+        guess = (guess + number / guess) / 2  # Improve the guess using the Babylonian method
+    
+    return guess</p>
+<h2>Output</h2>
+<p>import math
+
+def my_sqrt(number, precision=0.0001):
+    guess = number / 2
+    while abs(guess * guess - number) &gt;= precision:
+        guess = (guess + number / guess) / 2
+    return guess
+
+print(my_sqrt(10))
+print(my_sqrt(10, 10))
+print(my_sqrt(10, 100))
+print(my_sqrt(10, 1000))
+print(my_sqrt(10, 10000))
+print(my_sqrt(10, 100000))
+print(my_sqrt(10, 1000000))
+print(my_sqrt(10, 10000000))
+print(my_sqrt(10, 100000000))
+print(my_sqrt(10, 1000000000))
+print(my_sqrt(10, 10000000000))
+print(my_sqrt(10, 100000000000))
+print(my_sqrt(10, 1000000000000))
+print(my_sqrt(10, 10000000000000))
+print(my_sqrt(10, 100000000000000))
+print(my_sqrt(10, 1000000000000000))
+print(my_sqrt(10, 10000000000000000))
+print(my_sqrt(10, 100000000000000000))
+print(my_sqrt(10, 1000000000000000000))
+print(my_sqrt(10, 10000000000000000000))
+print(my_sqrt(10, 100000000000000000000))
+print(my_sqrt(10, 1000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000000000000000))
+print(my_sqrt(10, 1000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 10000000000000000000000000000000000000000000000))
+print(my_sqrt(10, 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 that000000000000000000000000000000000000000000000000000000000000000 org org orge or0000
+000
+00
+tox0000000, 0000000
+
+that
+   0
+
+that0000000
+   0
+   0
+   0
+   000
+the
+forpyx000 and themath and the andpy andmath and the and the andh and the and thepypox,000
+to0
+andceptiond
+to
+to_math for the as0 for the topping to using as using as to:float:float towers to(math(andwers
+thuld for parameter to: for to as to to to0 to the to to as to1 to the calculation as as as as as asmath as as aswersiation forling(math
+math
+math
+math
+math
+for
+for
+
+math
+math
+for
+for
+for ... for for the for parameter as for parameter aspyx or for_for for forring for for the for for for for_math_and and or_to_math
+math
+math_math_math_math_to_using using to_to_using using using using example example and function for the using and or and and parameter and and and and
+math(math
+math
+math
+math
+math_math
+
+
+
+
+
+
+
+
+
+for
+for
+math
+math or floating[for floating or floating or round and parameter
+or
+
+
+
+
+or
+
+or
+math or
+or[math or for as as as as as as as or as or as or as or calculation calculation calculation calculation
+inst
+math
+math as if or or or or[math_math_math
+and
+math_for_for_for_square
+square_math_for for for for
+math for for for for math for_math and for_math_inst and
+inst for the
+inst_inst_math_inst_inst_inst
+inst
+inst
+
+inst
+inst_inst
+math
+math
+math
+math
+math or_math_math_math
+my_my_my_gu_gu_gu_inst_gu
+inst_gu_gu_math_inst_inst
+
+
+
+inst
+inst
+inst
+inst
+math
+my
+
+math
+my_math
+my_my_math
+my_my
+my
+my_my my_my_my_my_math
+my_my_math_math
+math
+my
+math_inst_inst_inst_math_math_math_math_my_inst_my_my_my_inst_my_my
+my my my or my
+my
+my and the
+inst
+inst_my_my_my and and my_gu_inst_inst_inst_my_my_gu
+inst_my_inst_my_my
+my
+my
+my
+my
+my
+my
+my
+my my my my my
+my
+my
+my my
+my my my my
+my
+my
+my
+inst
+inst
+inst
+my
+insts
+math
+math (inst (inst my square square square square square square square square square square my sq my sq my my my my square sq(my_my_my_my_my_my
+my
+my
+my
+gu
+my
+my
+my
+my
+my
+b
+my
+my
+inst
+inst
+my
+my
+gu
+
+my
+my
+my
+gu
+my
+my
+my
+gu
+
+gu
+gu
+
+
+
+my
+
+my
+gu
+my
+my
+my
+my
+my
+my
+my
+my_my
+my
+my_my_my
+my
+my
+my
+
+my
+my
+my
+my
+my
+
+my
+my
+my
+my
+my my my my my
+my
+my my my
+my
+my
+
+my
+my
+my
+my
+
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my
+my_my_my_my
+my
+my_my_my_my_my_my_my_my_my<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">my_my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my_my_my_my</span>
+<span class="n">my</span>
+<span class="n">my_my_my_my_my_my_my_my_my_my</span><span class="p">(</span><span class="n">my_my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span>
+<span class="n">my</span><span class="o">&lt;</span><span class="n">my_my</span><span class="o">&lt;</span><span class="n">my_my_my_my_my_my_my</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">my_my_my_my_my_my_my</span><span class="p">(</span><span class="n">my_my_my_my_my_my_my_my_my_my_my_my_my</span><span class="o">&lt;</span><span class="n">my_my_my_my_my_my_my_my_my_my_my_my_my_my_my_my</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">my_my_my_my_my_my</span><span class="p">(</span><span class="n">my</span><span class="p">(</span><span class="n">my</span><span class="p">(</span><span class="n">my_my</span><span class="p">(</span><span class="n">my</span><span class="p">(</span><span class="n">my</span><span class="p">(</span><span class="n">my_my_my</span><span class="p">(</span><span class="n">my</span><span class="p">(</span><span class="n">gu_gu_gu_gu_my</span> <span class="n">my</span> <span class="n">my_gu_gu_gu_gu_gu_my_my_my_gu_gu_my_gu_gu_gu_my_gu_gu_gu_gu_gu</span>
+<span class="n">my</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">gu</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">gu</span><span class="o">&lt;</span><span class="n">my_my</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">my</span><span class="o">&lt;</span><span class="n">my_my_my_gu_my_gu_gu_gu_gu_gu_gu</span> <span class="n">gu</span>
+<span class="n">gu</span>
+<span class="n">gu</span> <span class="n">my</span> <span class="nb">round</span> <span class="nb">round</span> <span class="n">square</span> <span class="nb">round</span> <span class="nb">round</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="nb">round</span> <span class="nb">round</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">gu_gu_gu</span> <span class="n">my</span> <span class="n">my</span> <span class="n">square</span> <span class="n">gu_gu_gu</span> <span class="nb">round</span> <span class="nb">round</span> <span class="nb">round</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">my</span> <span class="n">gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu_gu_gu</span> <span class="n">my</span> <span class="n">to</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="nb">round</span> <span class="nb">round</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">my</span> <span class="n">gu</span> <span class="n">my</span> <span class="nb">round</span> <span class="n">my</span> <span class="n">my</span> <span class="nb">round</span> <span class="n">gu_gu_gu_gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="nb">round</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span>
+
+<span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu</span> <span class="n">gu_gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu_gu</span> <span class="n">gu_gu</span> <span class="n">gu</span>
+<span class="n">gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu_gu_gu_gu_gu_gu_gu_gu_gu_gu</span> <span class="n">gu_gu_gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span>
+
+
+<span class="n">gu</span>
+<span class="n">gu_gu</span> <span class="n">gu</span>
+<span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">guess</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span> <span class="n">gu</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="n">failed</span>
+
+
+<span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+
+
+<span class="kt">int</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">my_sqrt</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span><span class="w"> </span><span class="mf">.001</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1111</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">answer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">expected</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Wrong answer; got %d instead of %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">answer</span><span class="p">,</span><span class="w"> </span><span class="n">expected</span><span class="p">);</span>
+<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;All tests passed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>main.c:1:1: error: unknown type name 'Model'
+    1 | Model API request failed
+      | ^~~~~
+main.c:1:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'request'
+    1 | Model API request failed
+      |           ^~~~~~~
+main.c:1:11: error: unknown type name 'request'
+In file included from /usr/include/stdio.h:43,
+                 from main.c:4:
+/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:95:3: error: unknown type name 'size_t'
+   95 |   size_t __pad5;
+      |   ^~~~~~
+/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:98:67: error: 'size_t' undeclared here (not in a function)
+   98 |   char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+      |                                                                   ^~~~~~
+/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:1:1: note: 'size_t' is defined in header '&lt;stddef.h&gt;'; did you forget to '#include &lt;stddef.h&gt;'?
+  +++ |+#include &lt;stddef.h&gt;
+    1 | /* Copyright (C) 1991-2022 Free Software Foundation, Inc.
+In file included from main.c:4:
+/usr/include/stdio.h:308:35: error: expected declaration specifiers or '...' before 'size_t'
+  308 | extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
+      |                                   ^~~~~~
+/usr/include/stdio.h:314:47: error: expected declaration specifiers or '...' before 'size_t'
+  314 | extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __THROW
+      |                                               ^~~~~~
+/usr/include/stdio.h:333:34: error: expected declaration specifiers or '...' before 'size_t'
+  333 |                     int __modes, size_t __n) __THROW;
+      |                                  ^~~~~~
+/usr/include/stdio.h:339:24: error: expected declaration specifiers or '...' before 'size_t'
+  339 |                        size_t __size) __THROW;
+      |                        ^~~~~~
+/usr/include/stdio.h:378:44: error: expected declaration specifiers or '...' before 'size_t'
+  378 | extern int snprintf (char *__restrict __s, size_t __maxlen,
+      |                                            ^~~~~~
+/usr/include/stdio.h:382:45: error: expected declaration specifiers or '...' before 'size_t'
+  382 | extern int vsnprintf (char *__restrict __s, size_t __maxlen,
+      |                                             ^~~~~~
+In file included from main.c:4:
+/usr/include/stdio.h:633:30: error: expected declaration specifiers or '...' before 'size_t'
+  633 |                              size_t *__restrict __n, int __delimiter,
+      |                              ^~~~~~
+/usr/include/stdio.h:636:28: error: expected declaration specifiers or '...' before 'size_t'
+  636 |                            size_t *__restrict __n, int __delimiter,
+      |                            ^~~~~~
+/usr/include/stdio.h:646:27: error: expected declaration specifiers or '...' before 'size_t'
+  646 |                           size_t *__restrict __n,
+      |                           ^~~~~~
+/usr/include/stdio.h:675:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'fread'
+  675 | extern size_t fread (void *__restrict __ptr, size_t __size,
+      |               ^~~~~
+/usr/include/stdio.h:681:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'fwrite'
+  681 | extern size_t fwrite (const void *__restrict __ptr, size_t __size,
+      |               ^~~~~~
+/usr/include/stdio.h:702:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'fread_unlocked'
+  702 | extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+      |               ^~~~~~~~~~~~~~
+/usr/include/stdio.h:704:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'fwrite_unlocked'
+  704 | extern size_t fwrite_unlocked (const void *__restrict __ptr, size_t __size,
+      |               ^~~~~~~~~~~~~~~
+In file included from main.c:5:
+/usr/include/stdlib.h:98:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before '__ctype_get_mb_cur_max'
+   98 | extern size_t __ctype_get_mb_cur_max (void) __THROW __wur;
+      |               ^~~~~~~~~~~~~~~~~~~~~~
+In file included from main.c:5:
+/usr/include/stdlib.h:412:25: error: expected declaration specifiers or '...' before 'size_t'
+  412 |                         size_t __statelen) __THROW __nonnull ((2));
+      |                         ^~~~~~
+/usr/include/stdlib.h:442:25: error: expected declaration specifiers or '...' before 'size_t'
+  442 |                         size_t __statelen,
+      |                         ^~~~~~
+/usr/include/stdlib.h:540:22: error: expected declaration specifiers or '...' before 'size_t'
+  540 | extern void *malloc (size_t __size) __THROW __attribute_malloc__
+      |                      ^~~~~~
+/usr/include/stdlib.h:543:22: error: expected declaration specifiers or '...' before 'size_t'
+  543 | extern void *calloc (size_t __nmemb, size_t __size)
+      |                      ^~~~~~
+/usr/include/stdlib.h:543:38: error: expected declaration specifiers or '...' before 'size_t'
+  543 | extern void *calloc (size_t __nmemb, size_t __size)
+      |                                      ^~~~~~
+/usr/include/stdlib.h:551:36: error: expected declaration specifiers or '...' before 'size_t'
+  551 | extern void *realloc (void *__ptr, size_t __size)
+      |                                    ^~~~~~
+/usr/include/stdlib.h:563:41: error: expected declaration specifiers or '...' before 'size_t'
+  563 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                         ^~~~~~
+/usr/include/stdlib.h:563:57: error: expected declaration specifiers or '...' before 'size_t'
+  563 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                                         ^~~~~~
+/usr/include/stdlib.h:569:41: error: expected declaration specifiers or '...' before 'size_t'
+  569 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                         ^~~~~~
+/usr/include/stdlib.h:569:57: error: expected declaration specifiers or '...' before 'size_t'
+  569 | extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+      |                                                         ^~~~~~
+In file included from /usr/include/stdlib.h:574,
+                 from main.c:5:
+/usr/include/alloca.h:32:22: error: expected declaration specifiers or '...' before 'size_t'
+   32 | extern void *alloca (size_t __size) __THROW;
+      |                      ^~~~~~
+In file included from main.c:5:
+/usr/include/stdlib.h:580:22: error: expected declaration specifiers or '...' before 'size_t'
+  580 | extern void *valloc (size_t __size) __THROW __attribute_malloc__
+      |                      ^~~~~~
+/usr/include/stdlib.h:586:45: error: expected declaration specifiers or '...' before 'size_t'
+  586 | extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
+      |                                             ^~~~~~
+/usr/include/stdlib.h:586:65: error: expected declaration specifiers or '...' before 'size_t'
+  586 | extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
+      |                                                                 ^~~~~~
+/usr/include/stdlib.h:592:29: error: expected declaration specifiers or '...' before 'size_t'
+  592 | extern void *aligned_alloc (size_t __alignment, size_t __size)
+      |                             ^~~~~~
+/usr/include/stdlib.h:592:49: error: expected declaration specifiers or '...' before 'size_t'
+  592 | extern void *aligned_alloc (size_t __alignment, size_t __size)
+      |                                                 ^~~~~~
+/usr/include/stdlib.h:829:23: error: expected declaration specifiers or '...' before 'size_t'
+  829 |                       size_t __nmemb, size_t __size, __compar_fn_t __compar)
+      |                       ^~~~~~
+/usr/include/stdlib.h:829:39: error: expected declaration specifiers or '...' before 'size_t'
+  829 |                       size_t __nmemb, size_t __size, __compar_fn_t __compar)
+      |                                       ^~~~~~
+/usr/include/stdlib.h:838:34: error: expected declaration specifiers or '...' before 'size_t'
+  838 | extern void qsort (void *__base, size_t __nmemb, size_t __size,
+      |                                  ^~~~~~
+/usr/include/stdlib.h:838:50: error: expected declaration specifiers or '...' before 'size_t'
+  838 | extern void qsort (void *__base, size_t __nmemb, size_t __size,
+      |                                                  ^~~~~~
+/usr/include/stdlib.h:912:20: error: expected declaration specifiers or '...' before 'size_t'
+  912 |                    size_t __len) __THROW __nonnull ((3, 4, 5));
+      |                    ^~~~~~
+/usr/include/stdlib.h:915:20: error: expected declaration specifiers or '...' before 'size_t'
+  915 |                    size_t __len) __THROW __nonnull ((3, 4, 5));
+      |                    ^~~~~~
+/usr/include/stdlib.h:919:45: error: expected declaration specifiers or '...' before 'size_t'
+  919 |                     char *__restrict __buf, size_t __len)
+      |                                             ^~~~~~
+/usr/include/stdlib.h:923:45: error: expected declaration specifiers or '...' before 'size_t'
+  923 |                     char *__restrict __buf, size_t __len)
+      |                                             ^~~~~~
+/usr/include/stdlib.h:930:36: error: expected declaration specifiers or '...' before 'size_t'
+  930 | extern int mblen (const char *__s, size_t __n) __THROW;
+      |                                    ^~~~~~
+/usr/include/stdlib.h:934:48: error: expected declaration specifiers or '...' before 'size_t'
+  934 |                    const char *__restrict __s, size_t __n) __THROW;
+      |                                                ^~~~~~
+/usr/include/stdlib.h:941:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'mbstowcs'
+  941 | extern size_t mbstowcs (wchar_t *__restrict  __pwcs,
+      |               ^~~~~~~~
+/usr/include/stdlib.h:945:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'wcstombs'
+  945 | extern size_t wcstombs (char *__restrict __s,
+      |               ^~~~~~~~
+main.c: In function 'main':
+main.c:9:20: warning: implicit declaration of function 'my_sqrt' [-Wimplicit-function-declaration]
+    9 | int answer = (int)(my_sqrt(12345, .001)*10);
+      |                    ^~~~~~~
+main.sh: line 2: ./a.out: No such file or directory</code></p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>All tests passed</code>: False</p>
+</div>
+    

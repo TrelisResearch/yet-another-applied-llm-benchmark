@@ -1,0 +1,124 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>In python what __thing__ do I use for ~, kind of like how __add__ is for +?</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>In python what __thing__ do I use for ~, kind of like how __add__ is for +?</p>
+<h2>Output</h2>
+<p>In Python, the `__thing__` syntax is used to define special methods, also known as "magic methods," which are called automatically by the interpreter when certain operations are performed on an object. These methods are prefixed with two underscores and a name, and they allow you to customize the behavior of your objects.
+
+Here's a list of some common special methods and their corresponding operations:
+
+1. `__add__`: This method is called when the `+` operator is used on an object. It allows you to define how two objects of the same type are added together.
+2. `__sub__`: This method is called when the `-` operator is used on an object. It allows you to define how two objects of the same type are subtracted from each other.
+3. `__mul__`: This method is called when the `*` operator is used on an object. It allows you to define how two objects of the same type are multiplied together.
+4. `__div__`: This method is called when the `/` operator is used on an object. It allows you to define how two objects of the same type are divided.
+5. `__mod__`: This method is called when the `%` operator is used on an object. It allows you to define how two objects of the same type are moduloed.
+6. `__pow__`: This method is called when the `**` operator is used on an object. It allows you to define how two objects of the same type are raised to a power.
+7. `__eq__`: This method is called when the `==` operator is used on an object. It allows you to define how two objects of the same type are compared for equality.
+8. `__ne__`: This method is called when the `!=` operator is used on an object. It allows you to define how two objects of the same type are compared for inequality.
+9. `__lt__`: This method is called when the `&lt;` operator is used on an object. It allows you to define how two objects of the same type are compared for less than.
+10. `__le__`: This method is called when the `&lt;=` operator is used on an object. It allows you to define how two objects of the same type are compared for less than or equal to.
+11. `__gt__`: This method is called when the `&gt;` operator is used on an object. It allows you to define how two objects of the same type are compared for greater than.
+12. `__ge__`: This method is called when the `&gt;=` operator is used on an object. It allows you to define how two objects of the same type are compared for greater than or equal to.
+
+These methods are just a few examples of the many special methods that exist in Python. You can find a more comprehensive list of special methods in the Python documentation.</p>
+<h1>Check if any of the following conditions are true:</h1>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>__invert__</code>: False</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>__inv__</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    

@@ -1,0 +1,990 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Write me a function called `move` that, given a string x, returns all possible alternate strings y' such that y' is derived from x by moving a substring of x to an arbitrary position</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write me a function called `move` that, given a string x, returns all possible alternate strings y' such that y' is derived from x by moving a substring of x to an arbitrary position</p>
+<h2>Output</h2>
+<p>def move(x, y):
+    """
+    Given a string x and a string y, return all possible alternate strings y' such that y' is derived from x by moving a substring of x to an arbitrary position.
+
+    Parameters:
+        x (str): The original string.
+        y (str): The desired string.
+
+    Returns:
+        y' (str): The derived string.
+    """
+    # If the string is empty, return an empty string.
+    if len(x) == 0:
+        return ''
+
+    # If the string is a single character, return the character.
+    if len(x) == 1:
+        return x
+
+    # If the string is a multiple character, return the first character.
+    if len(x) &gt; 1:
+        return x[0]
+
+    # If the string is a single character, return the character.
+    if len(y) == 1:
+        return y
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character, return the first character.
+    if len(y) &gt; 1:
+        return y[0]
+
+    # If the string is a multiple character.
+    if len(y)
+    return y[0]
+
+    if len(y)
+    if len(y[y[0]
+    if len(y[0.y[0]
+
+    iflen
+    iflen[y[y[y[y[y, the length of the string[y[y[y[y[y[y[y[y[y[y[y[y[y[y[y]
+
+The[y, where, where, where, where, where, where,y, where you,y, where the following[y, wherey, wherey,y,y,y, where such such such suchy, wherey, wherey, wherey ory suchs, where the wherey, wherey, wherey andy andy suchy ands,y,y,s, wherex ands, wherey,s
+suchs, wherey, wherey,s, wherey,s,s,s|y, whereys|s.
+suchs ands
+s
+s|y
+s
+s
+y
+s
+s
+s
+s
+s
+s,s
+s, wheres, wheres:s,s
+suchs
+s
+s
+s
+s
+s
+s
+s,síms,s,s, where, ands,s,
+parameters,sps, givens suchsím, andsímsímsímswers'sponer'sucherments
+suchswers
+sucher
+sucher suchsmpv, theswers,s, thesvices,s,swers,smps orsmingsmps andsvímmentmentsponments ors or thesternsixs, the parameter, andsxtsmentsionswers as the givenswerswerspspoppingingppingingments, [[orments or thelement or the
+matrixsignslements ors
+[[thesences orsences or thesighsighs thesenceswers, [[that
+basedsences or the
+using thesighs orlement or the or the or or orslementsment orsments ors or basedswards baseds based, given basedsences or
+[[orions orpping or using the [[using or orppinginginging or or or or positionerigh or
+[[or
+
+[[for
+
+
+
+
+
+
+
+
+
+ and and and movingsppings
+movs [[moving or
+using the or or [[moving[moving or [[the [[mov or [[movs movs or [[or as or or given movs moving moving which given [[movs or [[movs mov movs movs mov movs mov movs movs mov [[movs or or [[movs movs movs
+
+movs mov mov movs mov movs move from move move move move to
+movs
+move
+mov
+mov
+move
+move
+mov
+
+
+mov
+
+
+
+movs move move moving moving move move move move move mov
+mov
+mov mov mov from move from moving
+mov move
+mov move move move move move move if if if move move, move move move move moving moving moving move move moving moving
+mov
+mov move move or move move move move
+mov move move move move move move move move move move move move move move move move move moving move
+mov
+mov move move
+
+
+mov mov move move move move from move from move move move, move move move move move move move move move move move moving moving move move move move moving
+mov
+mov
+mov
+mov move move move move move move move move move move move move move move move move move move if if if move move move from move from move
+move move move if if if move move move move move move move move move if move move move move move move move move if move if mov and move move move moving moving
+mov move
+mov move mov x move move from move from move move moving move of moving move moving moving moving moving if moving moving movs movs moves mov moving movs mov mov moving mov movsmovsmovs
+mov the move mov mov mov mov movsmovs movs movs mov from movs from from from from from moving from froms from from mov from moving moving move move move (move
+
+
+
+
+
+
+
+
+
+
+
+
+
+move
+move mov mov mov
+
+
+
+
+
+
+
+
+
+
+
+inst inst
+inst
+inst
+inst
+inst
+
+move move
+move inst move inst inst inst inst inst inst
+
+inst
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inst inst x
+
+inst
+inst if
+
+
+inst
+
+
+
+
+
+
+
+
+
+
+
+inst y
+
+
+
+
+inst y
+
+
+inst
+
+inst
+
+inst
+y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ inst inst y
+
+inst
+inst
+inst from
+inst
+
+inst
+
+
+
+
+
+inst
+
+
+
+inst inst inst inst inst inst inst if
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ from from from inst from from from from from x inst from
+
+
+inst inst (inst (inst (inst (inst (inst inst
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inst from if if if (inst from if if from y (inst (inst inst
+inst
+inst
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if inst inst inst from from from from inst inst inst from inst from inst from from from from from
+
+
+
+
+
+inst inst inst inst inst inst (inst inst inst inst [[inst
+
+
+
+
+
+
+
+
+
+
+
+
+
+ inst inst inst inst inst from from from from inst inst inst inst
+inst inst (inst inst (inst (inst (inst [[inst inst inst inst inst inst inst inst inst inst inst that that
+
+
+from from from by by of of of inst inst inst inst inst inst inst inst inst that inst inst inst inst "inst inst inst inst inst inst inst x x inst inst inst inst a inst inst inst inst inst inst inst inst inst inst inst inst inst inst inst inst inst by by by [[inst [[inst [[inst [[inst
+inst
+
+
+
+&lt; inst a inst inst inst mov mov inst inst inst
+inst
+inst
+
+
+&lt;inst
+
+
+
+
+
+inst inst inst inst inst "inst inst a
+inst that
+inst
+if if
+
+
+
+if
+
+
+
+inst
+inst
+inst y from from y y mov move mov move "move
+
+
+
+
+
+
+
+inst
+inst "inst x [[inst y 'mov mov [[mov 'mov [[mov
+y
+
+&lt;y
+y
+
+
+
+
+
+
+
+
+
+
+
+
+mov 'mov x
+mov x that x x x x x from from x from x x from y x x
+
+y x
+
+
+&lt;
+
+
+
+
+
+
+
+
+&lt;x y y x and y y y
+mov if y
+
+y y y
+
+y y from from from y y y y y y y y y y y of of y y y y y y y y y y y y y y of y
+y y y y y y
+
+
+
+
+
+
+
+
+
+y y y y y y y y y
+
+
+
+y y y y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+y, y y
+
+y y
+
+y
+y y y y y y y y y y y y y y y y y
+
+y y y y y y y y y y y y y y y
+
+
+
+
+
+
+
+y y y y y
+
+
+
+
+y y y y: y: y:
+y:
+y: y y
+y:
+y y</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+
+
+
+
+<span class="n">answer</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;abcdef&#39;</span><span class="p">))</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;abcdef&#39;</span><span class="p">,</span> <span class="s1">&#39;abcdfe&#39;</span><span class="p">,</span> <span class="s1">&#39;abcedf&#39;</span><span class="p">,</span> <span class="s1">&#39;abcefd&#39;</span><span class="p">,</span> <span class="s1">&#39;abcfde&#39;</span><span class="p">,</span> <span class="s1">&#39;abdcef&#39;</span><span class="p">,</span> <span class="s1">&#39;abdecf&#39;</span><span class="p">,</span> <span class="s1">&#39;abdefc&#39;</span><span class="p">,</span> <span class="s1">&#39;abecdf&#39;</span><span class="p">,</span> <span class="s1">&#39;abefcd&#39;</span><span class="p">,</span> <span class="s1">&#39;abfcde&#39;</span><span class="p">,</span> <span class="s1">&#39;acbdef&#39;</span><span class="p">,</span> <span class="s1">&#39;acdbef&#39;</span><span class="p">,</span> <span class="s1">&#39;acdebf&#39;</span><span class="p">,</span> <span class="s1">&#39;acdefb&#39;</span><span class="p">,</span> <span class="s1">&#39;adbcef&#39;</span><span class="p">,</span> <span class="s1">&#39;adebcf&#39;</span><span class="p">,</span> <span class="s1">&#39;adefbc&#39;</span><span class="p">,</span> <span class="s1">&#39;aebcdf&#39;</span><span class="p">,</span> <span class="s1">&#39;aefbcd&#39;</span><span class="p">,</span> <span class="s1">&#39;afbcde&#39;</span><span class="p">,</span> <span class="s1">&#39;bacdef&#39;</span><span class="p">,</span> <span class="s1">&#39;bcadef&#39;</span><span class="p">,</span> <span class="s1">&#39;bcdaef&#39;</span><span class="p">,</span> <span class="s1">&#39;bcdeaf&#39;</span><span class="p">,</span> <span class="s1">&#39;bcdefa&#39;</span><span class="p">,</span> <span class="s1">&#39;cabdef&#39;</span><span class="p">,</span> <span class="s1">&#39;cdabef&#39;</span><span class="p">,</span> <span class="s1">&#39;cdeabf&#39;</span><span class="p">,</span> <span class="s1">&#39;cdefab&#39;</span><span class="p">,</span> <span class="s1">&#39;dabcef&#39;</span><span class="p">,</span> <span class="s1">&#39;deabcf&#39;</span><span class="p">,</span> <span class="s1">&#39;defabc&#39;</span><span class="p">,</span> <span class="s1">&#39;eabcdf&#39;</span><span class="p">,</span> <span class="s1">&#39;efabcd&#39;</span><span class="p">,</span> <span class="s1">&#39;fabcde&#39;</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Wrong answer; got </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1"> instead of </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All tests passed&#39;</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>File "/usr/src/app/main.py", line 1
+    Model API request failed
+          ^^^
+SyntaxError: invalid syntax</code></p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>All tests passed</code>: False</p>
+</div>
+    

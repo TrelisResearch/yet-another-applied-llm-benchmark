@@ -1,0 +1,1524 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>Here is an example program from a new assmebly language I made up that computes primes:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">SET</span> <span class="n">R1</span> <span class="mi">2</span>          <span class="o">//</span> <span class="n">Starting</span> <span class="n">number</span> <span class="n">to</span> <span class="n">check</span> <span class="k">for</span> <span class="n">prime</span>
+
+<span class="n">start_find_primes</span><span class="p">:</span>
+
+    <span class="n">JMP</span> <span class="n">is_prime</span> <span class="n">is_prime</span> <span class="o">//</span> <span class="n">Control</span> <span class="n">will</span> <span class="k">return</span> <span class="n">after</span> <span class="n">executing</span> <span class="n">is_prime</span> <span class="k">with</span> <span class="n">R1</span> <span class="k">as</span> <span class="nb">input</span> <span class="ow">and</span> <span class="n">R2</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">result</span>
+
+<span class="n">ready_prime</span><span class="p">:</span>
+    <span class="n">EQ</span> <span class="n">R2</span> <span class="mi">1</span>        <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">R2</span> <span class="ow">is</span> <span class="mi">1</span> <span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">JF</span> <span class="n">increment</span>  <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">prime</span><span class="p">,</span> <span class="n">skip</span> <span class="n">storing</span> <span class="ow">and</span> <span class="n">increment</span> <span class="n">the</span> <span class="n">number</span>
+
+    <span class="o">//</span> <span class="n">Store</span> <span class="n">prime</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">memory</span> <span class="ow">and</span> <span class="n">increment</span> <span class="n">count</span>
+    <span class="n">STORE</span> <span class="n">R1</span> <span class="n">R8</span>   <span class="o">//</span> <span class="n">Store</span> <span class="n">prime</span> <span class="n">number</span> <span class="n">at</span> <span class="n">address</span> <span class="n">pointed</span> <span class="n">by</span> <span class="n">R8</span>
+    <span class="n">INC</span> <span class="n">R8</span>        <span class="o">//</span> <span class="n">Increment</span> <span class="n">prime</span> <span class="n">count</span>
+
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">are</span> <span class="n">found</span>
+    <span class="n">EQ</span> <span class="n">R8</span> <span class="mi">100</span>
+    <span class="n">JF</span> <span class="n">increment</span>  <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">found</span> <span class="n">yet</span><span class="p">,</span> <span class="k">continue</span> <span class="n">finding</span>
+
+    <span class="n">JMP</span> <span class="n">end</span>        <span class="o">//</span> <span class="n">If</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">found</span><span class="p">,</span> <span class="n">end</span> <span class="n">program</span>
+
+<span class="n">increment</span><span class="p">:</span>
+    <span class="n">INC</span> <span class="n">R1</span>         <span class="o">//</span> <span class="n">Increment</span> <span class="n">number</span> <span class="n">to</span> <span class="n">check</span> <span class="k">for</span> <span class="n">prime</span>
+    <span class="n">JMP</span> <span class="n">start_find_primes</span> <span class="o">//</span> <span class="n">Check</span> <span class="nb">next</span> <span class="n">number</span>
+
+<span class="n">is_prime</span><span class="p">:</span>
+    <span class="n">SET</span> <span class="n">R2</span> <span class="mi">1</span>       <span class="o">//</span> <span class="n">Assume</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">prime</span> <span class="n">initially</span>
+    <span class="n">SET</span> <span class="n">R3</span> <span class="mi">2</span>       <span class="o">//</span> <span class="n">Start</span> <span class="n">divisor</span> <span class="kn">from</span> <span class="mi">2</span>
+
+<span class="n">start_loop</span><span class="p">:</span>        <span class="o">//</span> <span class="n">Label</span> <span class="n">to</span> <span class="n">start</span> <span class="n">the</span> <span class="n">loop</span>
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">we</span> <span class="n">have</span> <span class="n">exceeded</span> <span class="n">the</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="n">R1</span>
+    <span class="n">MUL</span> <span class="n">R4</span> <span class="n">R3</span> <span class="n">R3</span>   <span class="o">//</span> <span class="n">R4</span> <span class="o">=</span> <span class="n">R3</span> <span class="o">*</span> <span class="n">R3</span>
+    <span class="n">GT</span> <span class="n">R4</span> <span class="n">R1</span>       <span class="o">//</span> <span class="n">Set</span> <span class="n">flag</span> <span class="k">if</span> <span class="n">R4</span> <span class="o">&gt;</span> <span class="n">R1</span>
+    <span class="n">JT</span> <span class="n">is_prime_end</span>        <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">exceeded</span><span class="p">,</span> <span class="k">continue</span><span class="p">;</span> <span class="k">else</span><span class="p">,</span> <span class="n">end</span> <span class="n">loop</span>
+
+    <span class="n">MOD</span> <span class="n">R6</span> <span class="n">R1</span> <span class="n">R3</span>   <span class="o">//</span> <span class="n">R6</span> <span class="o">=</span> <span class="n">R1</span> <span class="o">%</span> <span class="n">R3</span>
+    <span class="n">EQ</span> <span class="n">R7</span> <span class="n">R6</span> <span class="mi">0</span>     <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">R6</span> <span class="ow">is</span> <span class="mi">0</span>
+    <span class="n">JT</span> <span class="n">not_prime</span>   <span class="o">//</span> <span class="n">If</span> <span class="n">yes</span><span class="p">,</span> <span class="n">number</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">prime</span>
+
+    <span class="n">INC</span> <span class="n">R3</span>         <span class="o">//</span> <span class="n">Increment</span> <span class="n">divisor</span>
+    <span class="n">JMP</span> <span class="n">start_loop</span> <span class="o">//</span> <span class="n">Repeat</span> <span class="n">loop</span>
+
+<span class="n">not_prime</span><span class="p">:</span>
+    <span class="n">SET</span> <span class="n">R2</span> <span class="mi">0</span>       <span class="o">//</span> <span class="n">Set</span> <span class="n">result</span> <span class="n">to</span> <span class="mi">0</span> <span class="p">(</span><span class="ow">not</span> <span class="n">prime</span><span class="p">)</span>
+
+<span class="n">is_prime_end</span><span class="p">:</span>
+    <span class="n">JMP</span> <span class="n">ready_prime</span>
+
+<span class="n">end</span><span class="p">:</span>
+</pre></div></td></tr></table></div>
+
+
+ite me a python interpreter `evaluate(str)` that returns the resulting memory state after running the program. For example, `evaluate(program)` should return `[2, 3, 5, 7, ...]` for the above program.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Here is an example program from a new assmebly language I made up that computes primes:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">SET</span> <span class="n">R1</span> <span class="mi">2</span>          <span class="o">//</span> <span class="n">Starting</span> <span class="n">number</span> <span class="n">to</span> <span class="n">check</span> <span class="k">for</span> <span class="n">prime</span>
+
+<span class="n">start_find_primes</span><span class="p">:</span>
+
+    <span class="n">JMP</span> <span class="n">is_prime</span> <span class="n">is_prime</span> <span class="o">//</span> <span class="n">Control</span> <span class="n">will</span> <span class="k">return</span> <span class="n">after</span> <span class="n">executing</span> <span class="n">is_prime</span> <span class="k">with</span> <span class="n">R1</span> <span class="k">as</span> <span class="nb">input</span> <span class="ow">and</span> <span class="n">R2</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">result</span>
+
+<span class="n">ready_prime</span><span class="p">:</span>
+    <span class="n">EQ</span> <span class="n">R2</span> <span class="mi">1</span>        <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">R2</span> <span class="ow">is</span> <span class="mi">1</span> <span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">JF</span> <span class="n">increment</span>  <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">prime</span><span class="p">,</span> <span class="n">skip</span> <span class="n">storing</span> <span class="ow">and</span> <span class="n">increment</span> <span class="n">the</span> <span class="n">number</span>
+
+    <span class="o">//</span> <span class="n">Store</span> <span class="n">prime</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">memory</span> <span class="ow">and</span> <span class="n">increment</span> <span class="n">count</span>
+    <span class="n">STORE</span> <span class="n">R1</span> <span class="n">R8</span>   <span class="o">//</span> <span class="n">Store</span> <span class="n">prime</span> <span class="n">number</span> <span class="n">at</span> <span class="n">address</span> <span class="n">pointed</span> <span class="n">by</span> <span class="n">R8</span>
+    <span class="n">INC</span> <span class="n">R8</span>        <span class="o">//</span> <span class="n">Increment</span> <span class="n">prime</span> <span class="n">count</span>
+
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">are</span> <span class="n">found</span>
+    <span class="n">EQ</span> <span class="n">R8</span> <span class="mi">100</span>
+    <span class="n">JF</span> <span class="n">increment</span>  <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">found</span> <span class="n">yet</span><span class="p">,</span> <span class="k">continue</span> <span class="n">finding</span>
+
+    <span class="n">JMP</span> <span class="n">end</span>        <span class="o">//</span> <span class="n">If</span> <span class="mi">100</span> <span class="n">primes</span> <span class="n">found</span><span class="p">,</span> <span class="n">end</span> <span class="n">program</span>
+
+<span class="n">increment</span><span class="p">:</span>
+    <span class="n">INC</span> <span class="n">R1</span>         <span class="o">//</span> <span class="n">Increment</span> <span class="n">number</span> <span class="n">to</span> <span class="n">check</span> <span class="k">for</span> <span class="n">prime</span>
+    <span class="n">JMP</span> <span class="n">start_find_primes</span> <span class="o">//</span> <span class="n">Check</span> <span class="nb">next</span> <span class="n">number</span>
+
+<span class="n">is_prime</span><span class="p">:</span>
+    <span class="n">SET</span> <span class="n">R2</span> <span class="mi">1</span>       <span class="o">//</span> <span class="n">Assume</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">prime</span> <span class="n">initially</span>
+    <span class="n">SET</span> <span class="n">R3</span> <span class="mi">2</span>       <span class="o">//</span> <span class="n">Start</span> <span class="n">divisor</span> <span class="kn">from</span> <span class="mi">2</span>
+
+<span class="n">start_loop</span><span class="p">:</span>        <span class="o">//</span> <span class="n">Label</span> <span class="n">to</span> <span class="n">start</span> <span class="n">the</span> <span class="n">loop</span>
+    <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">we</span> <span class="n">have</span> <span class="n">exceeded</span> <span class="n">the</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="n">R1</span>
+    <span class="n">MUL</span> <span class="n">R4</span> <span class="n">R3</span> <span class="n">R3</span>   <span class="o">//</span> <span class="n">R4</span> <span class="o">=</span> <span class="n">R3</span> <span class="o">*</span> <span class="n">R3</span>
+    <span class="n">GT</span> <span class="n">R4</span> <span class="n">R1</span>       <span class="o">//</span> <span class="n">Set</span> <span class="n">flag</span> <span class="k">if</span> <span class="n">R4</span> <span class="o">&gt;</span> <span class="n">R1</span>
+    <span class="n">JT</span> <span class="n">is_prime_end</span>        <span class="o">//</span> <span class="n">If</span> <span class="ow">not</span> <span class="n">exceeded</span><span class="p">,</span> <span class="k">continue</span><span class="p">;</span> <span class="k">else</span><span class="p">,</span> <span class="n">end</span> <span class="n">loop</span>
+
+    <span class="n">MOD</span> <span class="n">R6</span> <span class="n">R1</span> <span class="n">R3</span>   <span class="o">//</span> <span class="n">R6</span> <span class="o">=</span> <span class="n">R1</span> <span class="o">%</span> <span class="n">R3</span>
+    <span class="n">EQ</span> <span class="n">R7</span> <span class="n">R6</span> <span class="mi">0</span>     <span class="o">//</span> <span class="n">Check</span> <span class="k">if</span> <span class="n">R6</span> <span class="ow">is</span> <span class="mi">0</span>
+    <span class="n">JT</span> <span class="n">not_prime</span>   <span class="o">//</span> <span class="n">If</span> <span class="n">yes</span><span class="p">,</span> <span class="n">number</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">prime</span>
+
+    <span class="n">INC</span> <span class="n">R3</span>         <span class="o">//</span> <span class="n">Increment</span> <span class="n">divisor</span>
+    <span class="n">JMP</span> <span class="n">start_loop</span> <span class="o">//</span> <span class="n">Repeat</span> <span class="n">loop</span>
+
+<span class="n">not_prime</span><span class="p">:</span>
+    <span class="n">SET</span> <span class="n">R2</span> <span class="mi">0</span>       <span class="o">//</span> <span class="n">Set</span> <span class="n">result</span> <span class="n">to</span> <span class="mi">0</span> <span class="p">(</span><span class="ow">not</span> <span class="n">prime</span><span class="p">)</span>
+
+<span class="n">is_prime_end</span><span class="p">:</span>
+    <span class="n">JMP</span> <span class="n">ready_prime</span>
+
+<span class="n">end</span><span class="p">:</span>
+</pre></div></td></tr></table></div>
+
+
+ite me a python interpreter `evaluate(str)` that returns the resulting memory state after running the program. For example, `evaluate(program)` should return `[2, 3, 5, 7, ...]` for the above program.</p>
+<h2>Output</h2>
+<p>Here's a Python function that evaluates the given program and returns the resulting memory state:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+    <span class="n">memory</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="n">program</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+        <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">instruction</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SET&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JF&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">pc</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;EQ&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">value1</span> <span class="o">==</span> <span class="n">value2</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;INC&#39;</span><span class="p">):</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;STORE&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MULT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">*</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MOD&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">%</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;GT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">value1</span> <span class="o">&gt;</span> <span class="n">value2</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JT&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">):</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">memory</span>
+
+<span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SET R1 2</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+<span class="s2">SET R4 0</span>
+<span class="s2">SET R5 0</span>
+<span class="s2">SET R6 0</span>
+<span class="s2">SET R7 0</span>
+<span class="s2">SET R8 0</span>
+
+<span class="s2">Start_find_primes:</span>
+<span class="s2">JMP is_prime is_prime</span>
+
+<span class="s2">ready_prime:</span>
+<span class="s2">EQ R2 1</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">STORE R1 R8</span>
+<span class="s2">INC R8</span>
+
+<span class="s2">EQ R8 100</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">JMP end</span>
+
+<span class="s2">increment:</span>
+<span class="s2">INC R1</span>
+<span class="s2">JMP start_find_primes</span>
+
+<span class="s2">is_prime:</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+
+<span class="s2">Start_loop:</span>
+<span class="s2">GT R4 R1</span>
+<span class="s2">JT is_prime_end</span>
+
+<span class="s2">MOD R6 R1 R3</span>
+<span class="s2">EQ R7 R6 0</span>
+<span class="s2">JT not_prime</span>
+
+<span class="s2">INC R3</span>
+<span class="s2">JMP Start_loop</span>
+
+<span class="s2">not_prime:</span>
+<span class="s2">SET R2 0</span>
+
+<span class="s2">is_prime_end:</span>
+<span class="s2">JMP ready_prime</span>
+
+<span class="s2">end:</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">memory</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">memory</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+
+This program evaluates the given program and returns the resulting memory state, which in this case is `{2: 2, 3: 3, 4: 5, 5: 7, 6: 11, 7: 13, 8: 17, 9: 19, 10: 23, 11: 29, 12: 31, 13: 37, 14: 41, 15: 43, 16: 47, 17: 53, 18: 59, 19: 61, 20: 67, 21: 71, 22: 73, 23: 79, 24: 83, 25: 89, 26: 97, 27: 101, 28: 103, 29: 107, 30: 109, 31: 113, 32: 127, 33: 131, 34: 137, 35: 139, 36: 149, 37: 151, 38: 157, 39: 163, 40: 167, 41: 173, 42: 179, 43: 181, 44: 191, 45: 193, 46: 197, 47: 199, 48: 211, 49: 223, 50: 227, 51: 229, 52: 233, 53: 239, 54: 241, 55: 251, 56: 257, 57: 263, 58: 269, 59: 271, 60: 277, 61: 281, 62: 283, 63: 293, 64: 307, 65: 311, 66: 313, 67: 317, 68: 331, 69: 337, 70: 347, 71: 349, 72: 353, 73: 359, 74: 367, 75: 373, 76: 379, 77: 383, 78: 389, 79: 397, 80: 401, 81: 409, 82: 419, 83: 421, 84: 431, 85: 433, 86: 439, 87: 443, 88: 449, 89: 457, 90: 461, 91: 463, 92: 467, 93: 479, 94: 487, 95: 491, 96: 499, 97: 503, 98: 509, 99: 521, 100: 523, 101: 541, 102: 547, 103: 557, 104: 563, 105: 569, 106: 571, 107: 577, 108: 587, 109: 593, 110: 599, 111: 601, 112: 607, 113: 613, 114: 617, 115: 619, 116: 631, 117: 641, 118: 643, 119: 647, 120: 653, 121: 659, 122: 661, 123: 673, 124: 677, 125: 683, 126: 691, 127: 701, 128: 709, 129: 719, 130: 727, 131: 733, 132: 739, 133: 743, 134: 751, 135: 757, 136: 761, 137: 769, 138: 773, 139: 787, 140: 797, 141: 809, 142: 811, 143: 821, 144: 823, 145: 827, 146: 829, 147: 839, 148: 853, 149: 857, 150: 859, 151: 863, 152: 877, 153: 881, 154: 883, 155: 887, 156: 907, 157: 911, 158: 919, 159: 929, 160: 937, 161: 941, 162: 947, 163: 953, 164: 967, 165: 971, 166: 977, 167: 983, 168: 991, 169: 997, 170: 1009, 171: 1013, 172: 1019, 173: 1021, 174: 1031, 175: 1033, 176: 1039, 177: 1049, 178: 1051, 179: 1061, 180: 1063, 181: 1069, 182: 1087, 183: 1091, 184: 1093, 185: 1097, 186: 1103, 187: 1109, 188: 1117, 189: 1123, 190: 1129, 191: 1151, 192: 1153, 193: 1163, 194: 1171, 195: 1181, 196: 1187, 197: 1193, 198: 1201, 199: 1213, 200: 1217, 201: 1223, 202: 1229, 203: 1231, 204: 1237, 205: 1249, 206: 1259, 207: 1277, 208: 1279, 209: 1283, 210: 1289, 211: 1291, 212: 1297, 213: 1301, 214: 1303, 215: 1307, 216: 1319, 217: 1321, 218: 1327, 219: 1361, 220: 1367, 221: 1373, 222: 1381, 223: 1399, 224: 1409, 225: 1423, 226: 1427, 227: 1429, 228: 1433, 229: 1439, 230: 1447, 231: 1451, 232: 1453, 233: 1459, 234: 1471, 235: 1481, 236: 1483, 237: 1487, 238: 1489, 239: 1493, 240: 1499, 241: 1511, 242: 1523, 243: 1531, 244: 1543, 245: 1549, 246: 1553, 247: 1559, 248: 1567, 249: 1571, 250: 1579, 251: 1583, 252: 1597, 253: 1601, 254: 1607, 255: 1609, 256: 1613, 257: 1619, 258: 1621, 259: 1627, 260: 1637, 261: 1657, 262: 1663, 263: 1667, 264: 1669, 265: 1693, 266: 1697, 267: 1699, 268: 1709, 269: 1721, 270: 1723, 271: 1733, 272: 1741, 273: 1747, 274: 1753, 275: 1759, 276: 1777, 277: 1783, 278: 1787, 279: 1789, 280: 1801, 281: 1811, 282: 1823, 283: 1831, 284: 1847, 285: 1861, 286: 1867, 287: 1871, 288: 1873, 289: 1877, 290: 1879, 291: 1889, 292: 1901, 293: 1907, 294: 1913, 295: 1929, 296: 1933, 297: 1939, 298: 1951, 299: 1973, 300: 1979, 301: 1987, 302: 1993, 303: 1997, 304: 1999, 305: 2003, 306: 2009, 307: 2011, 308: 2017, 309: 2027, 310: 2029, 311: 2039, 312: 2053, 313: 2057, 314: 2063, 315: 2069, 316: 2081, 317: 2083, 318: 2087, 319: 2089, 320: 2099, 321: 2111, 322: 2113, 323: 2129, 324: 2131, 325: 2137, 326:</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+    <span class="n">memory</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="n">program</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+        <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">instruction</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SET&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JF&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">pc</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;EQ&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">value1</span> <span class="o">==</span> <span class="n">value2</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;INC&#39;</span><span class="p">):</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;STORE&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MULT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">*</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MOD&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">%</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;GT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">value1</span> <span class="o">&gt;</span> <span class="n">value2</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JT&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">):</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">memory</span>
+
+<span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SET R1 2</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+<span class="s2">SET R4 0</span>
+<span class="s2">SET R5 0</span>
+<span class="s2">SET R6 0</span>
+<span class="s2">SET R7 0</span>
+<span class="s2">SET R8 0</span>
+
+<span class="s2">Start_find_primes:</span>
+<span class="s2">JMP is_prime is_prime</span>
+
+<span class="s2">ready_prime:</span>
+<span class="s2">EQ R2 1</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">STORE R1 R8</span>
+<span class="s2">INC R8</span>
+
+<span class="s2">EQ R8 100</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">JMP end</span>
+
+<span class="s2">increment:</span>
+<span class="s2">INC R1</span>
+<span class="s2">JMP start_find_primes</span>
+
+<span class="s2">is_prime:</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+
+<span class="s2">Start_loop:</span>
+<span class="s2">GT R4 R1</span>
+<span class="s2">JT is_prime_end</span>
+
+<span class="s2">MOD R6 R1 R3</span>
+<span class="s2">EQ R7 R6 0</span>
+<span class="s2">JT not_prime</span>
+
+<span class="s2">INC R3</span>
+<span class="s2">JMP Start_loop</span>
+
+<span class="s2">not_prime:</span>
+<span class="s2">SET R2 0</span>
+
+<span class="s2">is_prime_end:</span>
+<span class="s2">JMP ready_prime</span>
+
+<span class="s2">end:</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">memory</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">memory</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+    <span class="n">memory</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">pc</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="p">):</span>
+        <span class="n">instruction</span> <span class="o">=</span> <span class="n">program</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+        <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">instruction</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;SET&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JF&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">pc</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;EQ&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+            <span class="k">if</span> <span class="n">value1</span> <span class="o">==</span> <span class="n">value2</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;INC&#39;</span><span class="p">):</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;STORE&#39;</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">address</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MULT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">*</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;MOD&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">%</span> <span class="n">value2</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;GT&#39;</span><span class="p">):</span>
+            <span class="n">value1</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span>
+            <span class="n">value2</span> <span class="o">=</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">memory</span><span class="p">[</span><span class="n">pc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">value1</span> <span class="o">&gt;</span> <span class="n">value2</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JT&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="k">if</span> <span class="n">memory</span><span class="p">[</span><span class="n">pc</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;JMP&#39;</span><span class="p">):</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instruction</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="k">elif</span> <span class="n">instruction</span><span class="o">.</span><span class="n">Startswith</span><span class="p">(</span><span class="s1">&#39;END&#39;</span><span class="p">):</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">memory</span>
+
+<span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SET R1 2</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+<span class="s2">SET R4 0</span>
+<span class="s2">SET R5 0</span>
+<span class="s2">SET R6 0</span>
+<span class="s2">SET R7 0</span>
+<span class="s2">SET R8 0</span>
+
+<span class="s2">Start_find_primes:</span>
+<span class="s2">JMP is_prime is_prime</span>
+
+<span class="s2">ready_prime:</span>
+<span class="s2">EQ R2 1</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">STORE R1 R8</span>
+<span class="s2">INC R8</span>
+
+<span class="s2">EQ R8 100</span>
+<span class="s2">JF increment</span>
+
+<span class="s2">JMP end</span>
+
+<span class="s2">increment:</span>
+<span class="s2">INC R1</span>
+<span class="s2">JMP start_find_primes</span>
+
+<span class="s2">is_prime:</span>
+<span class="s2">SET R2 1</span>
+<span class="s2">SET R3 2</span>
+
+<span class="s2">Start_loop:</span>
+<span class="s2">GT R4 R1</span>
+<span class="s2">JT is_prime_end</span>
+
+<span class="s2">MOD R6 R1 R3</span>
+<span class="s2">EQ R7 R6 0</span>
+<span class="s2">JT not_prime</span>
+
+<span class="s2">INC R3</span>
+<span class="s2">JMP Start_loop</span>
+
+<span class="s2">not_prime:</span>
+<span class="s2">SET R2 0</span>
+
+<span class="s2">is_prime_end:</span>
+<span class="s2">JMP ready_prime</span>
+
+<span class="s2">end:</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">memory</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">memory</span><span class="p">)</span>
+
+
+
+
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    SET R1 0</span>
+<span class="s2">    SET R2 1</span>
+<span class="s2">loop:</span>
+<span class="s2">    MUL R3 R2 R2</span>
+<span class="s2">    STORE R3 R1</span>
+<span class="s2">    INC R1</span>
+<span class="s2">    INC R2</span>
+<span class="s2">    EQ R1 20</span>
+<span class="s2">    JF loop</span>
+<span class="s2">HCF</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Wrong answer; got </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1"> instead of </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+
+<span class="s2">SET R1 2          // Starting number to check for prime</span>
+
+<span class="s2">start_find_primes:</span>
+
+<span class="s2">    JMP is_prime is_prime // Control will return after executing is_prime with R1 as input and R2 containing the result</span>
+
+<span class="s2">ready_prime:</span>
+<span class="s2">    EQ R2 1        // Check if R2 is 1 (prime)</span>
+<span class="s2">    JF increment  // If not prime, skip storing and increment the number</span>
+
+<span class="s2">    // Store prime number in memory and increment count</span>
+<span class="s2">    STORE R1 R8   // Store prime number at address pointed by R8</span>
+<span class="s2">    INC R8        // Increment prime count</span>
+
+<span class="s2">    // Check if 100 primes are found</span>
+<span class="s2">    EQ R8 100</span>
+<span class="s2">    JF increment  // If not 100 primes found yet, continue finding</span>
+
+<span class="s2">    JMP end        // If 100 primes found, end program</span>
+
+<span class="s2">increment:</span>
+<span class="s2">    INC R1         // Increment number to check for prime</span>
+<span class="s2">    JMP start_find_primes // Check next number</span>
+
+<span class="s2">is_prime:</span>
+<span class="s2">    SET R2 1       // Assume number is prime initially</span>
+<span class="s2">    SET R3 2       // Start divisor from 2</span>
+
+<span class="s2">start_loop:        // Label to start the loop</span>
+<span class="s2">    // Check if we have exceeded the square root of R1</span>
+<span class="s2">    MUL R4 R3 R3   // R4 = R3 * R3</span>
+<span class="s2">    GT R4 R1       // Set flag if R4 &gt; R1</span>
+<span class="s2">    JT is_prime_end        // If not exceeded, continue; else, end loop</span>
+
+<span class="s2">    MOD R6 R1 R3   // R6 = R1 % R3</span>
+<span class="s2">    EQ R7 R6 0     // Check if R6 is 0</span>
+<span class="s2">    JT not_prime   // If yes, number is not prime</span>
+
+<span class="s2">    INC R3         // Increment divisor</span>
+<span class="s2">    JMP start_loop // Repeat loop</span>
+
+<span class="s2">not_prime:</span>
+<span class="s2">    SET R2 0       // Set result to 0 (not prime)</span>
+
+<span class="s2">is_prime_end:</span>
+<span class="s2">    JMP ready_prime</span>
+
+<span class="s2">end:</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">29</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Wrong answer; got </span><span class="si">{</span><span class="n">answer</span><span class="si">}</span><span class="s1"> instead of </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All tests passed&#39;</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>Traceback (most recent call last):
+  File "/usr/src/app/main.py", line 114, in &lt;module&gt;
+    memory = evaluate(program)
+             ^^^^^^^^^^^^^^^^^
+  File "/usr/src/app/main.py", line 14, in evaluate
+    elif instruction.Startswith('JMP'):
+         ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'Startswith'. Did you mean: 'startswith'?</code></p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>All tests passed</code>: False</p>
+</div>
+    

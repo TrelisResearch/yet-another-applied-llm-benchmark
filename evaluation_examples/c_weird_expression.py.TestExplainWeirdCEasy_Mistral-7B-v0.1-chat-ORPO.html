@@ -1,0 +1,160 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>What does the c expression `-~++*x--` evaluate to in simplest form? Ignore side effects. Think out loud then give a final summary.</p>
+<h2>Output</h2>
+<p>To evaluate the expression `-~++*x--` in the simplest form, we can follow these steps:
+
+1. Ignore side effects: Since we are asked to find the simplest form, we will not consider the side effects of the operators.
+2. Evaluate the expression:
+   - `-~` is the bitwise complement operator, which inverts all the bits of the operand.
+   - `++` is the pre-increment operator, which increments the value of the operand before using it.
+   - `*` is the multiplication operator.
+   - `--` is the pre-decrement operator, which decrements the value of the operand before using it.
+   - `x` is the variable we are operating on.
+
+3. Evaluate the expression:
+   - `-~` is applied first, which inverts all the bits of the operand.
+   - `++` is applied next, which increments the value of the operand.
+   - `*` is applied next, which multiplies the value of the operand by the value of `x`.
+   - `--` is applied last, which decrements the value of the operand.
+
+4. Simplify the expression:
+   - The bitwise complement operator `-~` is applied first, which inverts all the bits of the operand.
+   - The pre-increment operator `++` is applied next, which increments the value of the operand.
+   - The multiplication operator `*` is applied next, which multiplies the value of the operand by the value of `x`.
+   - The pre-decrement operator `--` is applied last, which decrements the value of the operand.
+
+5. Final summary:
+   The simplest form of the expression `-~++*x--` is `-~x--`. This is because the bitwise complement operator `-~` is applied first, which inverts all the bits of the operand. The pre-increment operator `++` is applied next, which increments the value of the operand. The multiplication operator `*` is applied next, which multiplies the value of the operand by the value of `x`. The pre-decrement operator `--` is applied last, which decrements the value of the operand.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Below is a student's answer to a question about what a particular C expression evaluates to: To evaluate the expression `-~++*x--` in the simplest form, we can follow these steps:
+
+1. Ignore side effects: Since we are asked to find the simplest form, we will not consider the side effects of the operators.
+2. Evaluate the expression:
+   - `-~` is the bitwise complement operator, which inverts all the bits of the operand.
+   - `++` is the pre-increment operator, which increments the value of the operand before using it.
+   - `*` is the multiplication operator.
+   - `--` is the pre-decrement operator, which decrements the value of the operand before using it.
+   - `x` is the variable we are operating on.
+
+3. Evaluate the expression:
+   - `-~` is applied first, which inverts all the bits of the operand.
+   - `++` is applied next, which increments the value of the operand.
+   - `*` is applied next, which multiplies the value of the operand by the value of `x`.
+   - `--` is applied last, which decrements the value of the operand.
+
+4. Simplify the expression:
+   - The bitwise complement operator `-~` is applied first, which inverts all the bits of the operand.
+   - The pre-increment operator `++` is applied next, which increments the value of the operand.
+   - The multiplication operator `*` is applied next, which multiplies the value of the operand by the value of `x`.
+   - The pre-decrement operator `--` is applied last, which decrements the value of the operand.
+
+5. Final summary:
+   The simplest form of the expression `-~++*x--` is `-~x--`. This is because the bitwise complement operator `-~` is applied first, which inverts all the bits of the operand. The pre-increment operator `++` is applied next, which increments the value of the operand. The multiplication operator `*` is applied next, which multiplies the value of the operand by the value of `x`. The pre-decrement operator `--` is applied last, which decrements the value of the operand.
+
+Does the student's final answer say that the expression evaluates to *x+2?
+
+Ignore their reasoning. Just look at the final answer, if they say **EXPLICITLY** that the answer is *x+2. Giving something that's equal but more complicated is wrong. 
+
+If the answer is correct say "The student passes" otherwise "The student fails".</p>
+<h2>Output</h2>
+<p>Model API request failed</p>
+<h1>Substring Evaluation</h1>
+<p>Testing if the previous output contains the string <code>student passes</code>: False</p>
+</div>
+    

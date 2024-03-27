@@ -273,9 +273,9 @@ Note that when you run this, the default test llm in llm.py will be the one test
 
 * Explore the `run_a_simple_testcase.ipynb` notebook to quickly run a sample test case on Colab.
 
-The other, if you want to save the result of this run so you can load it later,
+The other option, if you want to save the result of this run so you can load it later,
 is to run the main script and specify which test(s) you want to run.
-(Be careful if you do this, though, beacuse it will overwrite any prior run.)
+(Be careful if you do this, though, because it will overwrite any prior run.)
 
 
 ```bash
@@ -295,7 +295,7 @@ python main.py --test print_hello --run-tests --model Mistral-7B-Instruct-v0.1 -
 This framework is fairly modular.
 If you'd like to test a new LLM, you'll just need to add a new file to llms/[model_name]_model.py
 which implements an inference function. From there, modify [llm.py](llm.py) to include the
-appropriate model.
+appropriate model. Note that to add a model hosted on Runpod, you only have to add the model to llm.py and also in config.json .
 
 ## Adding new test cases
 

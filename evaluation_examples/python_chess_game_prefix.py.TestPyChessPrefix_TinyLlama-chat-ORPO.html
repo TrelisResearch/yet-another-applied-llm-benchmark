@@ -1,0 +1,740 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Initial Query</h1>
+<p>In python-chess I have a game = chess.pgn.read_game(pgn).
+
+How do I print the PGN notation for all prefixes of this game?
+
+Call your function print_all_prefixes(game). Do not give example code for how to run it.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>In python-chess I have a game = chess.pgn.read_game(pgn).
+
+How do I print the PGN notation for all prefixes of this game?
+
+Call your function print_all_prefixes(game). Do not give example code for how to run it.</p>
+<h2>Output</h2>
+<p>To print the PGN notation for all prefixes of a game, you can use the `print_all_prefixes` function from the `chess.pgn` module. Here's how you can call it:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">chess.pgn</span>
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">chess</span><span class="o">.</span><span class="n">pgn</span><span class="o">.</span><span class="n">read_game</span><span class="p">(</span><span class="n">pgn</span><span class="p">)</span>
+<span class="n">print_all_prefixes</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+
+The `print_all_prefixes` function takes a `chess.pgn.Game` object as its only argument. It then prints the PGN notation for all prefixes of the game, which is a list of strings.
+
+Here's an example of how to use it:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">chess.pgn</span>
+
+<span class="n">game</span> <span class="o">=</span> <span class="n">chess</span><span class="o">.</span><span class="n">pgn</span><span class="o">.</span><span class="n">read_game</span><span class="p">(</span><span class="n">pgn</span><span class="p">)</span>
+<span class="n">print_all_prefixes</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+
+
+This prints the following output:
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><span class="mf">1.</span> <span class="n">e4</span> <span class="n">e5</span> <span class="mf">2.</span> <span class="n">Nf3</span> <span class="n">Nc6</span> <span class="mf">3.</span> <span class="n">Bb5</span> <span class="n">a6</span> <span class="mf">4.</span> <span class="n">Ba4</span> <span class="n">d6</span> <span class="mf">5.</span> <span class="n">O</span><span class="o">-</span><span class="n">O</span> <span class="n">O</span><span class="o">-</span><span class="n">O</span> <span class="mf">6.</span> <span class="n">Re1</span> <span class="n">c5</span> <span class="mf">7.</span> <span class="n">d4</span> <span class="n">cxd4</span> <span class="mf">8.</span> <span class="n">Nxd4</span> <span class="n">Bc5</span> <span class="mf">9.</span> <span class="n">Nc3</span> <span class="n">Bb6</span> <span class="mf">10.</span> <span class="n">Nd5</span> <span class="n">Nf6</span> <span class="mf">11.</span> <span class="n">Nxf6</span><span class="o">+</span> <span class="n">Bxf6</span> <span class="mf">12.</span> <span class="n">Bxf6</span> <span class="n">Qxf6</span> <span class="mf">13.</span> <span class="n">Qxf6</span> <span class="n">Bxf6</span> <span class="mf">14.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">15.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">16.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">17.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">18.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">19.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">20.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">21.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">22.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">23.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">24.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">25.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">26.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">27.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">28.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">29.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">30.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">31.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">32.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">33.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">34.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">35.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">36.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">37.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">38.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">39.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">40.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">41.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">42.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">43.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">44.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">45.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">46.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">47.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">48.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">49.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">50.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">51.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">52.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">53.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">54.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">55.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">56.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">57.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">58.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">59.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">60.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">61.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">62.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">63.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">64.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">65.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">66.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">67.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">68.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">69.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">70.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">71.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">72.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">73.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">74.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">75.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">76.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">77.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">78.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">79.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">80.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">81.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">82.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">83.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">84.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">85.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">86.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">87.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">88.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">89.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">90.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">91.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">92.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">93.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">94.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">95.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">96.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">97.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">98.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">99.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">100.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">101.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">102.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">103.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">104.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">105.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">106.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">107.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">108.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">109.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">110.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">111.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">112.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">113.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">114.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">115.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">116.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">117.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">118.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">119.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">120.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">121.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">122.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">123.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">124.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">125.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">126.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">127.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">128.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">129.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">130.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">131.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">132.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">133.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">134.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">135.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">136.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">137.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">138.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">139.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">140.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">141.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">142.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">143.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">144.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">145.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">146.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">147.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">148.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">149.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">150.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">151.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">152.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">153.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">154.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">155.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">156.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">157.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">158.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">159.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">160.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">161.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">162.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">163.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">164.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">165.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">166.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">167.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">168.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">169.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">170.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">171.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">172.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">173.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">174.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">175.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">176.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">177.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">178.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">179.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">180.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">181.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">182.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">183.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">184.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">185.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">186.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">187.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">188.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span> <span class="mf">189.</span> <span class="n">Rxf6</span> <span class="mf">190.</span> <span class="n">Rf6</span> <span class="mf">19.</span> <span class="n">Rxf6</span> <span class="n">Rxf6</span><span class="o">.</span> <span class="n">Rf6</span><span class="o">.</span><span class="n">Rxf6</span><span class="o">.</span> <span class="n">Rf6</span><span class="o">.</span> <span class="n">Rf6</span><span class="mf">.10</span><span class="o">.</span><span class="n">R6</span><span class="o">.</span> <span class="n">R6</span><span class="o">.</span> <span class="n">Rf6</span><span class="o">.</span><span class="n">R18</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">f</span><span class="o">.</span> <span class="n">Rf</span><span class="o">.</span> <span class="n">R19</span><span class="o">.</span> <span class="n">Rf</span><span class="o">.</span> <span class="n">Rf</span><span class="o">.</span> <span class="n">Rf1</span><span class="o">.</span> <span class="n">R19</span><span class="o">.</span><span class="n">f1</span><span class="o">.</span> <span class="n">Rf</span><span class="o">.</span> <span class="n">Rf</span><span class="o">.</span>
+<span class="n">username</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">forwards</span><span class="p">,</span> <span class="n">the</span> <span class="n">functionally</span><span class="p">,</span> <span class="n">funtracef</span><span class="p">,</span><span class="n">fracteds</span><span class="p">,</span> <span class="n">funt</span><span class="p">,</span> <span class="n">funtile</span><span class="p">,</span> <span class="n">funtracusted</span> <span class="n">andfasted</span><span class="p">,</span> <span class="n">funtiles</span><span class="p">,</span> <span class="n">funts</span><span class="p">,</span> <span class="k">for</span> <span class="n">the</span> <span class="n">functions</span><span class="p">,</span><span class="mi">1</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">funts</span><span class="p">,</span> <span class="n">fors</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="k">for</span> <span class="n">thements</span><span class="p">,</span> <span class="n">fors</span><span class="p">,</span> <span class="k">for</span> <span class="n">thes</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">forfursts</span><span class="p">,</span> <span class="k">for</span> <span class="n">thes</span><span class="p">,</span> <span class="n">andteds</span> <span class="n">fors</span><span class="p">,</span> <span class="n">orf</span> <span class="n">ors</span><span class="p">,</span> <span class="n">fors</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">givens</span><span class="p">,</span> <span class="n">ands</span> <span class="n">ands</span><span class="p">,</span><span class="n">sorteds</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">sorteds</span> <span class="n">forsorteds</span><span class="o">.</span>
+<span class="n">usingsptsufsortedsptspts</span> <span class="n">insums</span> <span class="n">intsums</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">surss</span><span class="o">.</span>
+<span class="n">fors</span>
+
+
+<span class="n">forsorteds</span> <span class="n">tofsums</span> <span class="n">andsorteds</span><span class="p">,</span> <span class="n">andsorteds</span> <span class="ow">and</span> <span class="n">thesortedsortedsortedsgedgedgedsmentsumsions</span> <span class="n">andsuredsumsumsums</span><span class="p">,</span> <span class="ow">and</span> <span class="n">andsumsionsumsumsums</span> <span class="n">andsionsumsions</span><span class="p">,</span> <span class="n">andsumsions</span> <span class="n">tos</span> <span class="n">andsumsumsions</span> <span class="n">forums</span> <span class="n">andsionsumsions</span> <span class="n">to</span> <span class="n">thesumsions</span> <span class="n">tosumsumsumsumsumsums</span> <span class="n">toumsionsumsionsumsuredgedmentsumsums</span><span class="p">,</span> <span class="n">games</span><span class="p">,</span><span class="n">suresuredsgedgedumsumsumsuredtedgedsumsumsums</span> <span class="n">orums</span> <span class="n">orumsumsumsums</span><span class="p">:</span><span class="n">sumsumsionsumsions</span><span class="p">:</span><span class="n">sumsumsions</span><span class="p">:</span><span class="n">sments</span> <span class="n">asumsumsums</span> <span class="n">asumsumsumsums</span> <span class="n">asments</span> <span class="n">orsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsumsgedsgedgedgedumsumsumsumsumsctionsumsumsumsgedsgedgedgedsumsumsumsumsumssiredsgedsumsumsumsumsumsums</span> <span class="n">andsumsums</span> <span class="n">givensumsumsumsums</span> <span class="n">ands</span> <span class="n">andsums</span> <span class="n">ands</span> <span class="n">andsments</span> <span class="n">asmentssgeds</span> <span class="n">assgedsgedsumsuredsgedsgeds</span> <span class="n">ors</span> <span class="n">ors</span> <span class="n">ors</span> <span class="n">ors</span> <span class="ow">and</span> <span class="ow">and</span> <span class="n">andsumsumsumsgedsgedsumsumsumsums</span><span class="p">,</span> <span class="n">examplesums</span><span class="o">.</span><span class="n">pggedspgspgsumsumsumsumsumsumsumsumsumsgedsumsums</span> <span class="n">ors</span> <span class="n">orsumsums</span> <span class="n">ors</span> <span class="n">orsums</span> <span class="n">ors</span> <span class="ow">or</span> <span class="n">ors</span> <span class="n">ors</span> <span class="n">orsums</span> <span class="n">orsumsums</span> <span class="n">ors</span> <span class="n">ors</span> <span class="n">ors</span> <span class="n">ors</span> <span class="ow">or</span> <span class="ow">or</span> <span class="n">ors</span> <span class="ow">or</span> <span class="n">orsent_some_instspg_instententagrentagrentspgpgspgsgedspg</span> <span class="k">for</span> <span class="n">games</span> <span class="n">forums</span> <span class="k">for</span> <span class="n">arguments</span> <span class="n">forpgpgpgpgpgpgpgpgentent</span> <span class="ow">and</span> <span class="n">example</span> <span class="ow">and</span> <span class="ow">and</span> <span class="n">like</span><span class="p">:</span><span class="n">instspg</span> <span class="n">orpgspg</span> <span class="n">orums</span><span class="o">.</span>
+<span class="n">instgedging</span> <span class="ow">or</span> <span class="nb">print</span> <span class="n">example</span> <span class="n">instructions</span> <span class="ow">or</span> <span class="n">the</span> <span class="nb">print</span> <span class="k">for</span> <span class="n">the</span> <span class="n">examples</span> <span class="k">for</span> <span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="k">for</span> <span class="n">example</span> <span class="k">for</span> <span class="n">pgpg</span> <span class="k">for</span> <span class="n">pgpgententpg_instspgpgpgpgpgpgpgpggedpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpggedpgpgpgpg</span>
+<span class="n">inst</span> <span class="ow">and</span>
+<span class="n">insts</span>
+<span class="n">insts</span>
+<span class="n">inst</span>
+<span class="n">instentpg</span>
+<span class="n">prints</span>
+<span class="n">printspgpgpgpg</span>
+<span class="n">insts</span> <span class="nb">print</span> <span class="nb">print</span> <span class="n">example</span> <span class="n">example</span>
+<span class="n">insts</span> <span class="n">orpg</span>
+<span class="n">instpgpgpgpg</span>
+<span class="n">instpgpgpgpgpgpgpgpgpgpgpgpgpg</span>
+<span class="n">inst</span>
+<span class="n">inst</span>
+<span class="n">instpgpgpgpgpgpgpgpgpgpgpgpg</span>
+<span class="n">inst</span>
+<span class="n">inst</span> <span class="nb">print</span> <span class="nb">print</span>
+<span class="n">inst</span> <span class="nb">print</span> <span class="nb">print</span> <span class="nb">print</span> <span class="nb">print</span> <span class="nb">print</span> <span class="n">chpg</span>
+<span class="n">insts</span>
+<span class="n">instspgpg</span>
+<span class="n">inst</span>
+<span class="n">insts</span>
+<span class="n">insts</span>
+<span class="n">insts</span>
+<span class="n">insts</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">to</span> <span class="n">chpg</span>
+<span class="n">inst</span>
+<span class="n">insts</span>
+<span class="n">chpgpgpgpgpgpgpg</span>
+<span class="n">to</span> <span class="n">to</span> <span class="n">to</span>
+<span class="n">pg</span>
+<span class="n">pg</span>
+<span class="n">pg</span>
+<span class="n">pg</span>
+<span class="n">pg</span>
+<span class="n">insts</span> <span class="k">for</span> <span class="k">for</span> <span class="k">for</span> <span class="n">chpgpgch</span> <span class="n">ch</span> <span class="n">ch</span> <span class="n">chs</span> <span class="n">chs</span> <span class="n">printeds</span> <span class="n">chs</span> <span class="n">chspgspgpgspgpgspgs</span>
+<span class="n">called</span>
+<span class="n">chs</span> <span class="n">chs</span> <span class="n">thes</span> <span class="n">thes</span> <span class="n">to</span> <span class="n">to</span> <span class="n">to</span> <span class="n">the</span> <span class="n">the</span> <span class="n">the</span> <span class="n">the</span> <span class="n">the</span> <span class="n">thes</span> <span class="n">the</span> <span class="n">the</span> <span class="n">the</span>
+<span class="n">calledsssspgpgscalledscalledcalledtotochpgpgpginstsinstschinstsppppgs</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">to</span> <span class="n">to</span> <span class="n">the</span> <span class="n">ppg</span>
+<span class="n">inst</span> <span class="n">the</span> <span class="n">ppg</span> <span class="n">to</span> <span class="n">the</span> <span class="n">instances</span> <span class="ow">and</span> <span class="n">ppg</span> <span class="n">ppg</span> <span class="n">chpg</span> <span class="n">ch</span> <span class="n">ch</span>
+<span class="n">to</span> <span class="n">to</span> <span class="n">to</span> <span class="n">chp</span> <span class="n">chss</span> <span class="n">to</span> <span class="n">to</span> <span class="n">to</span> <span class="n">call</span> <span class="n">topg</span>
+<span class="n">ch</span> <span class="k">for</span> <span class="k">for</span> <span class="k">for</span> <span class="n">chpg</span>
+<span class="n">inst</span> <span class="n">chpgs</span> <span class="n">forpgpgpgpgpgpginstinst</span> <span class="n">callpg</span>
+<span class="n">inst</span>
+<span class="n">instpgpg</span>
+<span class="n">instppgpgpgpg</span>
+<span class="n">ch</span> <span class="n">chpg</span>
+<span class="n">chchchchchchchchto</span>
+<span class="n">to</span>
+<span class="n">inst</span>
+<span class="n">inst</span>
+<span class="n">inst</span> <span class="n">call</span>
+<span class="n">inst</span>
+<span class="n">inst</span>
+<span class="n">ch</span>
+<span class="n">ch</span>
+<span class="n">chch</span>
+<span class="n">ch</span>
+<span class="n">inst</span> <span class="n">chpgpgpgpgpgchinstschchchchinstschchchchchss</span>
+<span class="n">to</span> <span class="n">to</span> <span class="n">to</span> <span class="n">tochpgpgchpg</span> <span class="n">to</span> <span class="n">to</span> <span class="n">chpg</span>
+<span class="n">chspgpgpg</span> <span class="n">forpgpgpgpgpgpgpgpgpgpgpgpgpgpgtopgchchpgpgpgchchinstspgchchchchchchchpgpgchchchpgpgpgpg</span>
+<span class="n">chpgpgpgpgpgpgpgpgpgpgpgchpgpgpgchchchchchchchchchchchchinstppgpgpgfor</span> <span class="n">forinstsinstsinstsinstspgpgpgpgtopgpgpgpgpgpgspgpgpgpgpgpgpgpgpgpgpgpgpgpgusingingspgpgpgallallallpgpgpgpgpgall</span> <span class="nb">print</span> <span class="nb">print</span> <span class="nb">print</span> <span class="k">for</span> <span class="k">for</span> <span class="nb">print</span> <span class="k">for</span> <span class="nb">print</span> <span class="n">forpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpgpg</span>
+<span class="n">pgpgpgpgprintpgpgpgpg</span>
+<span class="nb">print</span>
+<span class="n">printpgpg</span>
+<span class="n">pg</span>
+<span class="n">prints</span>
+<span class="n">printsall</span>
+<span class="n">pgallall</span> <span class="k">for</span> <span class="n">forpgallallallpgpgpgpg</span> <span class="n">forpgpgpgpgpgpgpgpgallall</span> <span class="n">forpgpgpgpgpgpgpgpgpg</span> <span class="ow">in</span> <span class="ow">in</span> <span class="nb">print</span> <span class="n">playpgpgpgpgpgpgpg</span> <span class="n">withpgpg</span> <span class="nb">print</span> <span class="nb">print</span><span class="p">:</span><span class="n">pgpg</span><span class="p">:</span><span class="n">pg</span><span class="p">:</span><span class="n">printpgpgpgpgprintprintpgprintprintsprintsallinprintprintprintprintpprintsprintsprintsprintsin</span> <span class="nb">print</span> <span class="n">inprint</span> <span class="n">inprintsprintsin</span> <span class="n">inprintsprintsprintpprintppgppgpprintsprintpprintprintspgpginintotochprintpprint</span><span class="o">.</span><span class="n">print</span> <span class="nb">print</span> <span class="k">for</span> <span class="k">for</span> <span class="n">forprintpprints</span> <span class="k">for</span> <span class="k">for</span> <span class="k">for</span> <span class="k">for</span> <span class="n">ofofofofprintpprintppg</span> <span class="n">forpgpgprefixsprintsprint</span><span class="p">:</span><span class="nb">print</span><span class="p">:</span><span class="n">p</span><span class="p">:</span><span class="n">ppgpppgppprints</span><span class="p">:</span><span class="n">chtochpprintprintprintpprintpprintpprintsprintsprintsprintsprintsprintsprintschprintsprintprintppgppgpprintsprintspprintsprintsprintsprintsinchprintpprint</span> <span class="ow">or</span> <span class="n">inprints</span> <span class="n">inppprintsprints</span> <span class="n">pppppppprintsprintppppprintpprintspp</span> <span class="n">orpp</span> <span class="ow">or</span> <span class="n">the</span> <span class="nb">print</span> <span class="n">ppppp</span> <span class="n">pp</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="nb">print</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">p</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">pp</span> <span class="n">pprint</span>
+<span class="nb">print</span>
+<span class="n">ppprintpppp</span> <span class="n">ppp</span> <span class="n">ppppppppppp</span> <span class="ow">in</span> <span class="ow">in</span> <span class="ow">in</span> <span class="ow">in</span> <span class="n">pp</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pp</span> <span class="n">inpp</span> <span class="n">ppppgpppg</span> <span class="k">with</span> 
+</pre></div></td></tr></table></div>
+p pp
+p in in in p p p
+p
+pg
+p p p p p for p for p p p p p p p p p p p ppg
+pgpg ppg ppg ppg for ppgpgpgpgppg ppg p p p p ppg ppg p p p p p p p p p p p p p
+p
+p
+p p to to to
+
+
+
+
+
+p
+pg
+p
+p p for for p p p p p for p p of ppg p p
+p
+p
+pg
+pg for ppgpg
+p
+pg ppg
+pg ppgpgpgpg ppgpgpgpgppgppgppg ppg p p p p p p p p p p p p p p p p print p pp
+p ppg
+p p ppg ppgpgpgpgpgppg
+pg
+pg
+p p
+
+p p
+p
+p p p p p p p p p p ppg p
+pg ppg p p p for ppg ppg ppg ppg p p p p p p to to to to p p p p p p p p p
+pg p p
+
+pg
+pg
+pg p p p p p p p
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pgppgpg
+pg
+pgpgpgpgpgpg p</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+
+
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">chess.pgn</span>
+<span class="n">print_all_prefixes</span><span class="p">(</span><span class="n">chess</span><span class="o">.</span><span class="n">pgn</span><span class="o">.</span><span class="n">read_game</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="s1">&#39;1. Nf3 Nf6 2. c4 g6 3. Nc3 Bg7 4. d4 O-O 5. Bf4 d5 6. Qb3 dxc4 7. Qxc4 c6 8. e4 Nbd7 9. Rd1 Nb6 10. Qc5 Bg4 11. Bg5 Na4 12. Qa3 Nxc3 13. bxc3 Nxe4 14. Bxe7 Qb6 15. Bc4 Nxc3&#39;</span><span class="p">)))</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>File "/usr/src/app/main.py", line 1
+    Model API request failed
+          ^^^
+SyntaxError: invalid syntax</code></p>
+<h1>PyFunc</h1>
+<p>
+Resulting in output:
+False</p>
+</div>
+    

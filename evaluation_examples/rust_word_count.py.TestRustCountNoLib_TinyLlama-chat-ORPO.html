@@ -1,0 +1,865 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Docker Setup</h1>
+<p>I have setup the docker container to run the model evaluation.</p>
+<h1>Initial Query</h1>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout. 
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments
+
+Do not import serde_json, write json output from scratch.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout. 
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments
+
+Do not import serde_json, write json output from scratch.</p>
+<h2>Output</h2>
+<p>Here's a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout.
+
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">fs</span><span class="o">::</span><span class="n">File</span><span class="p">;</span>
+<span class="n">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="p">{</span><span class="n">BufRead</span><span class="p">,</span><span class="w"> </span><span class="n">BufReader</span><span class="p">};</span>
+<span class="n">use</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">path</span><span class="o">::</span><span class="n">Path</span><span class="p">;</span>
+
+<span class="n">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">file_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="s">&quot;/tmp/file.txt&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="o">::</span><span class="n">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">reader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BufReader</span><span class="o">::</span><span class="n">new</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+<span class="w">    </span><span class="n">let</span><span class="w"> </span><span class="n">mut</span><span class="w"> </span><span class="n">words</span><span class="o">:</span><span class="w"> </span><span class="n">Vec</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vec</span><span class="o">::</span><span class="n">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">reader</span><span class="p">.</span><span class="n">lines</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+<span class="w">        </span><span class="n">let</span><span class="w"> </span><span class="n">words</span><span class="o">:</span><span class="w"> </span><span class="n">Vec</span><span class="o">&lt;&amp;</span><span class="n">str</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="n">split_whitespace</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_unstable</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">dedup_by_key</span><span class="p">(</span><span class="o">|</span><span class="n">word</span><span class="o">|</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="n">len</span><span class="p">());</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">deduplicates</span><span class="p">().</span><span class="n">sort</span><span class="p">();</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">deduplicates</span><span class="p">.</span><span class="n">sort_by_key</span><span class="p">.</span>
+<span class="w">        </span><span class="n">words</span><span class="p">.</span><span class="n">sort_key</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">sort_key</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">deduplicates</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sort_sort_sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">the</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">key</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keysorting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="mf">.10</span><span class="p">.</span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">sorting</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stringing</span><span class="p">,</span><span class="n">sort</span><span class="p">,</span><span class="n">sorting</span><span class="p">,</span><span class="n">sortingsorting</span><span class="p">,</span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="n">sorts</span><span class="p">,</span><span class="mi">0</span><span class="w"> </span><span class="n">orsorting</span><span class="p">,</span><span class="w"> </span><span class="n">sorting</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stringingsorting</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="n">sort</span><span class="p">,</span><span class="w"> </span><span class="n">orsort</span><span class="p">,</span><span class="n">sorts</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">orsorts</span><span class="p">,</span><span class="n">sortsorts</span><span class="w"> </span><span class="n">orsort</span><span class="w"> </span><span class="n">orsort</span><span class="p">,</span><span class="n">sort</span><span class="p">,</span><span class="w"> </span><span class="n">orsorter</span><span class="p">,</span><span class="w"> </span><span class="n">orffø</span><span class="w"> </span><span class="n">ors</span><span class="w"> </span><span class="n">ors</span><span class="w"> </span><span class="n">ors</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">thesorts</span><span class="w"> </span><span class="n">ands</span><span class="w"> </span><span class="n">andsortsorts</span><span class="p">.</span><span class="n">sorting</span><span class="w"> </span><span class="n">orsorts</span><span class="w"> </span><span class="n">orsorting</span><span class="p">,</span><span class="w"> </span><span class="n">theft</span><span class="p">,</span><span class="w"> </span><span class="n">orference</span><span class="p">,</span><span class="w"> </span><span class="n">theponringginggers</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="n">orponpon</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">afileponponging</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">theaves</span><span class="p">,</span><span class="w"> </span><span class="n">thegingging</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">orgingums</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">afergingging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">aponning</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">theponster</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">aplesumsums</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">theprograms</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">inponsing</span><span class="p">,</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">usingpongingponponginggingging</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">inponging</span><span class="w"> </span><span class="n">orponging</span><span class="w"> </span><span class="n">orgingging</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">orgingmentsionsums</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">theprogram</span><span class="p">.</span><span class="n">using</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">orumsheetgedging</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">intainging</span><span class="p">,</span><span class="w"> </span><span class="n">orponging</span><span class="w"> </span><span class="n">as</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">orponging</span><span class="w"> </span><span class="n">astainging</span><span class="w"> </span><span class="n">orums</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">orference</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orheet</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orsinggingging</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="n">using</span><span class="p">,</span><span class="w"> </span><span class="n">orponging</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">fileponpongingheetponheetheetheetheet</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="o">-</span><span class="n">orference</span><span class="w"> </span><span class="n">orheet</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">orging</span><span class="p">,</span><span class="n">usinggingging</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="n">usingheet</span><span class="p">,</span><span class="n">file</span><span class="p">,</span><span class="n">filegingheetging</span><span class="p">,</span><span class="n">using</span><span class="p">,</span><span class="n">usinggingging</span><span class="p">,</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">exampleheetged</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orppings</span><span class="w"> </span><span class="n">orignponging</span><span class="w"> </span><span class="n">orsing</span><span class="p">,</span><span class="w"> </span><span class="n">orster</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">example</span><span class="p">,</span><span class="n">using</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="n">programtains</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">example</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orterntain</span><span class="w"> </span><span class="n">orheet</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">orgingging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">orign</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="p">,</span><span class="n">jsonster</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orppings</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">ortains</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orjsongingning</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orging</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">fileignign</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orignging</span><span class="w"> </span><span class="n">orjson</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orjsonts</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orself</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">json</span><span class="o">/</span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="n">self</span><span class="p">,</span><span class="n">self</span><span class="p">,</span><span class="n">self</span><span class="p">,</span><span class="n">self</span><span class="p">,</span><span class="n">json</span><span class="p">,</span><span class="n">json</span><span class="p">,</span><span class="n">json</span><span class="p">,,</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">json</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="s">&quot;or or or or the self or or or or or the program should or or or the or the inst or inst program program, program at the inst.</span>
+<span class="n">inst</span><span class="p">.</span><span class="n">inst</span><span class="p">.</span><span class="n">inst</span><span class="p">.</span><span class="n">inst</span><span class="p">.</span><span class="n">inst</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">program</span><span class="p">.</span><span class="n">inst</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">inst</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">ortsty</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="p">.</span><span class="n">program</span><span class="p">.</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orty</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orts</span><span class="p">,</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">thetsiletsty</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">ortyts</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">thety</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">orty</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">&#39;</span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">the</span><span class="o">&lt;&lt;&lt;</span><span class="n">inst</span><span class="o">&lt;</span><span class="n">inst</span><span class="o">&lt;</span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w">          </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="p">{</span><span class="n">inst_inst_inst_inst</span><span class="w"> </span><span class="p">{</span><span class="n">t</span><span class="w"> </span><span class="p">{</span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">ex_the</span><span class="w"> </span><span class="p">{</span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">maybe</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="p">{</span><span class="n">or</span><span class="w"> </span><span class="p">{</span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">inst</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">to_to</span><span class="w"> </span><span class="p">{</span><span class="n">to</span><span class="w"> </span><span class="p">{</span><span class="n">bb</span><span class="w"> </span><span class="p">{</span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">or</span><span class="w"> </span><span class="p">{</span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="p">{</span><span class="n">b_or</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">bbb</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">bb</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">b_b_b</span><span class="o">&lt;</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">b_ser</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">ser</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">ser</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="o">:</span><span class="n">ser</span><span class="o">:</span><span class="n">ser</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="p">{</span><span class="n">bb_b_ser</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">|</span><span class="n">b</span><span class="p">.</span><span class="n">b_for</span><span class="w"> </span><span class="p">{</span><span class="n">bbserer</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="o">|</span><span class="n">ser</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="p">{</span><span class="n">ser</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">or</span><span class="o">:</span><span class="n">bbb_bbbb_b</span><span class="o">:</span><span class="n">b</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bb_b_b_bb_b_b_b_b_b</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">bb</span><span class="w"> </span><span class="n">orbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orbbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orbserbbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">thebbbb_the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">thebb</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">thebbbbbbbbbbbbbbbbbbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="s">&quot;bbbbb&lt;b1b.b.b1bbb_b `b `b1111bb_b:b:b &quot;</span><span class="n">orbbbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or1bbbb_b1bbb</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">bbbbbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orbbbbbbbbbb</span><span class="o">:</span><span class="n">bbbbbbbbbbbbbbb</span><span class="o">/</span><span class="n">or_b</span><span class="p">.</span><span class="n">bbbbbb_b_b_b_b_bb_bb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">orbb</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">atbbbbbb</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="o">:</span><span class="n">b</span><span class="o">:</span><span class="n">b_b_b</span><span class="o">:</span><span class="n">b</span><span class="o">:</span><span class="n">b</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">atbbbb</span><span class="p">.</span><span class="n">b_bb</span><span class="o">:</span><span class="n">b</span><span class="w"> </span><span class="p">{</span><span class="n">bbbbb_b_b</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="p">{</span><span class="n">bbb</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;or:b:b:b:b:b:b_bb_b_b11b: {b with the_b_b or or b:b_b_b_b_b_b &#39;b_b {b b b b_b {b_b_bb &#39;b rust in b in bb or {b {b {b:b_b_b {b_b {b {b {bbbb as as as as as as as b with or with b bs_b_b_b_bbb bs b_b b of of of the or serials of of the_bbb_b_b_b_b_bbbb_bs_bb_bbbb to to bb bbb as as.b as as as as as as with as the the thes as the bb_b each each each:b:bbb::b the file file file bb&lt;b&lt;b:b:bb.b_b_b rob rob_bbbb_bbb_b:b_bbb_b_bbbb&lt;b&lt;each_b_b&lt;bbb_b&lt;b&lt;bb as as as as as as as as as as as as on the as file as file_b.bb_b_b_b&lt;bbb_bbb {bbbb&lt;s to the</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Run Code Interpreter</h1>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>error: expected one of `!` or `::`, found `API`
+ --&gt; main.rs:1:7
+  |
+1 | Model API request failed
+  |       ^^^ expected one of `!` or `::`
+error: aborting due to 1 previous error
+main.sh: line 2: ./a.out: No such file or directory</code></p>
+<h1>Extract Json</h1>
+<p>I extracted the following JSON from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">The</span> <span class="n">JSON</span> <span class="n">output</span> <span class="ow">is</span><span class="p">:</span>
+<span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;expected one of `!` or `::`, found `API`&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;API request failed&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;API_ERROR&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;API request failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;API request failed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;API_ERROR&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">This</span> <span class="n">JSON</span> <span class="n">output</span> <span class="ow">is</span> <span class="n">directly</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">error</span> <span class="n">message</span><span class="p">,</span> <span class="n">without</span> <span class="nb">any</span> <span class="n">additional</span> <span class="n">information</span><span class="o">.</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>JSON Subset Evaluator</h1>
+<p>Testing if the previous output matches the JSON: <code>{
+    "the": 11,
+    "it": 10,
+    "was": 10,
+    "of": 10,
+    "we": 4,
+    "times,": 2,
+    "age": 2,
+    "epoch": 2,
+    "season": 2,
+    "had": 2,
+    "before": 2,
+    "us,": 2,
+    "were": 2,
+    "all": 2,
+    "going": 2,
+    "direct": 2,
+    "best": 1,
+    "worst": 1,
+    "wisdom,": 1,
+    "foolishness,": 1,
+    "belief,": 1,
+    "incredulity,": 1,
+    "Light,": 1,
+    "Darkness,": 1,
+    "spring": 1,
+    "hope,": 1,
+    "winter": 1,
+    "despair,": 1,
+    "everything": 1,
+    "nothing": 1,
+    "to": 1,
+    "Heaven,": 1,
+    "other": 1,
+    "way": 1
+}</code>: False</p>
+</div>
+    

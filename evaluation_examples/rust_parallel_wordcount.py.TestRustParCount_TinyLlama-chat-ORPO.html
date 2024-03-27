@@ -1,0 +1,389 @@
+
+    <style>
+      body {
+      }
+    code {
+        white-space: pre-wrap;
+        display: block;
+        margin: 1em;
+        padding: 1em;
+        background: #eee;
+        border-radius: .5em;
+    }
+    </style>
+    
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    .is_correct_0 {
+      background: rgb(255, 170, 170);
+    }
+
+    .is_correct_1 {
+      background: rgb(170, 255, 170);
+    }
+
+        p {margin: 0em; }
+        h1 {margin: 0em; }
+        h2 {margin: 0em; }
+        h3 {margin: 0em; }
+        h4 {margin: 0em; }
+        h5 {margin: 0em; }
+        h6 {margin: 0em; }
+        h7 {margin: 0em; }
+        h8 {margin: 0em; }
+
+        
+    
+        .tabs {
+            list-style-type: none;
+            overflow: hidden;
+            background-color: #eef;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            padding: .2em;
+            margin: 0;
+        }
+
+        .tabs li {
+            float: left;
+        }
+
+        .tabs li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: 0.3s;
+            background-color: inherit;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            transition: filter 0.3s ease; 
+        }
+
+
+        .tabs li a:hover {
+            filter: brightness(120%); /* Increase brightness on hover */
+        }
+
+        .tab-content {
+            white-space: pre-wrap;
+            display: none;
+            padding: 20px;
+        }
+
+        .tab-content:target {
+            padding-top: 2em;
+            display: block;
+        }
+    </style>
+    
+<ul class="tabs">
+    <li><a href="index.html">Full Grid</a></li> <li class="is_correct_0"><a href="#tab1">Trial 1</a></li>
+</ul>
+    
+<div class="clear-float"></div>
+    
+<div id="tab1" class="tab-content">
+    <h1>Docker Setup</h1>
+<p>I have setup the docker container to run the model evaluation.</p>
+<h1>Initial Query</h1>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout.
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments.
+
+Make it run in parallel on 4 cores at the same time, each job taking ~1/4 of the file.
+Print out 4 differnt json dicts, one per line. I'll do the merging.</p>
+<h1>LLM Generation</h1>
+<h2>Query</h2>
+<p>Write a self-contained Rust program that prints a JSON output of how often each word appears in a text file located in /tmp/file.txt. So if the file contains "This is is is, an example" then the program should print to stdout.
+
+{"This": 1, "is": 2, "is,": 1, "an": 1, "example": 1}
+
+Don't import any crates that would require a Cargo.toml file. I'll just compile it with `rustc yourfile.rs` and it should work. The program should be run by calling /path/to/rust_word_count with no arguments.
+
+Make it run in parallel on 4 cores at the same time, each job taking ~1/4 of the file.
+Print out 4 differnt json dicts, one per line. I'll do the merging.</p>
+<h2>Output</h2>
+<p>#!/usr/bin/env rustc
+
+fn main() {
+    let file = std::fs::read_to_string("/tmp/file.txt").unwrap();
+    let file_lines = file.lines().map(|line| line.trim()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.iter().map(|line| line.to_string()).collect::&lt;Vec&lt;_&gt;&gt;();
+    let file_lines = file_lines.to_string().to_string();
+    println!("The file.txt: {}", file_lines.to_string().to_string().to_string().to_string().to_string.to_string.to_string().to_string.to_string.to_string.txt.to_string.txt.tokens.tokens.tokens.tokens.tokens.txt.tokens.tokens.tokens.tokens.tokens.txt.tokens.tokens.tokens.tokens.tokens.txt to_tokens, anderfully,1.txt.txt to the following data, toks, to the following to the file to the tokens to the file, a file, a file, a file, and the file, the tokens to the following, to the tokens, tokens, to the tokens, the tokens, tokens, to the tokens, the following to the to the following, and to the to thets, to the to the to the file, to the to the file to the file, or to the tox ors orft orging, the file, ands, theft, ors andt ands and theto thet ands.
+the to the file,tof, or, orfs, orc, ands, thet, andftgings, theftspongingging with the code, theponentially, the the the Python, thetsavinggingging, thes, orgingging, thefts in a theponcesheet inponning, orception with a with the data, using thetsumsumsums, the, theums, the inponponpon,using,usingginggingging, orponging with the file, orpon orponference, the files with the,usingginggingmentsionsums on the:usingged.the files.usingkensheet.using.using.using, orging, or, or, or, astain asumsums or a or theferums orums or or orponference or the, the JSON orgingging with the JSON, usingumsheet, using, or file orign orheetheetginggingsedcesheetheetheetgingging orging sentence-withging orference sentence orponging or using, usinggingging, orging orgingging,using,example,example on and containing,using,sentums, orging, or example, or example, example with single output or the JSON or using using,using,using, or example,using, or, or,using, or, with sentence withpon, example, sentence, or or or or or JSON using or or orumstern or or or or or or or or or or or or or or or or or JSON, orging, JSON file, JSON with JSON, or asor JSON with JSON or or usinggingging or or orees or or or or or or or or or or or or or or or or or or or or or or or or file orgingging,json or JSON orging, or file orging or, or filesions andjson or or or or or or or or or JSONs or JSON or JSON or JSON asjson andjson and self and self/the self
+self
+self
+self
+self
+inst
+inst.instsjson self self self self self self self self self self andself self self.self.self self self self self self self self self self with self self.json.self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self self JSON JSON self json json/json.json json self the the the self self self self self json self self self self json self self self self self json self self self self self self self self self self self, self, self, self, self, "self, json, json, json, json, json, self self self
+
+
+self self self self or or "inst or or self or or or or or the output as output or or or or
+inst or
+inst,
+inst,
+inst at self.inst `inst self self.inst or the self or the or the or the or or or or or or or or or or or self self or inst or.inst.inst self self self self self self self self, or self `inst at/inst at json at self at in.inst.
+self self self self self self self self self self self self self
+
+inst json inst "inst self self self json self self json self self json self selfifying rifying json json json json json self self self 
+self in in r self in self self self self self self self inst self self inst in in inst self self self inst inst inst inst inst inst inst inst inst inst; self self self; inst in   inst ~inst_inst_inst at inst_inst_inst at at at_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_inst_in in at at at at at at in at in at in_inst_inst_inst_inst in in at ininst_inst inst_inst inst inst inst insts inst_inst to inst_inst:inst:inst inst inst inst_inst inst inst insts_inst_the_path for t&lt;in in inst inst at at at at in inst inst inst insts insts_insts in st inst st st inst each st st inst inst with st in in in in in st at at t at at at at in at.inst.inst for inst for inst inst inst in in inst or or with inst inst: with insts111&lt;inst:&lt;inst_t&lt;inst_t_t_t111&lt;t_inst.with.t.t&lt;ststs or or toststst&lt;with&lt;with with with with with with withs with in with in11111111&lt;with for the with the with withs1&lt;st&lt;the_with sts t&lt;t11 with the t1111.st.1111st 1111111111t&lt;t the:t:the with or or or or or or or or or t or or or t or.t1t_t_tt t.t.t at w or or or or or or t or t or or t any: t_t the_t_the_with t_the.st.run.the_the_st_the_the_the_ststst the the: or: t the:the_st_the in the_with_with as the_the_the mut_with the: the:t_t::the:the_with the in::t_with with the_the the_st t the_t_with r for the: "with the: the:the: with the_the_st 1_the: or_the with 1_t_with with st_sts_the {the_the_runs_sts_s_sts_sts_sts_with the sts in the 1 1::with the: with_re_with t_t in rust 1 st 1 as as as as as as rusts rusts rust rusts 1 path rusts re re to rust re st rust re st s t 1 t with r_file::s r r t &lt;&lt; file r r t_with rust rust r t t as r as as the as with with r_r with &lt;r: r the st::t:  {r r:: the 1 { st::r:: r:: st st st::r:: r run run file file_file_st:: r  file:: file file st file -&gt; file file r; file file file; {file with r r as as as as::r with rr::r::r::file r~r; file r:: r r as r~r st r file r r -&gt; r r r file with file r_file_file_file_file file file file fl r r r fl</p>
+<h1>Extract Code</h1>
+<p>I extracted the following code from that output:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+</p>
+<h1>Check if all of the following conditions are true:</h1>
+<h2>LLM Generation</h2>
+<h3>Query</h3>
+<p>Below is some student's code. I asked them to parallelize some code. Do not judge if it is correct, I have test cases for that. Logic errors are okay. So are synatx errors. Just tell me if they tried to parallelize it.
+
+Model API request failed
+
+
+Answer either 'The student passes' or 'The student fails'.</p>
+<h3>Output</h3>
+<p>Model API request failed</p>
+<h2>Substring Evaluation</h2>
+<p>Testing if the previous output contains the string <code>student passes</code>: False</p>
+<h2>Run Code Interpreter</h2>
+<p>Running the following program:
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #E40000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #687822 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #767600 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">Model</span> <span class="n">API</span> <span class="n">request</span> <span class="n">failed</span>
+</pre></div></td></tr></table></div>
+
+And got the output:
+<code>error: expected one of `!` or `::`, found `API`
+ --&gt; main.rs:1:7
+  |
+1 | Model API request failed
+  |       ^^^ expected one of `!` or `::`
+error: aborting due to 1 previous error
+main.sh: line 2: ./a.out: No such file or directory</code></p>
+<h2>PyFunc</h2>
+<p>
+Resulting in output:
+[]</p>
+<h2>Equal Evaluation</h2>
+<p>Testing if the previous output equals the string <code>[('Darkness,', 1), ('Heaven,', 1), ('Light,', 1), ('age', 2), ('all', 2), ('before', 2), ('belief,', 1), ('best', 1), ('despair,', 1), ('direct', 2), ('epoch', 2), ('everything', 1), ('foolishness,', 1), ('going', 2), ('had', 2), ('hope,', 1), ('incredulity,', 1), ('it', 10), ('nothing', 1), ('of', 10), ('other', 1), ('season', 2), ('spring', 1), ('the', 11), ('times,', 2), ('to', 1), ('us,', 2), ('was', 10), ('way', 1), ('we', 4), ('were', 2), ('winter', 1), ('wisdom,', 1), ('worst', 1)]</code>: False</p>
+<h2>Final Answer: False</h2>
+</div>
+    
